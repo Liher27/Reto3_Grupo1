@@ -11,7 +11,7 @@ public class Pelicula {
 	private String Hora = null;
 
 	/**
-	 * Constructor base
+	 * Constructor base  prueba
 	 */
 	public Pelicula() {
 
