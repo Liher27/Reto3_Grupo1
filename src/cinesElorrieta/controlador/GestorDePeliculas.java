@@ -1,6 +1,6 @@
 package cinesElorrieta.controlador;
 
-public class Pelicula {
+public class GestorDePeliculas {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
