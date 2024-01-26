@@ -1,10 +1,8 @@
-package cinesElorrietaTest.modeloTest;
+package cinesElorrieta.modelo;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import cinesElorrieta.modelo.Pelicula;
 
 public class PeliculaTest {
 
@@ -20,52 +18,22 @@ public class PeliculaTest {
 
 	@Test
 	public void testGetNombre() {
-		Pelicula peli = new Pelicula();
-		String nombre = peli.getNombre();
-		nombre = null;
-		assertNull("Incorrecto, esta vacio el nombre");
-		
-	}
-	
-	public void testGetNombre2() {
-		Pelicula peli = new Pelicula();
-		String nombre = peli.getNombre();
-		assertNotNull(nombre);
-		
+		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testSetNombre(String nombre) {
-		Pelicula peli = new Pelicula();
-		String Nombre = null;
-		peli.setNombre(Nombre);
-		assertNull("Incorrecto, esta vacio el nombre");
+	public void testSetNombre() {
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetGenero() {
-		Pelicula peli = new Pelicula();
-		String genero = peli.getGenero();
-		genero = null;
-		assertNull("Incorrecto, esta vacio el genero");
-	}
-	
-	public void testGetGenero2() {
-		Pelicula peli = new Pelicula();
-		String genero = peli.getGenero();
-		assertNotNull(genero);
-		
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testSetGenero() {
-		Pelicula peli = new Pelicula();
-		String genero = peli.getGenero();
-		if (genero != null) {
-			assertNotNull("Correcto" + genero);
-		}else {
-			assertNull("Incorrecto, esta vacio el nombre");
-		}
+		fail("Not yet implemented");
 	}
 
 	@Test
@@ -75,10 +43,7 @@ public class PeliculaTest {
 
 	@Test
 	public void testSetDuracion() {
-		Pelicula peli = new Pelicula();
-		int Duracion = 0;
-		peli.setDuracion(Duracion);
-		assertNull("Incorrecto, esta vacio la duracion");
+		fail("Not yet implemented");
 	}
 
 	@Test
@@ -88,10 +53,7 @@ public class PeliculaTest {
 
 	@Test
 	public void testSetFecha() {
-		Pelicula peli = new Pelicula();
-		String Fecha = null;
-		peli.setFecha(Fecha);
-		assertNull("Incorrecto, esta vacia la fecha");
+		fail("Not yet implemented");
 	}
 
 	@Test
@@ -101,10 +63,7 @@ public class PeliculaTest {
 
 	@Test
 	public void testSetHora() {
-		Pelicula peli = new Pelicula();
-		String Hora = null;
-		peli.setHora(Hora);
-		assertNull("Incorrecto, esta vacia la hora");
+		fail("Not yet implemented");
 	}
 
 	@Test
