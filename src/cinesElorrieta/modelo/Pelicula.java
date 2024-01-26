@@ -1,9 +1,14 @@
 package cinesElorrieta.modelo;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Pelicula {
+public class Pelicula implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6693431869498851496L;
 	private String Nombre = null;
 	private String Genero = null;
 	private int Duracion = 0;
@@ -19,30 +24,6 @@ public class Pelicula {
 
 	public String getNombre() {
 		return Nombre;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(Duracion, Fecha, Genero, Hora, Nombre);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pelicula other = (Pelicula) obj;
-		return Duracion == other.Duracion && Objects.equals(Fecha, other.Fecha) && Objects.equals(Genero, other.Genero)
-				&& Objects.equals(Hora, other.Hora) && Objects.equals(Nombre, other.Nombre);
-	}
-
-	@Override
-	public String toString() {
-		return "Cine_pojo [Nombre=" + Nombre + ", Genero=" + Genero + ", Duracion=" + Duracion + ", Fecha=" + Fecha
-				+ ", Hora=" + Hora + "]";
 	}
 
 	public void setNombre(String nombre) {
@@ -80,4 +61,33 @@ public class Pelicula {
 	public void setHora(String hora) {
 		Hora = hora;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(Duracion, Fecha, Genero, Hora, Nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pelicula other = (Pelicula) obj;
+		return Duracion == other.Duracion && Objects.equals(Fecha, other.Fecha) && Objects.equals(Genero, other.Genero)
+				&& Objects.equals(Hora, other.Hora) && Objects.equals(Nombre, other.Nombre);
+	}
+
+	@Override
+	public String toString() {
+		return "Pelicula [Nombre=" + Nombre + ", Genero=" + Genero + ", Duracion=" + Duracion + ", Fecha=" + Fecha
+				+ ", Hora=" + Hora + "]";
+	}
 }
+	

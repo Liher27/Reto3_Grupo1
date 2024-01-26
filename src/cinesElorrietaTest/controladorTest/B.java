@@ -1,5 +1,5 @@
 package cinesElorrietaTest.controladorTest;
 
-public class GestorDePeliculasTest {
+public class B {
 
 }
