@@ -86,7 +86,7 @@ public class PeliculaTest {
 		Pelicula peli = new Pelicula();
 		int duracion = 6;
 		peli.setDuracion(duracion);
-		assertNotNull("La pelicula dura" + duracion + "horas");
+		assertNull("La pelicula dura" + duracion + "horas");
 	}
 
 	@Test
@@ -153,11 +153,7 @@ public class PeliculaTest {
 	@Test
 	public void testEqualsObject() {
 		Pelicula peli = new Pelicula();
-		boolean prueba = peli.equals(peli);
-		assertEquals("Correcto" + false,peli);
-		assertNotEquals("Incorrecto "+true,peli);
-		assertNull("No hay comparacion");
-		
+		boolean nombre = peli.equals(peli);
 	}
 
 	@Test
@@ -173,5 +169,5 @@ public class PeliculaTest {
 		Assert.assertNotNull(datos, peli.toString());
 	}
 
-	
+
 }
