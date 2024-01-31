@@ -16,7 +16,7 @@ public class Pelicula implements Serializable {
 	private String Hora = null;
 
 	/**
-	 * Constructor base  prueba
+	 * Constructor base 
 	 */
 	public Pelicula() {
 

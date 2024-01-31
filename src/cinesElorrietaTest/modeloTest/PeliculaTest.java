@@ -18,9 +18,15 @@ public class PeliculaTest {
 	}
 	
 	public void testGetNombre2() {
+//		Pelicula peli = new Pelicula(serialVersionUID,  nombre,  duracion);
+//		String nombre = peli.getNombre();
+//		assertEquals("jumanji", nombre);
+//		
+	
 		Pelicula peli = new Pelicula();
+		peli.setNombre("Jumanji");
 		String nombre = peli.getNombre();
-		assertNotNull(nombre);
+		assertEquals("jumanji", nombre);
 		
 	}
 
