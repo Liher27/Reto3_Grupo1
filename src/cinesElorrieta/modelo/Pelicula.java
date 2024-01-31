@@ -1,3 +1,4 @@
+
 package cinesElorrieta.modelo;
 
 import java.io.Serializable;
@@ -90,4 +91,5 @@ public class Pelicula implements Serializable {
 				+ ", Hora=" + Hora + "]";
 	}
 }
+
 	
