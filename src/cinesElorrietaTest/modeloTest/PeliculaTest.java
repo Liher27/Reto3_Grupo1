@@ -154,6 +154,9 @@ public class PeliculaTest {
 	public void testEqualsObject() {
 		Pelicula peli = new Pelicula();
 		boolean nombre = peli.equals(peli);
+		assertEquals("Correcto" + false,peli);
+		assertNotEquals("Incorrecto" + true,peli);
+		assertNull("No hay comparacion");
 	}
 
 	@Test
