@@ -31,6 +31,13 @@ public class PeliculaTest {
 		peli.setNombre(Nombre);
 		assertNull("Incorrecto, esta vacio el nombre");
 	}
+	
+	public void testSetNombre2() {
+		Pelicula peli = new Pelicula();
+		String Nombre = "pepe";
+		peli.setNombre(Nombre);
+		assertNull("El nombre es:" + Nombre);
+	}
 
 	@Test
 	public void testGetGenero() {
@@ -155,7 +162,7 @@ public class PeliculaTest {
 		Pelicula peli = new Pelicula();
 		boolean prueba = peli.equals(peli);
 		assertEquals("Correcto" + false,peli);
-		assertNotEquals("Incorrecto "+true,peli);
+		assertNotEquals("Incorrecto " + true,peli);
 		assertNull("No hay comparacion");
 		
 	}
