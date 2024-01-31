@@ -1,3 +1,4 @@
+
 package cinesElorrieta.modelo;
 
 import java.io.Serializable;
@@ -91,3 +92,4 @@ public class Entrada implements Serializable {
 	}
 	
 }
+

@@ -1,3 +1,4 @@
+
 package cinesElorrieta.modelo;
 
 import java.io.Serializable;
@@ -73,3 +74,4 @@ public class Sesion implements Serializable  {
 		CodPelicula = codPelicula;
 	}
 }
+

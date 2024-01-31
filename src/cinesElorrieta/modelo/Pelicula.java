@@ -1,3 +1,4 @@
+
 package cinesElorrieta.modelo;
 
 import java.io.Serializable;
@@ -16,7 +17,7 @@ public class Pelicula implements Serializable {
 	private String Hora = null;
 
 	/**
-	 * Constructor base 
+	 * Constructor base  prueba
 	 */
 	public Pelicula() {
 
@@ -90,4 +91,5 @@ public class Pelicula implements Serializable {
 				+ ", Hora=" + Hora + "]";
 	}
 }
+
 	

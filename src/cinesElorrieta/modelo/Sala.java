@@ -1,7 +1,9 @@
+
 package cinesElorrieta.modelo;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 
 public class Sala implements Serializable {
 
@@ -50,3 +52,4 @@ public class Sala implements Serializable {
 		CodCine = codCine;
 	}
 }
+
