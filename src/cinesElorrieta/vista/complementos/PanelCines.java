@@ -1,4 +1,4 @@
-package cinesElorrieta.vista;
+package cinesElorrieta.vista.complementos;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class PanelDePeliculas extends JFrame {
+public class PanelCines extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -18,7 +18,7 @@ public class PanelDePeliculas extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PanelDePeliculas frame = new PanelDePeliculas();
+					PanelCines frame = new PanelCines();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class PanelDePeliculas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PanelDePeliculas() {
+	public PanelCines() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 650);
 		contentPane = new JPanel();

@@ -1,6 +1,6 @@
 package cinesElorrieta.controlador;
 
-import cinesElorrieta.vista.PanelDeLogin;
+import cinesElorrieta.vista.complementos.PanelDeLogin;
 import javax.swing.JOptionPane;
 
 public class GestorDeCliente {

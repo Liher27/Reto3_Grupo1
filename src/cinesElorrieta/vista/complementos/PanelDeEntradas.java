@@ -1,4 +1,4 @@
-package cinesElorrieta.vista;
+package cinesElorrieta.vista.complementos;
 
 import java.awt.EventQueue;
 

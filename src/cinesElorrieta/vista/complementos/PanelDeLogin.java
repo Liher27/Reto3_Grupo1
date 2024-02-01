@@ -1,4 +1,4 @@
-package cinesElorrieta.vista;
+package cinesElorrieta.vista.complementos;
 
 import cinesElorrieta.controlador.GestorDeCliente;
 import cinesElorrieta.vista.*;
