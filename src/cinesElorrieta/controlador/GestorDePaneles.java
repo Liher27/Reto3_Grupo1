@@ -1,7 +1,7 @@
 package cinesElorrieta.controlador;
 
 import javax.swing.JPanel;
-import cinesElorrieta.vista.*;
+
 public class GestorDePaneles {
 
 	

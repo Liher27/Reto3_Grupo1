@@ -31,10 +31,8 @@ public class PanelBienvenida extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public PanelBienvenida() {
+	
+	public void inicializarPanelDeBienvenida() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 650);
 		getContentPane().setLayout(null);
@@ -56,5 +54,6 @@ public class PanelBienvenida extends JFrame {
 		lblBienvenida.setText("Hola");
 		PanelBienvenida.add(lblBienvenida);
 	}
+
 
 }
