@@ -1,6 +1,8 @@
 package cinesElorrieta.vista;
 
 import cinesElorrieta.controlador.GestorDeCliente;
+import cinesElorrieta.vista.*;
+
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
@@ -88,7 +90,7 @@ public class PanelDeLogin extends JFrame {
 		jButtonLoginSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-//				cambiarPanel(panelBienvenida, panelLogin);
+//				GestorDePeliculas.cambiarPanel(PanelBienvenida, PanelDeLogin);
 			}
 		});
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);
