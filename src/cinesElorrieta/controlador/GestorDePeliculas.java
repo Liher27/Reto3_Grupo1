@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import cinesElorrieta.modelo.Pelicula;
+import cinesElorrietaTest.modeloTest.PeliculaTest;
 
 /**
  * Clase que gestiona los alumno
@@ -12,11 +13,11 @@ import cinesElorrieta.modelo.Pelicula;
 public class GestorDePeliculas {
 
 	private static Scanner teclado = null;
-	private List<Pelicula> peliculas = null;
+	private List<Pelicula> Pelicula = null;
 
 	public GestorDePeliculas() {
 		teclado = new Scanner(System.in);
-		peliculas = new ArrayList<Pelicula>();
+		Pelicula = new ArrayList<Pelicula>();
 	}
 
 	public void menu() {
