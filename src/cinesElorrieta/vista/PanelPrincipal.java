@@ -14,16 +14,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 
+
 public class PanelPrincipal extends JFrame {
 	
 	private JPanel contentPane;
-
-	private PanelDeBienvenida panelDeBienvenida;
-	private PanelDeLogin panelDeLogin;
-	private PanelDeCines panelDeCines;
-	private PanelDeEntradas panelDeEntradas;
-	private PanelDePeliculas panelDePeliculas;
-	
 	
 	private static final long serialVersionUID = 1L;
 
@@ -39,11 +33,6 @@ public class PanelPrincipal extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * It initializes the program.
-	 */
-
 
 	public PanelPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
