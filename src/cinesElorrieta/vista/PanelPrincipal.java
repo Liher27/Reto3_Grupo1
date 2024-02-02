@@ -18,7 +18,7 @@ public class PanelPrincipal extends JFrame {
 	
 	private JPanel contentPane;
 
-	private PanelDeBienvenida PanelDeBienvenida;
+	private PanelDeBienvenida panelDeBienvenida;
 	private PanelDeLogin panelDeLogin;
 	private PanelDeCines panelDeCines;
 	private PanelDeEntradas panelDeEntradas;
@@ -51,12 +51,26 @@ public class PanelPrincipal extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-
+		
 		PanelDeBienvenida panelDeBienvenida = new PanelDeBienvenida();
 		contentPane.add(panelDeBienvenida.inicializarPanelDeBienvenida());
-
+		
 		PanelDeLogin panelDeLogin = new PanelDeLogin();
 		contentPane.add(panelDeLogin.inicializarPanelDeLogin());
 		contentPane.setLayout(null);
-}
+		
+		PanelDeCines panelDeCines = new PanelDeCines();
+		contentPane.add(panelDeCines.inicializarPanelDeCines());
+		contentPane.setLayout(null);
+		
+		PanelDeEntradas panelDeLogin = new PanelDeLogin();
+		contentPane.add(panelDeLogin.inicializarPanelDeLogin());
+		contentPane.setLayout(null);
+		
+		PanelDePeliculas panelDeLogin = new PanelDeLogin();
+		contentPane.add(panelDeLogin.inicializarPanelDeLogin());
+		contentPane.setLayout(null);
+		
+	}
+	
 }

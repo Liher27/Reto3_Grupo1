@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import cinesElorrieta.controlador.GestorDeCliente;
+import cinesElorrieta.vista.PanelPrincipal;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -67,8 +68,7 @@ public class PanelDeLogin {
 		JButton jButtonLoginSalir = new JButton("Salir");
 		jButtonLoginSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-//				cambiarPanel(PanelBienvenida,PanelDeLogin);
+				
 			}
 		});
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);
@@ -78,22 +78,5 @@ public class PanelDeLogin {
 		return panelDeLogin;
 	}
 
-
-	
-//	public static  void cambiarPanel(JPanel panelSiguiente, JPanel panelAnterior) {
-//		panelSiguiente.setVisible(true);
-//		panelAnterior.setVisible(false);
-//	}
-//
-//	/**
-//	 * It hides the current panel and shows again to introduce new films.
-//	 * 
-//	 * @param panelOcultar The panel will not be visible.
-//	 * @param panelMostrar The panel will be visible.
-//	 */
-//	private void actualizarPanel(JPanel panelOcultar, JPanel panelMostrar) {
-//		panelOcultar.setVisible(false);
-//		panelMostrar.setVisible(true);
-//	
 }
 

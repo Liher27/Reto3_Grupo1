@@ -18,9 +18,10 @@ public class PanelDeCines extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public static void inicializarPanelCines() {
+	public inicializarPanelDeCines() {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
 	}
 
 }
