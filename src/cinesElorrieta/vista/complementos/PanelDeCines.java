@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class PanelCines extends JFrame {
+public class PanelDeCines extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static JPanel contentPane;

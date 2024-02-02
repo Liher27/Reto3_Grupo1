@@ -1,8 +1,8 @@
 package cinesElorrieta.vista;
 
-import cinesElorrieta.vista.complementos.PanelBienvenida;
+import cinesElorrieta.vista.complementos.PanelDeBienvenida;
 import cinesElorrieta.vista.complementos.PanelDeLogin;
-import cinesElorrieta.vista.complementos.PanelCines;
+import cinesElorrieta.vista.complementos.PanelDeCines;
 import cinesElorrieta.vista.complementos.PanelDeEntradas;
 import cinesElorrieta.vista.complementos.PanelDePeliculas;
 
@@ -11,27 +11,28 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 
-public class PanelPrincipal extends JPanel {
+public class PanelPrincipal extends JFrame {
 	
-	private JFrame frame = null;
-	private JPanel panelBienvenida = null;
-	private JPanel panelDeLogin = null;
-	private JPanel panelCines = null;
-	private JPanel panelDeEntradas = null;
-	private JPanel panelDePeliculas = null;
+	private JPanel contentPane;
 
-
-
+	private PanelDeBienvenida PanelDeBienvenida;
+	private PanelDeLogin panelDeLogin;
+	private PanelDeCines panelDeCines;
+	private PanelDeEntradas panelDeEntradas;
+	private PanelDePeliculas panelDePeliculas;
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PanelPrincipal window = new PanelPrincipal();
-					window.frame.setVisible(true);
+					PanelPrincipal frame = new PanelPrincipal();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,43 +45,18 @@ public class PanelPrincipal extends JPanel {
 	 */
 
 
-	private PanelPrincipal() {
-		inicializar();
-	}
+	public PanelPrincipal() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1000, 650);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
 
-	/**
-	 * It initialize the different panels.
-	 */
-	private void inicializar() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1000, 650);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		PanelDeBienvenida panelDeBienvenida = new PanelDeBienvenida();
+		contentPane.add(panelDeBienvenida.inicializarPanelDeBienvenida());
 
-		PanelBienvenida.inicializarPanelDeBienvenida();
-		frame.getContentPane().add(panelBienvenida);
-		panelBienvenida.setLayout(null);
-		panelBienvenida.setVisible(true);
-
-		PanelCines.inicializarPanelCines();
-		frame.getContentPane().add(panelCines);
-		panelCines.setLayout(null);
-		panelCines.setVisible(false);
-
-		PanelDeEntradas.inicializarPanelDeEntradas();
-		frame.getContentPane().add(panelDeEntradas);
-		panelDeEntradas.setLayout(null);
-		panelDeEntradas.setVisible(false);
-
-		PanelDeLogin.inicializarPanelDeLogin();
-		frame.getContentPane().add(panelDeLogin);
-		panelDeLogin.setLayout(null);
-		panelDeLogin.setVisible(false);
-
-		PanelDePeliculas.inicializarPanelDePeliculas();
-		frame.getContentPane().add(panelDePeliculas);
-		panelDePeliculas.setLayout(null);
-		panelDePeliculas.setVisible(false);
-
+		PanelDeLogin panelDeLogin = new PanelDeLogin();
+		contentPane.add(panelDeLogin.inicializarPanelDeLogin());
+		contentPane.setLayout(null);
 }
 }
