@@ -9,14 +9,15 @@ import javax.swing.border.EmptyBorder;
 public class PanelDeEntradas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static JPanel contentPane;
-
+	private JPanel panelDeEntradas;
 	/**
 	 * Create the frame.
 	 */
-	public static void inicializarPanelDeEntradas() {
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	public JPanel inicializarPanelDeEntradas() {
+		panelDeEntradas = new JPanel();
+		panelDeEntradas.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		return panelDeEntradas;
 	}
 
 }

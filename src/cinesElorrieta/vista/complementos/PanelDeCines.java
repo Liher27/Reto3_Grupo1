@@ -9,19 +9,16 @@ import javax.swing.border.EmptyBorder;
 public class PanelDeCines extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
+	private JPanel panelDeCines;
 
 	/**
 	 * Create the frame.
 	 */
-	public inicializarPanelDeCines() {
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	public JPanel inicializarPanelDeCines() {
+		panelDeCines = new JPanel();
+		panelDeCines.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
+		return panelDeCines;	
 	}
 
 }

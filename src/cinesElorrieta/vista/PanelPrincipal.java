@@ -63,12 +63,12 @@ public class PanelPrincipal extends JFrame {
 		contentPane.add(panelDeCines.inicializarPanelDeCines());
 		contentPane.setLayout(null);
 		
-		PanelDeEntradas panelDeLogin = new PanelDeLogin();
-		contentPane.add(panelDeLogin.inicializarPanelDeLogin());
+		PanelDeEntradas panelDeEntradas= new PanelDeEntradas();
+		contentPane.add(panelDeEntradas.inicializarPanelDeEntradas());
 		contentPane.setLayout(null);
 		
-		PanelDePeliculas panelDeLogin = new PanelDeLogin();
-		contentPane.add(panelDeLogin.inicializarPanelDeLogin());
+		PanelDePeliculas panelDePeliculas = new PanelDePeliculas();
+		contentPane.add(panelDePeliculas.inicializarPanelDePeliculas());
 		contentPane.setLayout(null);
 		
 	}

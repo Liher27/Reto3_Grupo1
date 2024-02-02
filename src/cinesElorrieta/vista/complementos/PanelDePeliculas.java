@@ -1,5 +1,6 @@
 package cinesElorrieta.vista.complementos;
 
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,7 +10,7 @@ import javax.swing.border.EmptyBorder;
 public class PanelDePeliculas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static JPanel contentPane;
+	private JPanel panelDePeliculas;
 
 	/**
 	 * Launch the application.
@@ -17,10 +18,13 @@ public class PanelDePeliculas extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @return 
 	 */
-	public static void inicializarPanelDePeliculas() {
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	public JPanel inicializarPanelDePeliculas() {
+		panelDePeliculas = new JPanel();
+		panelDePeliculas.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		return panelDePeliculas;
 
 	}
 
