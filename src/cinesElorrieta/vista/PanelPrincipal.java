@@ -7,16 +7,15 @@ import cinesElorrieta.vista.complementos.PanelDeEntradas;
 import cinesElorrieta.vista.complementos.PanelDePeliculas;
 
 import java.awt.EventQueue;
-
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
 
 public class PanelPrincipal extends JFrame {
 	
-	private JPanel contentPane;
+	private JFrame frame;
+	private ArrayList <JPanel> paneles = null;
 
 	private PanelDeBienvenida panelDeBienvenida;
 	private PanelDeLogin panelDeLogin;
@@ -31,8 +30,7 @@ public class PanelPrincipal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PanelPrincipal frame = new PanelPrincipal();
-					frame.setVisible(true);
+					new PanelPrincipal().frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,36 +38,54 @@ public class PanelPrincipal extends JFrame {
 		});
 	}
 
-	/**
-	 * It initializes the program.
-	 */
-
-
 	public PanelPrincipal() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1000, 650);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		inicializarPaneles();
+	}
+
+	private void inicializarPaneles() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 1000, 650);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
-		PanelDeBienvenida panelDeBienvenida = new PanelDeBienvenida();
-		contentPane.add(panelDeBienvenida.inicializarPanelDeBienvenida());
+		paneles = new ArrayList <JPanel> ();
+		
+		PanelDeBienvenida panelDeBienvenida = new PanelDeBienvenida(paneles);
+		JPanel PanelDeBienvenida = panelDeBienvenida.inicializarPanelDeBienvenida();
+		PanelDeBienvenida.setVisible(true);
+		
+		paneles.add(PanelDeBienvenida);
+		frame.getContentPane().add(PanelDeBienvenida);
 		
 		PanelDeLogin panelDeLogin = new PanelDeLogin();
-		contentPane.add(panelDeLogin.inicializarPanelDeLogin());
-		contentPane.setLayout(null);
+		JPanel PanelDeLogin = panelDeLogin.inicializarPanelDeLogin();
+		PanelDeLogin.setVisible(false);
+
+		paneles.add(PanelDeLogin);
+		frame.getContentPane().add(PanelDeLogin);
 		
 		PanelDeCines panelDeCines = new PanelDeCines();
-		contentPane.add(panelDeCines.inicializarPanelDeCines());
-		contentPane.setLayout(null);
+		JPanel PanelDeCines = panelDeCines.inicializarPanelDeCines();
+		PanelDeCines.setVisible(false);
+
+		paneles.add(PanelDeCines);
+		frame.getContentPane().add(PanelDeCines);
 		
 		PanelDeEntradas panelDeEntradas= new PanelDeEntradas();
-		contentPane.add(panelDeEntradas.inicializarPanelDeEntradas());
-		contentPane.setLayout(null);
+		JPanel PanelDeEntradas = panelDeEntradas.inicializarPanelDeEntradas();
+		PanelDeEntradas.setVisible(false);
+
+		paneles.add(PanelDeEntradas);
+		frame.getContentPane().add(PanelDeEntradas);
 		
 		PanelDePeliculas panelDePeliculas = new PanelDePeliculas();
-		contentPane.add(panelDePeliculas.inicializarPanelDePeliculas());
-		contentPane.setLayout(null);
+		JPanel PanelDePeliculas = panelDePeliculas.inicializarPanelDePeliculas();
+		PanelDePeliculas.setVisible(false);
+
+		paneles.add(PanelDePeliculas);
+		frame.getContentPane().add(PanelDePeliculas);
+		
+	
 		
 	}
 	
