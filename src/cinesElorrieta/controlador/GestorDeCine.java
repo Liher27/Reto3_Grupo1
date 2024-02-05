@@ -3,59 +3,70 @@ package cinesElorrieta.controlador;
 
 import java.sql.*;
 
+import cinesElorrieta.modelo. Cine;
+
+import cinesElorrieta.modelo.Reto3Utils;
+
 public class GestorDeCine {
 
-	public static final String URL = "jdbc:mysql://localhost:3307/reto3_grupo1";
 
-	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-
-	public static final String USER = "root";
-	public static final String PASS = "";
-
-	public static void main(String[] args) {
-		Connection coon = null;
-		java.sql.Statement stmt = null;
-		PreparedStatement ps = null;
+	private void datosCine(Cine cine) {
+		Connection connection = null;
+		
+		// Vamos a lanzar una sentencia SQL contra la BBDD
+		Statement statement = null;
+		
 		try {
-			Class.forName(DRIVER);
-			coon = DriverManager.getConnection(URL, USER, PASS);
-			stmt = coon.createStatement();
-			String sql;
-			sql = "SELECT * FROM cine";
-			ResultSet rs = stmt.executeQuery(sql);
-			while (rs.next()) {
-				int CodPelicula = rs.getInt("CodCine");
-				String Nombre = rs.getString("Nombre");
-				String Genero = rs.getString("Direccion");
-
-				System.out.println("Codigo de la peli:" + CodPelicula);
-				System.out.println("Codigo de la peli:" + Nombre);
-				System.out.println("Codigo de la peli:" + Genero);
-				System.out.println("\n");
-			}
-			rs.close();
-			stmt.close();
-			coon.close();
-
-		} catch (SQLException se) {
-			se.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
+			// El Driver que vamos a usar
+			Class.forName(Reto3Utils.DRIVER);
+			
+			// Abrimos la conexion con BBDD
+			connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+			
+			// Vamos a lanzar la sentencia...
+			statement = connection.createStatement();
+			
+			// Montamos la SQL 
+			Cine newcine = new Cine();
+			String sql = "insert into cine (CodCine, Nombre, Direccion) VALUES ('" +
+					cine.getCodCine() + "', '" + 
+					cine.getNomCine() + "', '" + 
+					cine.getDirCine() + "')";
+			
+			// La ejecutamos...
+			statement.executeUpdate(sql);
+			
+		} catch (SQLException sqle) {  
+			System.out.println("Error con la BBDD - " + sqle.getMessage());
+		} catch(Exception e){ 
+			System.out.println("Error generico - " + e.getMessage());
 		} finally {
+			// Cerramos al reves de como las abrimos
 			try {
-				if (stmt != null)
-					stmt.close();
-			} catch (SQLException se2) {
-				// no hace nada
-			}
+				if (statement != null) 
+					statement.close(); 
+			} catch(Exception e){ 
+				// No hace falta				
+			};
 			try {
-				if (coon != null)
-					coon.close();
-			} catch (SQLException se) {
-				se.printStackTrace();
-			}
+				if (connection != null) 
+					connection.close(); 
+			} catch(Exception e){ 
+				// No hace falta
+			};					
 		}
-
+		
+	}
+	public static void main(String[] args) {
+		GestorDeCine gestorprueba = new GestorDeCine();
+		
+		// Nuevo alumno a insertar...
+		Cine newcine = new Cine();
+		newcine.setCodCine(4);
+		newcine.setNomCine("Random");
+		newcine.setDirCine("Random");
+		
+		gestorprueba.datosCine(newcine);
 	}
 
 }

@@ -7,7 +7,7 @@ import com.mysql.cj.xdevapi.Statement;
 public class Reto3Utils {
     // La URL donde esta la Base de Datos. Se descompone en:
         // driver : bbd : // IP : Puerto / Schema
-        public static final String URL = "jdbc:mysql://localhost:3306/reto3_grupo1";
+        public static final String URL = "jdbc:mysql://localhost:3307/reto3_grupo1";
 
         // El Driver que vamos a usar
         public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
