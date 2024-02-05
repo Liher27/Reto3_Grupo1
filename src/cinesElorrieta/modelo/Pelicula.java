@@ -10,19 +10,28 @@ public class Pelicula implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6693431869498851496L;
+	private int CodPelicula = 0;
 	private String Nombre = null;
 	private String Genero = null;
 	private int Duracion = 0;
-	private String Fecha = null;
-	private String Hora = null;
+	private  float Precio = 0;
 
+	
 	/**
 	 * Constructor base  prueba
 	 */
+	
+	
 	public Pelicula() {
 
 	}
+	public int getCodPelicula() {
+		return CodPelicula;
+	}
 
+	public void setCodPelicula(int codPelicula) {
+		CodPelicula = codPelicula;
+	}
 	public String getNombre() {
 		return Nombre;
 	}
@@ -47,31 +56,22 @@ public class Pelicula implements Serializable {
 		Duracion = duracion;
 	}
 
-	public String getFecha() {
-		return Fecha;
-	}
 
-	public void setFecha(String fecha) {
-		Fecha = fecha;
-	}
-
-	public String getHora() {
-		return Hora;
-	}
-
-	public void setHora(String hora) {
-		Hora = hora;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	public float getPrecio() {
+		return Precio;
+	}
+	public void setPrecio(float precio) {
+		Precio = precio;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(Duracion, Fecha, Genero, Hora, Nombre);
+		return Objects.hash(CodPelicula, Duracion, Genero, Nombre, Precio);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -81,15 +81,17 @@ public class Pelicula implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Pelicula other = (Pelicula) obj;
-		return Duracion == other.Duracion && Objects.equals(Fecha, other.Fecha) && Objects.equals(Genero, other.Genero)
-				&& Objects.equals(Hora, other.Hora) && Objects.equals(Nombre, other.Nombre);
+		return CodPelicula == other.CodPelicula && Duracion == other.Duracion && Objects.equals(Genero, other.Genero)
+				&& Objects.equals(Nombre, other.Nombre)
+				&& Float.floatToIntBits(Precio) == Float.floatToIntBits(other.Precio);
 	}
-
 	@Override
 	public String toString() {
-		return "Pelicula [Nombre=" + Nombre + ", Genero=" + Genero + ", Duracion=" + Duracion + ", Fecha=" + Fecha
-				+ ", Hora=" + Hora + "]";
+		return "Pelicula [CodPelicula=" + CodPelicula + ", Nombre=" + Nombre + ", Genero=" + Genero + ", Duracion="
+				+ Duracion + ", Precio=" + Precio + "]";
 	}
+	
+	
 }
 
 	

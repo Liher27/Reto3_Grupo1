@@ -8,9 +8,9 @@ import cinesElorrieta.modelo. Cine;
 import cinesElorrieta.modelo.Reto3Utils;
 
 public class GestorDeCine {
+	
 
-
-	private void datosCine(Cine cine) {
+	public void datosCine(Cine cine) {
 		Connection connection = null;
 		
 		// Vamos a lanzar una sentencia SQL contra la BBDD
@@ -55,6 +55,10 @@ public class GestorDeCine {
 				// No hace falta
 			};					
 		}
+		
+	}
+	public void getCineById(int id ) {
+		
 		
 	}
 	public static void main(String[] args) {

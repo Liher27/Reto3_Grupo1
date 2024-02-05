@@ -1,10 +1,16 @@
 package cinesElorrieta.controlador;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import cinesElorrieta.modelo.Cine;
 import cinesElorrieta.modelo.Pelicula;
+import cinesElorrieta.modelo.Reto3Utils;
 import cinesElorrietaTest.modeloTest.PeliculaTest;
 
 /**
@@ -12,79 +18,61 @@ import cinesElorrietaTest.modeloTest.PeliculaTest;
  */
 public class GestorDePeliculas {
 	
-
-	public static final String URL = "jdbc:mysql://localhost:3307/reto3_grupo1";
-
-	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-
-	public static final String USER = "root";
-	public static final String PASS = "";
-
-	private static Scanner teclado = null;
-	private List<Pelicula> Pelicula = null;
-
-	public GestorDePeliculas() {
-		teclado = new Scanner(System.in);
-		Pelicula = new ArrayList<Pelicula>();
-	}
-
-	public void menu() {
-
-		int opcionMenu = 0;
-
-		do {
-
-			opcionMenu = escribirMenu();
-
-			switch (opcionMenu) {
-			case 0:
-				System.out.println("Adios !!!");
-				break;
-			case 1:
-				
-				break;
-			case 2:
-				
-				break;
-			case 3:
-				
-				break;
+	public void datosCine(Pelicula peli) {
+		Connection connection = null;
+		
+		// Vamos a lanzar una sentencia SQL contra la BBDD
+		Statement statement = null;
+		
+		try {
+			// El Driver que vamos a usar
+			Class.forName(Reto3Utils.DRIVER);
 			
-			default:
-				System.out.println("Esta opcion no deberia salir");
-			}
-
-		} while (opcionMenu != 0);
-		teclado.close();
-	}
-
-	private void pintarMenu() {
-		System.out.println(" ");
-		System.out.println("- Menu Inicial -");
-		System.out.println("----------------");
-		System.out.println("1. Aniadir alumno");
-		System.out.println("2. Mostrar todos alumnos");
-		System.out.println("3. Mostrar alumno");
-		System.out.println("0. Salir");
-		System.out.println(" ");
-	}
-
-	private int escribirMenu() {
-		int ret = 0;
-		do {
+			// Abrimos la conexion con BBDD
+			connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+			
+			// Vamos a lanzar la sentencia...
+			statement = connection.createStatement();
+			
+			// Montamos la SQL 
+			Pelicula newPeli = new Pelicula();
+			String sql = "insert into cine (CodPelicula, Nombre, Genero,Duracion,Precio) VALUES ('" +
+					newPeli.getCodPelicula() + "', '" + 
+					newPeli.getNombre() + "', '" + 
+					newPeli.getGenero() + "', '" +
+					newPeli.getDuracion() + "', '" + 
+					newPeli.getPrecio() + "')";
+			
+			// La ejecutamos...
+			statement.executeUpdate(sql);
+			
+		} catch (SQLException sqle) {  
+			System.out.println("Error con la BBDD - " + sqle.getMessage());
+		} catch(Exception e){ 
+			System.out.println("Error generico - " + e.getMessage());
+		} finally {
+			// Cerramos al reves de como las abrimos
 			try {
-				pintarMenu();
-				System.out.print("Escoge una opcion: ");
-				ret = teclado.nextInt();
-				teclado.nextLine();
-			} catch (Exception e) {
-				System.out.println("Error!!! Opcion incorrecta");
-				teclado.nextLine();
-				ret = -1;
-			}
-		} while ((ret < 0) || (ret > 10));
-		return ret;
+				if (statement != null) 
+					statement.close(); 
+			} catch(Exception e){ 
+				// No hace falta				
+			};
+			try {
+				if (connection != null) 
+					connection.close(); 
+			} catch(Exception e){ 
+				// No hace falta
+			};					
+		}
+		
 	}
+	public void getCineById() {
+		
+	}
+	
+
+
 
 	
 }
