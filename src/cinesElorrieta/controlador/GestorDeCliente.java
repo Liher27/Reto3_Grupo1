@@ -4,6 +4,12 @@ import cinesElorrieta.vista.complementos.PanelDeLogin;
 import javax.swing.JOptionPane;
 
 public class GestorDeCliente {
+	public static final String URL = "jdbc:mysql://localhost:3307/reto3_grupo1";
+
+	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+
+	public static final String USER = "root";
+	public static final String PASS = "";
 
 	private static final String LOGIN_USER = "Usuario";
 	private static final String PASS_USER = "Contrasenna";
