@@ -30,7 +30,7 @@ public class PanelDeBienvenida {
 		panelDeBienvenida = new JPanel();
 		panelDeBienvenida.setBounds(0, 0, 984, 611);
 		panelDeBienvenida.setBackground(new Color(42, 26, 29));
-		//hola
+		//hol
 		
 		
 		lblBienvenida = new JLabel("");
