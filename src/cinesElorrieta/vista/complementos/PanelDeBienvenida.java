@@ -30,8 +30,6 @@ public class PanelDeBienvenida {
 		panelDeBienvenida = new JPanel();
 		panelDeBienvenida.setBounds(0, 0, 984, 611);
 		panelDeBienvenida.setBackground(new Color(42, 26, 29));
-		//hola
-		
 		
 		lblBienvenida = new JLabel("");
 		lblBienvenida.setHorizontalAlignment(SwingConstants.CENTER);
@@ -39,7 +37,6 @@ public class PanelDeBienvenida {
 		
 		lblBienvenida.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-		System.out.println("GoTO -> Panel 2");
 		panelDeBienvenida.setVisible(false);
 		
 		paneles.get(0).setVisible(false);

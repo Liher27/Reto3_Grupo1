@@ -14,14 +14,9 @@ public class Cliente implements Serializable {
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
-	private String peliculasVistas;
 	private String sexo;
 	private String contrasena;
-	@Override
-	public String toString() {
-		return "Cliente [DNI=" + DNI + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", peliculasVistas=" + peliculasVistas + ", sexo=" + sexo + ", contrasena=" + contrasena + "]";
-	}
+
 	public String getDNI() {
 		return DNI;
 	}
@@ -46,12 +41,6 @@ public class Cliente implements Serializable {
 	public void setApellido2(String apellido2) {
 		this.apellido2 = apellido2;
 	}
-	public String getPeliculasVistas() {
-		return peliculasVistas;
-	}
-	public void setPeliculasVistas(String peliculasVistas) {
-		this.peliculasVistas = peliculasVistas;
-	}
 	public String getSexo() {
 		return sexo;
 	}
@@ -64,9 +53,12 @@ public class Cliente implements Serializable {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(DNI, apellido1, apellido2, contrasena, nombre, peliculasVistas, sexo);
+		return Objects.hash(DNI, apellido1, apellido2, contrasena, nombre, sexo);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -79,7 +71,12 @@ public class Cliente implements Serializable {
 		Cliente other = (Cliente) obj;
 		return Objects.equals(DNI, other.DNI) && Objects.equals(apellido1, other.apellido1)
 				&& Objects.equals(apellido2, other.apellido2) && Objects.equals(contrasena, other.contrasena)
-				&& Objects.equals(nombre, other.nombre) && Objects.equals(peliculasVistas, other.peliculasVistas)
-				&& Objects.equals(sexo, other.sexo);
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(sexo, other.sexo);
+	}
+	@Override
+	public String toString() {
+		return "Cliente [DNI=" + DNI + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
+				+ ", sexo=" + sexo + ", contrasena=" + contrasena + "]";
 	}
 }
+	
