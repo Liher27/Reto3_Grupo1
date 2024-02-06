@@ -5,6 +5,7 @@ import cinesElorrieta.vista.complementos.PanelDeLogin;
 import cinesElorrieta.vista.complementos.PanelDeCines;
 import cinesElorrieta.vista.complementos.PanelDeSesion;
 import cinesElorrieta.vista.complementos.PanelDePeliculas;
+import cinesElorrieta.vista.complementos.PanelDeRegistro;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
@@ -55,35 +56,44 @@ public class PanelPrincipal extends JFrame {
 		PanelDeBienvenida.setVisible(true);
 		
 		paneles.add(PanelDeBienvenida);
-		frame.getContentPane().add(PanelDeBienvenida);
+		frame.getContentPane().add(PanelDeBienvenida);	
 		
-		PanelDeLogin panelDeLogin = new PanelDeLogin();
-		JPanel PanelDeLogin = panelDeLogin.inicializarPanelDeLogin();
-		PanelDeLogin.setVisible(false);
+		PanelDeRegistro panelDeRegistro = new PanelDeRegistro(paneles);
+		JPanel PanelDeRegistro = panelDeRegistro.inicializarPanelDeRegistro();
+		PanelDeRegistro.setVisible(false);
 
-		paneles.add(PanelDeLogin);
-		frame.getContentPane().add(PanelDeLogin);
+		paneles.add(PanelDeRegistro);
+		frame.getContentPane().add(PanelDeRegistro);
 		
-		PanelDeCines panelDeCines = new PanelDeCines();
+		PanelDeCines panelDeCines = new PanelDeCines(paneles);
 		JPanel PanelDeCines = panelDeCines.inicializarPanelDeCines();
 		PanelDeCines.setVisible(false);
 
 		paneles.add(PanelDeCines);
 		frame.getContentPane().add(PanelDeCines);
 		
-		PanelDeSesion panelDeEntradas= new PanelDeSesion();
-		JPanel PanelDeEntradas = panelDeEntradas.inicializarPanelDeEntradas();
-		PanelDeEntradas.setVisible(false);
+		PanelDeLogin panelDeLogin = new PanelDeLogin(paneles);
+		JPanel PanelDeLogin = panelDeLogin.incializarPanelDeLogin();
+		PanelDeLogin.setVisible(false);
 
-		paneles.add(PanelDeEntradas);
-		frame.getContentPane().add(PanelDeEntradas);
+		paneles.add(PanelDeLogin);
+		frame.getContentPane().add(PanelDeLogin);
 		
-		PanelDePeliculas panelDePeliculas = new PanelDePeliculas();
+		PanelDeSesion panelDeSesion= new PanelDeSesion(paneles);
+		JPanel PanelDeSesion = panelDeSesion.inicializarPanelDeSesion();
+		PanelDeSesion.setVisible(false);
+
+		paneles.add(PanelDeSesion);
+		frame.getContentPane().add(PanelDeSesion);
+		
+		PanelDePeliculas panelDePeliculas = new PanelDePeliculas(paneles);
 		JPanel PanelDePeliculas = panelDePeliculas.inicializarPanelDePeliculas();
 		PanelDePeliculas.setVisible(false);
 
 		paneles.add(PanelDePeliculas);
 		frame.getContentPane().add(PanelDePeliculas);
+		
+		
 
 		
 	

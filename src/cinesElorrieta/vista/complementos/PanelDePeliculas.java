@@ -2,6 +2,7 @@ package cinesElorrieta.vista.complementos;
 
 import java.awt.Component;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,16 +17,17 @@ public class PanelDePeliculas extends JFrame {
 	 * Launch the application.
 	 */
 
-	/**
-	 * Create the frame.
-	 * @return 
-	 */
-	public JPanel inicializarPanelDePeliculas() {
+	
+
+	public PanelDePeliculas(ArrayList<JPanel> paneles) {
 		panelDePeliculas = new JPanel();
 		panelDePeliculas.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-		return panelDePeliculas;
+		
 
+	}
+public JPanel inicializarPanelDePeliculas() {
+		return panelDePeliculas;
 	}
 
 }

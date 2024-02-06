@@ -70,9 +70,4 @@ public class GestorDePeliculas {
 	public void getCineById() {
 		
 	}
-	
-
-
-
-	
 }

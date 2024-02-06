@@ -19,13 +19,13 @@ public class DiseñoPaneles extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_4;
+	private JTextField textFieldDNIRegistro;
+	private JTextField textFieldNombreRegistro;
+	private JTextField textFieldPrimerApellidoRegistro;
+	private JTextField textFieldSegundoApellidoRegistro;
+	private JTextField textFieldContrasenyaRegistro;
+	private JTextField textFieldConfirmarContrasenyaRegistro;
+	private JTextField textFieldSexoRegistro;
 
 	/**
 	 * Launch the application
@@ -56,88 +56,88 @@ public class DiseñoPaneles extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("DNI");
-		lblNewLabel.setForeground(new Color(253, 185, 74));
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel.setBounds(192, 130, 86, 43);
-		contentPane.add(lblNewLabel);
+		JLabel lblDNIRegistro = new JLabel("DNI");
+		lblDNIRegistro.setForeground(new Color(253, 185, 74));
+		lblDNIRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblDNIRegistro.setBounds(192, 130, 86, 43);
+		contentPane.add(lblDNIRegistro);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setForeground(new Color(253, 185, 74));
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_1.setBounds(192, 200, 86, 27);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblNombreRegistro = new JLabel("Nombre");
+		lblNombreRegistro.setForeground(new Color(253, 185, 74));
+		lblNombreRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNombreRegistro.setBounds(192, 200, 86, 27);
+		contentPane.add(lblNombreRegistro);
 		
-		JLabel lblNewLabel_2 = new JLabel("Primer apellido");
-		lblNewLabel_2.setForeground(new Color(253, 185, 74));
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_2.setBounds(192, 270, 176, 32);
-		contentPane.add(lblNewLabel_2);
+		JLabel lblPrimerApellidoRegistro = new JLabel("Primer apellido");
+		lblPrimerApellidoRegistro.setForeground(new Color(253, 185, 74));
+		lblPrimerApellidoRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblPrimerApellidoRegistro.setBounds(192, 270, 176, 32);
+		contentPane.add(lblPrimerApellidoRegistro);
 		
-		JLabel lblNewLabel_3 = new JLabel("Segundo apellido");
-		lblNewLabel_3.setForeground(new Color(253, 185, 74));
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_3.setBounds(192, 340, 176, 32);
-		contentPane.add(lblNewLabel_3);
+		JLabel lblSegundoApellidoRegistro = new JLabel("Segundo apellido");
+		lblSegundoApellidoRegistro.setForeground(new Color(253, 185, 74));
+		lblSegundoApellidoRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblSegundoApellidoRegistro.setBounds(192, 340, 176, 32);
+		contentPane.add(lblSegundoApellidoRegistro);
 		
-		JLabel lblNewLabel_4 = new JLabel("Contraseña");
-		lblNewLabel_4.setForeground(new Color(253, 185, 74));
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_4.setBounds(192, 410, 159, 31);
-		contentPane.add(lblNewLabel_4);
+		JLabel lblContrasenyaRegistro = new JLabel("Contraseña");
+		lblContrasenyaRegistro.setForeground(new Color(253, 185, 74));
+		lblContrasenyaRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblContrasenyaRegistro.setBounds(192, 410, 159, 31);
+		contentPane.add(lblContrasenyaRegistro);
 		
-		JLabel lblNewLabel_5 = new JLabel("Confirmar contraseña");
-		lblNewLabel_5.setForeground(new Color(253, 185, 74));
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_5.setBounds(192, 480, 216, 32);
-		contentPane.add(lblNewLabel_5);
+		JLabel lblConfirmarContrasenyaRegistro = new JLabel("Confirmar contraseña");
+		lblConfirmarContrasenyaRegistro.setForeground(new Color(253, 185, 74));
+		lblConfirmarContrasenyaRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblConfirmarContrasenyaRegistro.setBounds(192, 480, 216, 32);
+		contentPane.add(lblConfirmarContrasenyaRegistro);
 		
-		JLabel lblNewLabel_6 = new JLabel("Sexo");
-		lblNewLabel_6.setForeground(new Color(253, 185, 74));
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel_6.setBounds(192, 550, 230, 32);
-		contentPane.add(lblNewLabel_6);
+		JLabel lblSexoRegistro = new JLabel("Sexo");
+		lblSexoRegistro.setForeground(new Color(253, 185, 74));
+		lblSexoRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblSexoRegistro.setBounds(192, 550, 230, 32);
+		contentPane.add(lblSexoRegistro);
 		
-		textField = new JTextField();
-		textField.setBounds(513, 146, 176, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldDNIRegistro = new JTextField();
+		textFieldDNIRegistro.setBounds(513, 146, 176, 20);
+		contentPane.add(textFieldDNIRegistro);
+		textFieldDNIRegistro.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(513, 208, 176, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldNombreRegistro = new JTextField();
+		textFieldNombreRegistro.setBounds(513, 208, 176, 20);
+		contentPane.add(textFieldNombreRegistro);
+		textFieldNombreRegistro.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(513, 281, 176, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldPrimerApellidoRegistro = new JTextField();
+		textFieldPrimerApellidoRegistro.setBounds(513, 281, 176, 20);
+		contentPane.add(textFieldPrimerApellidoRegistro);
+		textFieldPrimerApellidoRegistro.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(513, 351, 176, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		textFieldSegundoApellidoRegistro = new JTextField();
+		textFieldSegundoApellidoRegistro.setBounds(513, 351, 176, 20);
+		contentPane.add(textFieldSegundoApellidoRegistro);
+		textFieldSegundoApellidoRegistro.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(513, 491, 176, 20);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		textFieldContrasenyaRegistro = new JTextField();
+		textFieldContrasenyaRegistro.setBounds(513, 351, 176, 20);
+		contentPane.add(textFieldContrasenyaRegistro);
+		textFieldContrasenyaRegistro.setColumns(10);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(513, 420, 176, 20);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
+		textFieldConfirmarContrasenyaRegistro = new JTextField();
+		textFieldConfirmarContrasenyaRegistro.setBounds(513, 420, 176, 20);
+		contentPane.add(textFieldConfirmarContrasenyaRegistro);
+		textFieldConfirmarContrasenyaRegistro.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(513, 561, 176, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textFieldSexoRegistro = new JTextField();
+		textFieldSexoRegistro.setBounds(513, 561, 176, 20);
+		contentPane.add(textFieldSexoRegistro);
+		textFieldSexoRegistro.setColumns(10);
 		
-		JLabel lblNewLabel_7 = new JLabel("Registrar nuevo usuario");
-		lblNewLabel_7.setForeground(new Color(253, 185, 74));
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
-		lblNewLabel_7.setBounds(328, 32, 337, 64);
-		contentPane.add(lblNewLabel_7);
+		JLabel tituloPanelDeRegistro = new JLabel("Registrar nuevo usuario");
+		tituloPanelDeRegistro.setForeground(new Color(253, 185, 74));
+		tituloPanelDeRegistro.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
+		tituloPanelDeRegistro.setBounds(328, 32, 337, 64);
+		contentPane.add(tituloPanelDeRegistro);
 		
 		JLabel lblLogoCineElorrieta = new JLabel("");
 		lblLogoCineElorrieta.setHorizontalAlignment(SwingConstants.CENTER);
@@ -145,15 +145,15 @@ public class DiseñoPaneles extends JFrame {
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		contentPane.add(lblLogoCineElorrieta);
 		
-		JButton btnNewButton = new JButton("Cancelar");
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBounds(35, 577, 89, 23);
-		contentPane.add(btnNewButton);
+		JButton btnCancelarPanelDeRegistro = new JButton("Cancelar");
+		btnCancelarPanelDeRegistro.setForeground(new Color(0, 0, 0));
+		btnCancelarPanelDeRegistro.setBounds(35, 577, 89, 23);
+		contentPane.add(btnCancelarPanelDeRegistro);
 		
-		JButton btnNewButton_1 = new JButton("Confirmar");
-		btnNewButton_1.setForeground(new Color(0, 0, 0));
-		btnNewButton_1.setBounds(849, 577, 101, 23);
-		contentPane.add(btnNewButton_1);
+		JButton btnConfirmarDeRegistro = new JButton("Confirmar");
+		btnConfirmarDeRegistro.setForeground(new Color(0, 0, 0));
+		btnConfirmarDeRegistro.setBounds(849, 577, 101, 23);
+		contentPane.add(btnConfirmarDeRegistro);
 		
 		
 }
