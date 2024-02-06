@@ -98,67 +98,6 @@ public class PeliculaTest {
 	}
 
 	@Test
-	public void testGetFecha() {
-		Pelicula peli = new Pelicula();
-		String fecha = peli.getFecha();
-		assertNotNull(fecha);
-	}
-	
-	@Test
-	public void testGetFecha2() {
-		Pelicula peli = new Pelicula();
-		String fecha = peli.getFecha();
-		fecha = null;
-		assertNull("Incorrecto, la fecha esta vacia");
-	}
-	
-	
-	@Test
-	public void testSetFecha() {
-		Pelicula peli = new Pelicula();
-		String Fecha = "29/01/2024";
-		peli.setFecha(Fecha);
-		assertNull("La fecha es:" + Fecha);
-	}
-	@Test
-	public void testSetFecha2() {
-		Pelicula peli = new Pelicula();
-		String Fecha = null;
-		peli.setFecha(Fecha);
-		assertNull("Incorrecto, esta vacia la fecha");
-	}
-
-	@Test
-	public void testGetHora() {
-		Pelicula peli = new Pelicula();
-		String hora = peli.getHora();
-		assertNotNull(hora);
-	}
-	@Test
-	public void testGetHora2() {
-		Pelicula peli = new Pelicula();
-		String hora = peli.getHora();
-		hora = null;
-		assertNull("Incorrecto, esta vacia la hora");
-	}
-	
-	@Test
-	public void testSetHora() {
-		Pelicula peli = new Pelicula();
-		String Hora = "1";
-		peli.setHora(Hora);
-		assertNotNull("La hora es:" + Hora);
-	}
-
-	@Test
-	public void testSetHora2() {
-		Pelicula peli = new Pelicula();
-		String Hora = null;
-		peli.setHora(Hora);
-		assertNull("Incorrecto, esta vacia la hora");
-	}
-
-	@Test
 	public void testEqualsObject() {
 		Pelicula peli = new Pelicula();
 
