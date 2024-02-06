@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 import cinesElorrieta.logica.GestorDeCliente;
 import cinesElorrieta.vista.PanelPrincipal;
@@ -13,7 +12,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class PanelDeLogin {
 
@@ -26,7 +24,7 @@ public class PanelDeLogin {
 	 * Create the frame.
 	 * @wbp.parser.entryPoint
 	 */
-	private void PanelDeLogin(ArrayList<JPanel> paneles) {
+	public JPanel inicializarPanelDeLogin() {
 		panelDeLogin = new JPanel();
 		panelDeLogin.setBounds(0, 0, 984, 611);
 		panelDeLogin.setLayout(null);
@@ -69,20 +67,15 @@ public class PanelDeLogin {
 		JButton jButtonLoginSalir = new JButton("Salir");
 		jButtonLoginSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				paneles.get(0).setVisible(true);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
+				
 			}
 		});
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);
 		panelDeLogin.add(jButtonLoginSalir);
-	}
-
-	public JPanel inicializarPanelDeLogin() {
+	
+		
 		return panelDeLogin;
 	}
-	
-	
 
 }
 
