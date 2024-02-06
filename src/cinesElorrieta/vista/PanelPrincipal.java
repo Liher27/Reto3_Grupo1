@@ -84,6 +84,7 @@ public class PanelPrincipal extends JFrame {
 
 		paneles.add(PanelDePeliculas);
 		frame.getContentPane().add(PanelDePeliculas);
+
 		
 	
 		
