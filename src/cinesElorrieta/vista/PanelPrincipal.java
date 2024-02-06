@@ -3,7 +3,7 @@ package cinesElorrieta.vista;
 import cinesElorrieta.vista.complementos.PanelDeBienvenida;
 import cinesElorrieta.vista.complementos.PanelDeLogin;
 import cinesElorrieta.vista.complementos.PanelDeCines;
-import cinesElorrieta.vista.complementos.PanelDeEntradas;
+import cinesElorrieta.vista.complementos.PanelDeSesion;
 import cinesElorrieta.vista.complementos.PanelDePeliculas;
 
 import java.awt.EventQueue;
@@ -20,7 +20,7 @@ public class PanelPrincipal extends JFrame {
 	private PanelDeBienvenida panelDeBienvenida;
 	private PanelDeLogin panelDeLogin;
 	private PanelDeCines panelDeCines;
-	private PanelDeEntradas panelDeEntradas;
+	private PanelDeSesion panelDeEntradas;
 	private PanelDePeliculas panelDePeliculas;
 	
 	
@@ -71,7 +71,7 @@ public class PanelPrincipal extends JFrame {
 		paneles.add(PanelDeCines);
 		frame.getContentPane().add(PanelDeCines);
 		
-		PanelDeEntradas panelDeEntradas= new PanelDeEntradas();
+		PanelDeSesion panelDeEntradas= new PanelDeSesion();
 		JPanel PanelDeEntradas = panelDeEntradas.inicializarPanelDeEntradas();
 		PanelDeEntradas.setVisible(false);
 
