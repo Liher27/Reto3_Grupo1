@@ -1,5 +1,5 @@
 
-package cinesElorrieta.modelo;
+package cinesElorrieta.bbdd;
 
 import java.io.Serializable;
 import java.util.Objects;

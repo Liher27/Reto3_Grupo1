@@ -1,11 +1,10 @@
 
-package cinesElorrieta.controlador;
+package cinesElorrieta.logica;
 
 import java.sql.*;
 
-import cinesElorrieta.modelo. Cine;
-
-import cinesElorrieta.modelo.Reto3Utils;
+import cinesElorrieta.bbdd.Cine;
+import cinesElorrieta.bbdd.Reto3Utils;
 
 public class GestorDeCine {
 	

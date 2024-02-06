@@ -1,16 +1,24 @@
-package cinesElorrieta.controlador;
+package cinesElorrieta.logica;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-import cinesElorrieta.modelo. Cine;
+import cinesElorrieta.bbdd.Cine;
+import cinesElorrieta.bbdd.Pelicula;
+import cinesElorrieta.bbdd.Reto3Utils;
+import cinesElorrietaTest.modeloTest.PeliculaTest;
 
-import cinesElorrieta.modelo.Reto3Utils;
-import cinesElorrieta.modelo.Sesion;
-
-public class GestorDeSesion {
-
-
-	private void datosSesion(Sesion sesion) {
+/**
+ * Clase que gestiona los alumno
+ */
+public class GestorDePeliculas {
+	
+	public void datosCine(Pelicula peli) {
 		Connection connection = null;
 		
 		// Vamos a lanzar una sentencia SQL contra la BBDD
@@ -27,14 +35,13 @@ public class GestorDeSesion {
 			statement = connection.createStatement();
 			
 			// Montamos la SQL 
-			Sesion newSesion = new Sesion();
-			String sql = "insert into cine (CodCine, Nombre, Direccion) VALUES ('" +
-					newSesion.getCodSesion() + "', '" + 
-					newSesion.getCodSala() + "', '" + 
-					newSesion.getCodPelicula() + "', '" + 
-					newSesion.getFecha() + "', '" + 
-					newSesion.getHora() + "', '" + 
-					newSesion.getPrecioSesion() + "')";
+			Pelicula newPeli = new Pelicula();
+			String sql = "insert into cine (CodPelicula, Nombre, Genero,Duracion,Precio) VALUES ('" +
+					newPeli.getCodPelicula() + "', '" + 
+					newPeli.getNombre() + "', '" + 
+					newPeli.getGenero() + "', '" +
+					newPeli.getDuracion() + "', '" + 
+					newPeli.getPrecio() + "')";
 			
 			// La ejecutamos...
 			statement.executeUpdate(sql);
@@ -60,4 +67,12 @@ public class GestorDeSesion {
 		}
 		
 	}
+	public void getCineById() {
+		
+	}
+	
+
+
+
+	
 }

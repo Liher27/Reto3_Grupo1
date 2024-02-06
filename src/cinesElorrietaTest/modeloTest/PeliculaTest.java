@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import cinesElorrieta.modelo.Pelicula;
+import cinesElorrieta.bbdd.Pelicula;
 
 public class PeliculaTest {
 	@Test

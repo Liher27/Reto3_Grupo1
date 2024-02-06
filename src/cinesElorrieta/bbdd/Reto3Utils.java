@@ -1,4 +1,4 @@
-package cinesElorrieta.modelo;
+package cinesElorrieta.bbdd;
 
 import java.sql.Connection;
 import java.sql.*;

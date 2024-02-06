@@ -1,4 +1,4 @@
-package cinesElorrieta.controlador;
+package cinesElorrieta.logica;
 
 import cinesElorrieta.vista.complementos.PanelDeLogin;
 import javax.swing.JOptionPane;

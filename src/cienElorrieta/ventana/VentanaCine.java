@@ -4,8 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import cinesElorrieta.modelo.Cine;
-import cinesElorrieta.controlador.GestorDeCine;
+import cinesElorrieta.bbdd.Cine;
+import cinesElorrieta.logica.GestorDeCine;
 
 public class VentanaCine extends JPanel {
 

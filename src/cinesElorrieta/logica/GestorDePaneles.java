@@ -1,4 +1,4 @@
-package cinesElorrieta.controlador;
+package cinesElorrieta.logica;
 
 import javax.swing.JPanel;
 

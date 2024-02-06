@@ -1,5 +1,5 @@
 
-package cinesElorrieta.controlador;
+package cinesElorrieta.logica;
 
 public class GestorDeEntrada {
 

@@ -1,16 +1,15 @@
-package cinesElorrieta.controlador;
+package cinesElorrieta.logica;
 
 import java.sql.*;
 
-import cinesElorrieta.modelo. Cine;
+import cinesElorrieta.bbdd.Cine;
+import cinesElorrieta.bbdd.Reto3Utils;
+import cinesElorrieta.bbdd.Sesion;
 
-import cinesElorrieta.modelo.Reto3Utils;
-import cinesElorrieta.modelo.Sala;
-
-public class GestorDeSala {
+public class GestorDeSesion {
 
 
-	private void datosSala(Sala sala) {
+	private void datosSesion(Sesion sesion) {
 		Connection connection = null;
 		
 		// Vamos a lanzar una sentencia SQL contra la BBDD
@@ -27,11 +26,14 @@ public class GestorDeSala {
 			statement = connection.createStatement();
 			
 			// Montamos la SQL 
-			Sala newsala = new Sala();
-			String sql = "insert into sala (CodSala, Nombre, CodCine) VALUES ('" +
-					newsala.getCodSala() + "', '" + 
-					newsala.getNomSala() + "', '" + 
-					newsala.getCodCine() + "')";
+			Sesion newSesion = new Sesion();
+			String sql = "insert into cine (CodCine, Nombre, Direccion) VALUES ('" +
+					newSesion.getCodSesion() + "', '" + 
+					newSesion.getCodSala() + "', '" + 
+					newSesion.getCodPelicula() + "', '" + 
+					newSesion.getFecha() + "', '" + 
+					newSesion.getHora() + "', '" + 
+					newSesion.getPrecioSesion() + "')";
 			
 			// La ejecutamos...
 			statement.executeUpdate(sql);

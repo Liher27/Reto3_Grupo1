@@ -6,7 +6,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import cinesElorrieta.controlador.GestorDeCliente;
+import cinesElorrieta.logica.GestorDeCliente;
 import cinesElorrieta.vista.PanelPrincipal;
 
 import javax.swing.JLabel;
