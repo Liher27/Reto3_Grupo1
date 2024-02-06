@@ -18,7 +18,7 @@ import cinesElorrieta.logica.GestorDeCine;
 public class PanelDeCines{
 
 	private JPanel panelDeCines;
-	private JPanel panelDeCines_1;
+
 
 
 	/**
@@ -27,27 +27,27 @@ public class PanelDeCines{
 	public PanelDeCines(ArrayList<JPanel> paneles) {
 		panelDeCines = new JPanel();
 	
-		panelDeCines_1 = new JPanel();
-		panelDeCines_1.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panelDeCines = new JPanel();
+		panelDeCines.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		GestorDeCine gestorDeCine = new GestorDeCine();
 
 		List<String> cines = gestorDeCine.getNameOfCines();
-		panelDeCines_1.setLayout(null);
+		panelDeCines.setLayout(null);
 
 		
 
 		JComboBox<String> ComboBoxCines = new JComboBox<String>(new Vector<String>(cines));
 		ComboBoxCines.setBounds(59, 174, 115, 22);
 
-		panelDeCines_1.add(ComboBoxCines);
+		panelDeCines.add(ComboBoxCines);
 
 		
 
 		JLabel imgCine = new JLabel("");
 		imgCine.setBounds(295, 113, 257, 202);
 
-		panelDeCines_1.add(imgCine);
+		panelDeCines.add(imgCine);
 
 		
 
@@ -64,7 +64,7 @@ public class PanelDeCines{
 
 		});
 
-		panelDeCines_1.add(btnNewButton);
+		panelDeCines.add(btnNewButton);
 
 		
 
@@ -83,14 +83,14 @@ public class PanelDeCines{
 
 		});
 
-		panelDeCines_1.add(btnFinalizar);
+		panelDeCines.add(btnFinalizar);
 		
 		JButton btnNewButton_1 = new JButton("New button");
 		btnNewButton_1.setBounds(274, 67, 89, 23);
-		panelDeCines_1.add(btnNewButton_1);
+		panelDeCines.add(btnNewButton_1);
 			
 	}
 	public JPanel inicializarPanelDeCines() {
-		return panelDeCines_1;
+		return panelDeCines;
 	}
 }
