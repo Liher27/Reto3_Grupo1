@@ -2,16 +2,20 @@ package cinesElorrieta.logica;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Vector;
 
-import cinesElorrieta.bbdd.Cine;
+import javax.swing.JOptionPane;
+
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
+
 import cinesElorrieta.bbdd.Pelicula;
 import cinesElorrieta.bbdd.Reto3Utils;
-import cinesElorrietaTest.modeloTest.PeliculaTest;
 
 /**
  * Clase que gestiona los alumno
@@ -67,7 +71,72 @@ public class GestorDePeliculas {
 		}
 		
 	}
-	public void getCineById() {
+	public List<String> getLasPeliculas() {
+		List<String> pelis = new ArrayList<String>();
+		
+		try {
+			Class.forName(Reto3Utils.DRIVER);
+			
+			Connection connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+			
+			Statement statement = connection.createStatement();
+			
+			String sql = "SELECT * FROM PELICULA";
+			
+			ResultSet result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				pelis.add(result.getString("CODPELICULA,NOMBRE,GENERO,DURACION,PRECIO"));
+			}
+		} catch (ClassNotFoundException e) {
+			System.out.println("Ha dado fallo -> " + e.getMessage());
+		} catch (SQLException e) {
+			System.out.println("Malformacion sqlazo -> " + e.getMessage());
+		}
+		
+		return pelis;
 		
 	}
 }
+	
+	/*public static  Vector getRows() {
+		Connection connection = null;
+		
+		// Vamos a lanzar una sentencia SQL contra la BBDD
+		PreparedStatement prepareStatement = null;
+		Vector<Vector<String>> rows = null;
+		Vector<Vector<?>> columnas = null;
+		
+		
+		try {
+			// El Driver que vamos a usar
+			Class.forName(Reto3Utils.DRIVER);
+			
+			// Abrimos la conexion con BBDD
+			connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+			
+			// Vamos a lanzar la sentencia...
+			prepareStatement = connection.prepareStatement("Select * from pelicula");
+			ResultSet result = prepareStatement.executeQuery();
+			if(result.wasNull())
+			JOptionPane.showMessageDialog(null, "No hay nigun resultado");
+			rows = new Vector<Vector<String>>();
+			
+			ResultSetMetaData rsmd = (ResultSetMetaData) result.getMetaData();
+			
+			while(result.next()) {
+				Vector<Vector<String>> vector = new Vector<Vector<String>>();
+				columnas.addElement(getNextRow(result,rsmd));
+				
+				}
+			
+			
+			}catch (ClassNotFoundException e){
+				System.out.println("No ha podidi cargar el drive");
+				e.printStackTrace();
+			} catch (SQLException e) {
+				System.out.println("No ha podido cargar a la base de datos");
+				e.printStackTrace();
+			}
+		return rows;*/
+	
