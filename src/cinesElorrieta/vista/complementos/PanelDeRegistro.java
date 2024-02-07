@@ -21,6 +21,15 @@ public class PanelDeRegistro {
 	private JPanel panelDeRegistro;
 
 	
+	private JTextField textFieldDNIRegistro;
+	private JTextField textFieldNombreRegistro;
+	private JTextField textFieldPrimerApellidoRegistro;
+	private JTextField textFieldSegundoApellidoRegistro;
+	private JTextField textFieldContrasenyaRegistro;
+	private JTextField textFieldConfirmarContrasenyaRegistro;
+	private JTextField textFieldSexoRegistro;
+	
+	
 	public PanelDeRegistro(ArrayList<JPanel> paneles) {
 		
 		panelDeRegistro = new JPanel();
@@ -141,6 +150,7 @@ public class PanelDeRegistro {
 				GestorDeCliente.UsuarioIngresadoCorrectamente(); {
 				
 				panelDeRegistro.setVisible(false);
+	panelDeRegistro.setVisible(false);
 				
 				paneles.get(0).setVisible(false);
 				paneles.get(1).setVisible(false);
@@ -155,12 +165,9 @@ public class PanelDeRegistro {
 		btnConfirmarDeRegistro.setForeground(new Color(0, 0, 0));
 		btnConfirmarDeRegistro.setBounds(849, 577, 101, 23);
 		panelDeRegistro.add(btnConfirmarDeRegistro);
+		
 	}
 
-	/**
-	 * It returns the earlier created pannel in order to be used in the "PanelPrincipal" class.
-	 * @return
-	 */
 	public JPanel inicializarPanelDeRegistro() {
 		return panelDeRegistro;
 	}

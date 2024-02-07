@@ -17,6 +17,9 @@ public class PanelDePeliculas {
 	/**
 	 * Launch the application.
 	 */
+
+	
+
 	public PanelDePeliculas(ArrayList<JPanel> paneles) {
 
 		panelDePeliculas = new JPanel();
@@ -62,13 +65,11 @@ public class PanelDePeliculas {
 		btnContinuarPanelDePeliculas.setForeground(new Color(0, 0, 0));
 		btnContinuarPanelDePeliculas.setBounds(849, 577, 101, 23);
 		panelDePeliculas.add(btnContinuarPanelDePeliculas);
+		
+		
+
 	}
-	
-	/**
-	 * It returns the earlier created pannel in order to be used in the "PanelPrincipal" class.
-	 * @return
-	 */
-	public JPanel inicializarPanelDePeliculas() {
+public JPanel inicializarPanelDePeliculas() {
 		return panelDePeliculas;
 	}
 

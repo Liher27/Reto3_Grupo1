@@ -5,18 +5,21 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class PanelDeResumen {
 
 	private JPanel panelDeResumen;
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
 
 	/**
-	 * Create the frame
-	 * @param paneles 
+	 * Launch the application.
 	 */
 	public PanelDeResumen(ArrayList<JPanel> paneles) {
 		

@@ -18,7 +18,8 @@ public class PanelPrincipal extends JFrame {
 	
 	private JFrame frame;
 	private ArrayList <JPanel> paneles = null;
-
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
@@ -72,7 +73,7 @@ public class PanelPrincipal extends JFrame {
 		PanelDeResumen.setVisible(false);
 		paneles.add(PanelDePeliculas);
 		frame.getContentPane().add(PanelDePeliculas);
-		
+
 		//4
 		PanelDeRegistro panelDeRegistro = new PanelDeRegistro(paneles);
 		JPanel PanelDeRegistro = panelDeRegistro.inicializarPanelDeRegistro();
