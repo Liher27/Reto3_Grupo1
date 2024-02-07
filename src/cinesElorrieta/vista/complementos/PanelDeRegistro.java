@@ -131,7 +131,7 @@ public class PanelDeRegistro extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				panelDeRegistro.setVisible(false);
-				
+			 
 				paneles.get(0).setVisible(true);
 				paneles.get(1).setVisible(false);
 				paneles.get(2).setVisible(false);

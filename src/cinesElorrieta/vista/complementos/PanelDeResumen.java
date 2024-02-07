@@ -19,7 +19,7 @@ public class PanelDeResumen extends JFrame {
 		setContentPane(panelDeResumen);
 		panelDeResumen.setLayout(null);
 	}
-
+	
 	public JPanel inicializarPanelDePeliculas() {
 		return panelDeResumen;
 	}
