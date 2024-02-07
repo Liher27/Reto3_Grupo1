@@ -6,9 +6,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import cinesElorrieta.logica.GestorDeCliente;
-import cinesElorrieta.vista.PanelPrincipal;
 
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,14 +16,13 @@ import java.util.ArrayList;
 
 public class PanelDeLogin {
 
-	public static JTextField fieldUsuario = null;
-	public static JPasswordField fieldContrasenna = null;
+	public JTextField fieldUsuario = null;
+	public JPasswordField fieldContrasenna = null;
 	
 	private JPanel panelDeLogin;
 
 	/**
 	 * Create the frame.
-	 * @wbp.parser.entryPoint
 	 */
 	public PanelDeLogin(ArrayList<JPanel> paneles) {
 		panelDeLogin = new JPanel();
@@ -59,16 +58,17 @@ public class PanelDeLogin {
 		JButton jButtonLoginConfirmar = new JButton("Confirmar");
 		jButtonLoginConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GestorDeCliente.comprobarLogin(); {
+				GestorDeCliente gestorDeCliente = new GestorDeCliente();
+				if (gestorDeCliente.compararLoginUsuario(fieldUsuario, fieldContrasenna) == true) {
 					panelDeLogin.setVisible(false);
 					
-					paneles.get(0).setVisible(false);
+					paneles.get(0).setVisible(true);
 					paneles.get(1).setVisible(false);
 					paneles.get(2).setVisible(false);
 					paneles.get(3).setVisible(false);
 					paneles.get(4).setVisible(false);
 					paneles.get(5).setVisible(false);
-					paneles.get(6).setVisible(true);
+					paneles.get(6).setVisible(false);
 				}
 			}
 		});
@@ -91,12 +91,14 @@ public class PanelDeLogin {
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);
 		panelDeLogin.add(jButtonLoginSalir);
 	
-		
-		
 	}
 
+	/**
+	 * It returns the earlier created pannel in order to be used in the "PanelPrincipal" class.
+	 * @return
+	 */
+	
 	public JPanel incializarPanelDeLogin() {
 		return panelDeLogin;
 	}
 }
-
