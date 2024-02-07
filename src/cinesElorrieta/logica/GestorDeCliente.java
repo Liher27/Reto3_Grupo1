@@ -1,6 +1,7 @@
 package cinesElorrieta.logica;
 
 import cinesElorrieta.vista.complementos.PanelDeLogin;
+import cinesElorrieta.bbdd.Cliente;
 import cinesElorrieta.bbdd.Reto3Utils;
 import cinesElorrieta.vista.PanelPrincipal;
 
@@ -10,6 +11,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.MessageFormat;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,13 +23,77 @@ public class GestorDeCliente {
 
 	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
-	public static boolean UsuarioIngresadoCorrectamente() {
+	public boolean UsuarioIngresadoCorrectamente(/*JTextField textFieldDNIRegistro, JTextField textFieldNombreRegistro,
+			JTextField textFieldPrimerApellidoRegistro, JTextField textFieldSegundoApellidoRegistro,
+			JTextField textFieldContrasenyaRegistro, JTextField textFieldConfirmarContrasenyaRegistro, JTextField textFieldSexoRegistro*/) {
 		
 		boolean ret = false;
+		Connection connection = null;
 		
+		// Vamos a lanzar una sentencia SQL contra la BBDD
+		Statement statement = null;
 		
+		try {
+			// El Driver que vamos a usar
+			Class.forName(Reto3Utils.DRIVER);
+			
+			// Abrimos la conexion con BBDD
+			connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+			
+			// Vamos a lanzar la sentencia...
+			statement = connection.createStatement();
+			
+			// Montamos la SQL
+			Cliente cliente = new Cliente();
+			
+			String sql = MessageFormat.format("INSERT INTO CLIENTE (DNI, NOMBRE, APELLIDO1, APELLIDO2, SEXO, CONTRASENA)"
+					+ " VALUES (''{0}'', ''{1}'', ''{2}', '{3}'', ''{4}'', ''{5}'')",
+			cliente.getDNI(),
+			cliente.getNombre(),
+			cliente.getApellido1(),
+			cliente.getApellido2(),
+			cliente.getSexo(),
+			cliente.getContrasena());
+			System.out.println(sql);
+			// La ejecutamos...
+			statement.executeUpdate(sql);
+		
+			} catch (SQLException sqle) {  
+				System.out.println("Error con la BBDD - " + sqle.getMessage());
+		} catch(Exception e){
+			System.out.println("Error generico - " + e.getMessage());
+		} finally {
+		// Cerramos al reves de como las abrimos
+		try {
+			if (statement != null)
+				statement.close();
+		} catch(Exception e){
+		// No hace falta
+		};
+		try {
+		if (connection != null)
+		connection.close();
+		} catch(Exception e){
+		// No hace falta
+		};}
 		return ret;
 		
+		//GestorDeCliente gestorprueba = new GestorDeCliente();
+		
+		// Nuevo alumno a insertar...
+//		Cliente cliente = new Cliente();
+//		cliente.setDNI();
+//		cliente.setNombre();
+//		cliente.setApellido1();
+//		cliente.setApellido2();
+//		cliente.setSexo();
+//		cliente.setContrasena();
+//		
+//		gestorprueba.insertarCliente(cliente);
+//		
+//		}
+//		return ret;
+//		
 	}
 	
 	

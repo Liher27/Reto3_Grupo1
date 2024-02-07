@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 
 import cinesElorrieta.logica.GestorDeCliente;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -144,11 +146,12 @@ public class PanelDeRegistro {
 		panelDeRegistro.add(btnCancelarPanelDeRegistro);
 		
 		JButton btnConfirmarDeRegistro = new JButton("Confirmar");
-		btnConfirmarDeRegistro.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnConfirmarDeRegistro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				GestorDeCliente gestorDeCliente = new GestorDeCliente();
-				if (GestorDeCliente.UsuarioIngresadoCorrectamente(JTextField textFieldDNIRegistro, ) == true); {
+				if (gestorDeCliente.UsuarioIngresadoCorrectamente(/*JTextField textFieldDNIRegistro, JTextField textFieldNombreRegistro,
+						JTextField textFieldPrimerApellidoRegistro, JTextField textFieldSegundoApellidoRegistro,
+						JTextField textFieldContrasenyaRegistro, JTextField textFieldConfirmarContrasenyaRegistro, JTextField textFieldSexoRegistro*/) == true); {
 				panelDeRegistro.setVisible(false);
 				
 				paneles.get(0).setVisible(false);
