@@ -23,7 +23,6 @@ public class PanelDeLogin {
 
 	/**
 	 * Create the frame.
-	 * @wbp.parser.entryPoint
 	 */
 	public PanelDeLogin(ArrayList<JPanel> paneles) {
 		panelDeLogin = new JPanel();
@@ -82,6 +81,11 @@ public class PanelDeLogin {
 		
 	}
 
+	/**
+	 * It returns the earlier created pannel in order to be used in the "PanelPrincipal" class.
+	 * @return
+	 */
+	
 	public JPanel incializarPanelDeLogin() {
 		return panelDeLogin;
 	}

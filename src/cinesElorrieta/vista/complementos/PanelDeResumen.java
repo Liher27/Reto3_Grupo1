@@ -1,42 +1,27 @@
 package cinesElorrieta.vista.complementos;
 
-import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 public class PanelDeResumen extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	private JPanel panelDeResumen;
 
 	/**
-	 * Launch the application.
+	 * Create the frame
+	 * @param paneles 
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PanelDeResumen frame = new PanelDeResumen();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public PanelDeResumen(ArrayList<JPanel> paneles) {
+		panelDeResumen = new JPanel();
+		setContentPane(panelDeResumen);
+		panelDeResumen.setLayout(null);
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public PanelDeResumen() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
+	public JPanel inicializarPanelDePeliculas() {
+		return panelDeResumen;
 	}
 
 }

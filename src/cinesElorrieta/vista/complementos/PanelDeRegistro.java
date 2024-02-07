@@ -30,7 +30,6 @@ public class PanelDeRegistro extends JFrame {
 	private JTextField textFieldConfirmarContrasenyaRegistro;
 	private JTextField textFieldSexoRegistro;
 	
-	
 	public PanelDeRegistro(ArrayList<JPanel> paneles) {
 		
 		panelDeRegistro = new JPanel();
@@ -146,7 +145,7 @@ public class PanelDeRegistro extends JFrame {
 		btnConfirmarDeRegistro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-	panelDeRegistro.setVisible(false);
+				panelDeRegistro.setVisible(false);
 				
 				paneles.get(0).setVisible(false);
 				paneles.get(1).setVisible(false);
@@ -156,9 +155,12 @@ public class PanelDeRegistro extends JFrame {
 		btnConfirmarDeRegistro.setForeground(new Color(0, 0, 0));
 		btnConfirmarDeRegistro.setBounds(849, 577, 101, 23);
 		panelDeRegistro.add(btnConfirmarDeRegistro);
-		
 	}
 
+	/**
+	 * It returns the earlier created pannel in order to be used in the "PanelPrincipal" class.
+	 * @return
+	 */
 	public JPanel inicializarPanelDeRegistro() {
 		return panelDeRegistro;
 	}

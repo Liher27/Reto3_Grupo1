@@ -51,6 +51,10 @@ public class PanelDeBienvenida {
 		panelDeBienvenida.add(lblLogoCineElorrieta);
 	}
 	
+	/**
+	 * It returns the earlier created pannel in order to be used in the "PanelPrincipal" class.
+	 * @return
+	 */
 	public JPanel inicializarPanelDeBienvenida() {
 		return panelDeBienvenida;
 	}}

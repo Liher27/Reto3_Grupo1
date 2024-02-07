@@ -6,6 +6,7 @@ import cinesElorrieta.vista.complementos.PanelDeCines;
 import cinesElorrieta.vista.complementos.PanelDeSesion;
 import cinesElorrieta.vista.complementos.PanelDePeliculas;
 import cinesElorrieta.vista.complementos.PanelDeRegistro;
+import cinesElorrieta.vista.complementos.PanelDeResumen;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class PanelPrincipal extends JFrame {
 	private PanelDeCines panelDeCines;
 	private PanelDeSesion panelDeEntradas;
 	private PanelDePeliculas panelDePeliculas;
+	private PanelDeResumen panelDeResumen;
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -93,10 +95,12 @@ public class PanelPrincipal extends JFrame {
 		paneles.add(PanelDePeliculas);
 		frame.getContentPane().add(PanelDePeliculas);
 		
-		
+		PanelDeResumen panelDeResumen = new PanelDeResumen(paneles);
+		JPanel PanelDeResumen = panelDeResumen.inicializarPanelDePeliculas();
+		panelDeResumen.setVisible(false);
 
-		
-	
+		paneles.add(PanelDePeliculas);
+		frame.getContentPane().add(PanelDePeliculas);
 		
 	}
 	
