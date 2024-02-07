@@ -49,7 +49,7 @@ public class PanelDeResumen {
 			}
 		});
 		btnVolverPanelDeResumen.setForeground(new Color(0, 0, 0));
-		btnVolverPanelDeResumen.setBounds(35, 577, 89, 23);
+		btnVolverPanelDeResumen.setBounds(100, 556, 98, 33);
 		panelDeResumen.add(btnVolverPanelDeResumen);
 		
 		JButton btnIrARegistroPanelDeResumen = new JButton("Resumen");
@@ -66,7 +66,7 @@ public class PanelDeResumen {
 			}
 		});
 		btnIrARegistroPanelDeResumen.setForeground(new Color(0, 0, 0));
-		btnIrARegistroPanelDeResumen.setBounds(849, 577, 101, 23);
+		btnIrARegistroPanelDeResumen.setBounds(800, 556, 98, 33);
 		panelDeResumen.add(btnIrARegistroPanelDeResumen);
 		
 		JLabel lblLogoCineElorrieta = new JLabel("");

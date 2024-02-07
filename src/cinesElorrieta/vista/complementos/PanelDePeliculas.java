@@ -47,7 +47,7 @@ public class PanelDePeliculas {
 			}
 		});
 		btnVolverPanelDePeliculas.setForeground(new Color(0, 0, 0));
-		btnVolverPanelDePeliculas.setBounds(35, 577, 89, 23);
+		btnVolverPanelDePeliculas.setBounds(100, 556, 98, 33);
 		panelDePeliculas.add(btnVolverPanelDePeliculas);
 
 		JButton btnContinuarPanelDePeliculas = new JButton("Continuar");
@@ -57,9 +57,7 @@ public class PanelDePeliculas {
 
 				JFrame jFrame = new JFrame();
 				int result = JOptionPane.showConfirmDialog(jFrame, "¿Tienes una cuenta creada?");
-
 				if (result == 0) {
-					System.out.println("Si");
 					panelDePeliculas.setVisible(false);
 					paneles.get(0).setVisible(false);
 					paneles.get(1).setVisible(false);
@@ -67,33 +65,23 @@ public class PanelDePeliculas {
 					paneles.get(3).setVisible(false);
 					paneles.get(4).setVisible(false);
 					paneles.get(5).setVisible(true);
-				}
-
-				else if (result == 1) {
-					System.out.println("No");
+				} else if (result == 1) {
 					panelDePeliculas.setVisible(false);
 					paneles.get(0).setVisible(false);
 					paneles.get(1).setVisible(false);
 					paneles.get(2).setVisible(false);
 					paneles.get(3).setVisible(false);
 					paneles.get(4).setVisible(true);
-					;
-				}
-
-				else {
-
-					System.out.println("Cancelar");
+				} else {
 					panelDePeliculas.setVisible(false);
 					paneles.get(0).setVisible(false);
 					paneles.get(1).setVisible(false);
 					paneles.get(2).setVisible(true);
-
 				}
-
 			}
 		});
 		btnContinuarPanelDePeliculas.setForeground(new Color(0, 0, 0));
-		btnContinuarPanelDePeliculas.setBounds(849, 577, 101, 23);
+		btnContinuarPanelDePeliculas.setBounds(800, 556, 98, 33);
 		panelDePeliculas.add(btnContinuarPanelDePeliculas);
 
 		JLabel lblLogoCineElorrieta = new JLabel("");

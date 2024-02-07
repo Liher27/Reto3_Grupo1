@@ -20,7 +20,12 @@ public class GestorDeCliente {
 
 	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
-	public static void UsuarioIngresadoCorrectamente() {
+	public static boolean UsuarioIngresadoCorrectamente() {
+		
+		boolean ret = false;
+		
+		
+		return ret;
 		
 	}
 	

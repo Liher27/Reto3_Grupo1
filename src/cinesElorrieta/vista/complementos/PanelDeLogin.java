@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.awt.Color;
 
 public class PanelDeLogin {
 
@@ -28,20 +29,26 @@ public class PanelDeLogin {
 	 */
 	public PanelDeLogin(ArrayList<JPanel> paneles) {
 		panelDeLogin = new JPanel();
+		panelDeLogin.setBackground(new Color(42, 26, 29));
 		panelDeLogin.setBounds(0, 0, 984, 611);
 		panelDeLogin.setLayout(null);
 
 		JLabel tituloLogIn = new JLabel("Iniciar sesión");
-		tituloLogIn.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		tituloLogIn.setBounds(470, 90, 146, 32);
+		tituloLogIn.setHorizontalAlignment(SwingConstants.CENTER);
+		tituloLogIn.setForeground(new Color(253, 185, 74));
+		tituloLogIn.setForeground(new Color(253, 185, 74));
+		tituloLogIn.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
+		tituloLogIn.setBounds(328, 32, 337, 64);
 		panelDeLogin.add(tituloLogIn);
 
 		JLabel labelUsuario = new JLabel("Usuario");
+		labelUsuario.setForeground(new Color(253, 185, 74));
 		labelUsuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		labelUsuario.setBounds(300, 225, 109, 14);
 		panelDeLogin.add(labelUsuario);
 
 		JLabel labelContrasena = new JLabel("Contraseña");
+		labelContrasena.setForeground(new Color(253, 185, 74));
 		labelContrasena.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		labelContrasena.setBounds(300, 373, 109, 14);
 		panelDeLogin.add(labelContrasena);

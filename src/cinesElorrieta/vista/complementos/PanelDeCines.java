@@ -55,7 +55,7 @@ public class PanelDeCines{
 				paneles.get(2).setVisible(true);
 			}
 		});
-		btnContinuarPanelDeCines.setBounds(849, 577, 101, 23);
+		btnContinuarPanelDeCines.setBounds(800, 556, 98, 33);
 		panelDeCines.add(btnContinuarPanelDeCines);
 		
 		JButton btnVolverPanelDeCines = new JButton("Volver");
@@ -69,7 +69,7 @@ public class PanelDeCines{
 				paneles.get(2).setVisible(false);
 			}
 		});
-		btnVolverPanelDeCines.setBounds(35, 577, 89, 23);
+		btnVolverPanelDeCines.setBounds(100, 556, 98, 33);
 		panelDeCines.add(btnVolverPanelDeCines);
 		
 		JLabel lblSeleccionDeCinePanelDeCines = new JLabel("Por favor, escoje uno de nuestros cines:");
