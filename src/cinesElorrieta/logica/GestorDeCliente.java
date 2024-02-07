@@ -1,6 +1,7 @@
 package cinesElorrieta.logica;
 
 import cinesElorrieta.vista.complementos.PanelDeLogin;
+import cinesElorrieta.vista.PanelPrincipal;
 import javax.swing.JOptionPane;
 
 public class GestorDeCliente {
@@ -15,38 +16,28 @@ public class GestorDeCliente {
 	private static final String PASS_USER = "Contrasenna";
 	private static final String LOGIN_ADMIN = "Admin";
 	private static final String PASS_ADMIN = "Admin";
+
+	public static void UsuarioIngresadoCorrectamente() {
+		
+	}
 	
 	
 	public static void comprobarLogin() {
 
 		if (fieldsLlenos()) {
 			if (isUser()) {
-//				cargarTablaDiaListadoGeneros(panelListadoGeneros, "Sabado");
-//				cargarTablaDiaListadoGeneros(panelListadoGeneros, "Domingo");
-//				cambiarPanel(panelListadoGeneros, panelLogin);
-//				fieldUsuario.setText("");
-//				fieldContrasenna.setText("");
-//				jButtonListadoGenerosService.setVisible(false);
 				JOptionPane.showMessageDialog(null, "Usuario y contraseña correctos", "OK!",
 						JOptionPane.INFORMATION_MESSAGE);
-				
 			} else if (isAdmin()) {
-//				cargarTablaDiaListadoGeneros(panelListadoGeneros, "Sabado");
-//				cargarTablaDiaListadoGeneros(panelListadoGeneros, "Domingo");
-//				cambiarPanel(panelListadoGeneros, panelLogin);
-//				jButtonListadoGenerosService.setVisible(true);
-//				fieldUsuario.setText("");
-//				fieldContrasenna.setText("");
 				JOptionPane.showMessageDialog(null, "Que dice el admin", "OK!",
 						JOptionPane.INFORMATION_MESSAGE);
-				
 			} else {
 				JOptionPane.showMessageDialog(null, "Error, usuario o contraseña incorrecta.", "Error",
 						JOptionPane.ERROR_MESSAGE);
 				PanelDeLogin.fieldUsuario.setText("");
 				PanelDeLogin.fieldContrasenna.setText("");
 			}
-		} else {
+			} else {
 			JOptionPane.showMessageDialog(null, "Error, no se ha introducido usuario o contraseña.", "Error",
 					JOptionPane.ERROR_MESSAGE);
 			PanelDeLogin.fieldUsuario.setText("");

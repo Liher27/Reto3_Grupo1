@@ -1,34 +1,25 @@
 package cinesElorrieta.vista.complementos;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
+
+import cinesElorrieta.logica.GestorDeCliente;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PanelDeRegistro extends JFrame {
+public class PanelDeRegistro {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel panelDeRegistro;
 
-	
-	private JTextField textFieldDNIRegistro;
-	private JTextField textFieldNombreRegistro;
-	private JTextField textFieldPrimerApellidoRegistro;
-	private JTextField textFieldSegundoApellidoRegistro;
-	private JTextField textFieldContrasenyaRegistro;
-	private JTextField textFieldConfirmarContrasenyaRegistro;
-	private JTextField textFieldSexoRegistro;
 	
 	public PanelDeRegistro(ArrayList<JPanel> paneles) {
 		
@@ -70,7 +61,7 @@ public class PanelDeRegistro extends JFrame {
 		JLabel lblConfirmarContrasenyaRegistro = new JLabel("Confirmar contraseña");
 		lblConfirmarContrasenyaRegistro.setForeground(new Color(253, 185, 74));
 		lblConfirmarContrasenyaRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblConfirmarContrasenyaRegistro.setBounds(596, 5, 209, 27);
+		lblConfirmarContrasenyaRegistro.setBounds(192, 484, 209, 27);
 		panelDeRegistro.add(lblConfirmarContrasenyaRegistro);
 		
 		JLabel lblSexoRegistro = new JLabel("Sexo");
@@ -79,37 +70,37 @@ public class PanelDeRegistro extends JFrame {
 		lblSexoRegistro.setBounds(192, 550, 230, 32);
 		panelDeRegistro.add(lblSexoRegistro);
 		
-		textFieldDNIRegistro = new JTextField();
+		JTextField textFieldDNIRegistro = new JTextField();
 		textFieldDNIRegistro.setBounds(513, 146, 176, 20);
 		panelDeRegistro.add(textFieldDNIRegistro);
 		textFieldDNIRegistro.setColumns(10);
 		
-		textFieldNombreRegistro = new JTextField();
+		JTextField textFieldNombreRegistro = new JTextField();
 		textFieldNombreRegistro.setBounds(513, 208, 176, 20);
 		panelDeRegistro.add(textFieldNombreRegistro);
 		textFieldNombreRegistro.setColumns(10);
 		
-		textFieldPrimerApellidoRegistro = new JTextField();
+		JTextField textFieldPrimerApellidoRegistro = new JTextField();
 		textFieldPrimerApellidoRegistro.setBounds(513, 281, 176, 20);
 		panelDeRegistro.add(textFieldPrimerApellidoRegistro);
 		textFieldPrimerApellidoRegistro.setColumns(10);
 		
-		textFieldSegundoApellidoRegistro = new JTextField();
-		textFieldSegundoApellidoRegistro.setBounds(513, 351, 176, 20);
+		JTextField textFieldSegundoApellidoRegistro = new JTextField();
+		textFieldSegundoApellidoRegistro.setBounds(513, 420, 176, 20);
 		panelDeRegistro.add(textFieldSegundoApellidoRegistro);
 		textFieldSegundoApellidoRegistro.setColumns(10);
 		
-		textFieldContrasenyaRegistro = new JTextField();
+		JTextField textFieldContrasenyaRegistro = new JTextField();
 		textFieldContrasenyaRegistro.setBounds(513, 351, 176, 20);
 		panelDeRegistro.add(textFieldContrasenyaRegistro);
 		textFieldContrasenyaRegistro.setColumns(10);
 		
-		textFieldConfirmarContrasenyaRegistro = new JTextField();
-		textFieldConfirmarContrasenyaRegistro.setBounds(513, 420, 176, 20);
+		JTextField textFieldConfirmarContrasenyaRegistro = new JTextField();
+		textFieldConfirmarContrasenyaRegistro.setBounds(513, 492, 176, 20);
 		panelDeRegistro.add(textFieldConfirmarContrasenyaRegistro);
 		textFieldConfirmarContrasenyaRegistro.setColumns(10);
 		
-		textFieldSexoRegistro = new JTextField();
+		JTextField textFieldSexoRegistro = new JTextField();
 		textFieldSexoRegistro.setBounds(513, 561, 176, 20);
 		panelDeRegistro.add(textFieldSexoRegistro);
 		textFieldSexoRegistro.setColumns(10);
@@ -135,21 +126,30 @@ public class PanelDeRegistro extends JFrame {
 				paneles.get(0).setVisible(true);
 				paneles.get(1).setVisible(false);
 				paneles.get(2).setVisible(false);
+				paneles.get(3).setVisible(false);
+				paneles.get(4).setVisible(false);
 			}
 		});
 		btnCancelarPanelDeRegistro.setForeground(new Color(0, 0, 0));
 		btnCancelarPanelDeRegistro.setBounds(35, 577, 89, 23);
 		panelDeRegistro.add(btnCancelarPanelDeRegistro);
 		
-		JButton btnConfirmarDeRegistro = new JButton("login");
+		JButton btnConfirmarDeRegistro = new JButton("Confirmar");
 		btnConfirmarDeRegistro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				GestorDeCliente.UsuarioIngresadoCorrectamente(); {
+				
 				panelDeRegistro.setVisible(false);
 				
 				paneles.get(0).setVisible(false);
 				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(true);
+				paneles.get(2).setVisible(false);
+				paneles.get(3).setVisible(false);
+				paneles.get(4).setVisible(false);
+				paneles.get(5).setVisible(true);
+				}
+				
 			}
 		});
 		btnConfirmarDeRegistro.setForeground(new Color(0, 0, 0));

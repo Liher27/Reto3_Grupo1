@@ -20,8 +20,12 @@ public class Pelicula implements Serializable {
 	/**
 	 * Constructor base  prueba
 	 */
-	
-	
+//	package cinesElorrieta.bbdd;
+//
+//	public enum Genero {
+//		FICCION, DRAMA, COMEDIA, ACCION
+//	}
+
 	public Pelicula() {
 
 	}

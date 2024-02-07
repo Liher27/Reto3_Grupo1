@@ -58,7 +58,17 @@ public class PanelDeLogin {
 		JButton jButtonLoginConfirmar = new JButton("Confirmar");
 		jButtonLoginConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GestorDeCliente.comprobarLogin();
+				GestorDeCliente.comprobarLogin(); {
+					panelDeLogin.setVisible(false);
+					
+					paneles.get(0).setVisible(false);
+					paneles.get(1).setVisible(false);
+					paneles.get(2).setVisible(false);
+					paneles.get(3).setVisible(false);
+					paneles.get(4).setVisible(false);
+					paneles.get(5).setVisible(false);
+					paneles.get(6).setVisible(true);
+				}
 			}
 		});
 		jButtonLoginConfirmar.setBounds(800, 556, 98, 33);
@@ -72,6 +82,9 @@ public class PanelDeLogin {
 				paneles.get(0).setVisible(true);
 				paneles.get(1).setVisible(false);
 				paneles.get(2).setVisible(false);
+				paneles.get(3).setVisible(false);
+				paneles.get(4).setVisible(false);
+				paneles.get(5).setVisible(false);
 			}
 		});
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);
