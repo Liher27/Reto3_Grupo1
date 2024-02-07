@@ -150,7 +150,7 @@ public class PanelDeRegistro {
 				GestorDeCliente.UsuarioIngresadoCorrectamente(); {
 				
 				panelDeRegistro.setVisible(false);
-	panelDeRegistro.setVisible(false);
+				panelDeRegistro.setVisible(false);
 				
 				paneles.get(0).setVisible(false);
 				paneles.get(1).setVisible(false);
