@@ -1,9 +1,11 @@
 package cinesElorrieta.vista.complementos;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import cinesElorrieta.logica.GestorDeCliente;
 
@@ -90,6 +92,12 @@ public class PanelDeLogin {
 		});
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);
 		panelDeLogin.add(jButtonLoginSalir);
+		
+		JLabel lblLogoCineElorrieta = new JLabel("");
+		lblLogoCineElorrieta.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
+		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
+		panelDeLogin.add(lblLogoCineElorrieta);
 	
 	}
 

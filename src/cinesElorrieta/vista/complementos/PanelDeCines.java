@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import cinesElorrieta.logica.GestorDeCine;
 import java.awt.Color;
@@ -81,6 +83,12 @@ public class PanelDeCines{
 		lblTituloPanelDeCines.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
 		lblTituloPanelDeCines.setBounds(328, 32, 337, 64);
 		panelDeCines.add(lblTituloPanelDeCines);
+	
+		JLabel lblLogoCineElorrieta = new JLabel("");
+		lblLogoCineElorrieta.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
+		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
+		panelDeCines.add(lblLogoCineElorrieta);
 			
 	}
 	

@@ -166,6 +166,7 @@ public class PanelDeRegistro {
 		btnConfirmarDeRegistro.setBounds(849, 577, 101, 23);
 		panelDeRegistro.add(btnConfirmarDeRegistro);
 		
+		
 	}
 
 	public JPanel inicializarPanelDeRegistro() {

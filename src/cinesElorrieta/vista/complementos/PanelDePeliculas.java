@@ -6,11 +6,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class PanelDePeliculas {
 
@@ -94,6 +96,11 @@ public class PanelDePeliculas {
 		btnContinuarPanelDePeliculas.setBounds(849, 577, 101, 23);
 		panelDePeliculas.add(btnContinuarPanelDePeliculas);
 
+		JLabel lblLogoCineElorrieta = new JLabel("");
+		lblLogoCineElorrieta.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
+		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
+		panelDePeliculas.add(lblLogoCineElorrieta);
 	}
 
 	public JPanel inicializarPanelDePeliculas() {

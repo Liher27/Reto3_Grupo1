@@ -6,9 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class PanelDeCompra {
 
@@ -47,6 +49,12 @@ public class PanelDeCompra {
 		});
 		jButtonSalirPanelDeCompra.setBounds(100, 556, 98, 33);
 		panelDeCompra.add(jButtonSalirPanelDeCompra);
+		
+		JLabel lblLogoCineElorrieta = new JLabel("");
+		lblLogoCineElorrieta.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
+		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
+		panelDeCompra.add(lblLogoCineElorrieta);
 
 	}
 	

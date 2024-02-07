@@ -7,9 +7,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class PanelDeResumen {
@@ -66,6 +68,12 @@ public class PanelDeResumen {
 		btnIrARegistroPanelDeResumen.setForeground(new Color(0, 0, 0));
 		btnIrARegistroPanelDeResumen.setBounds(849, 577, 101, 23);
 		panelDeResumen.add(btnIrARegistroPanelDeResumen);
+		
+		JLabel lblLogoCineElorrieta = new JLabel("");
+		lblLogoCineElorrieta.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
+		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
+		panelDeResumen.add(lblLogoCineElorrieta);
 	}
 	
 	public JPanel inicializarPanelDePeliculas() {
