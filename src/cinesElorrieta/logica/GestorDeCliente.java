@@ -195,4 +195,50 @@ public class GestorDeCliente {
 		return ret;
 		
 	}
+	public boolean compararRegistroUsuario( JTextField textFieldDNIRegistro, JTextField textFieldNombreRegistro,
+			JTextField textFieldPrimerApellidoRegistro, JTextField textFieldSegundoApellidoRegistro,
+			JTextField textFieldContrasenyaRegistro, JTextField textFieldConfirmarContrasenyaRegistro, JTextField textFieldSexoRegistro) {
+		
+		String getInputDni = textFieldDNIRegistro.getText();
+		String getInputNombre =textFieldNombreRegistro.getText();
+		String getInputApellido =textFieldPrimerApellidoRegistro.getText();
+		String getInputSegundoApellido =textFieldSegundoApellidoRegistro.getText();
+		String getInputContrasenna =textFieldContrasenyaRegistro.getText();
+		String getInputSexo = textFieldSexoRegistro.getText();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		try {
+			conn =DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+			String sql = "INSERT INTO CLIENTE(DNI,NOMBRE,APELLIDOS,PELICULASVISTAS,SEXO,CONTRASENA) VALUES(?,?,?,?,?,?)";
+			 pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,getInputDni);
+			pstmt.setString(2, getInputNombre);
+			pstmt.setString(3,getInputApellido);
+			pstmt.setString(4,getInputSegundoApellido);
+			pstmt.setString(5,getInputSexo);
+			pstmt.setString(6, getInputContrasenna);
+			int i = pstmt.executeUpdate();
+			if (i>0) {
+				return true;
+			}
+			
+			/*if (rs.next()) {
+				JOptionPane.showMessageDialog(null,"Has iniciado correctamente");
+				ret = true;
+				}else {
+				JOptionPane.showMessageDialog(null,"Datos no encontrado en base de datos");
+				ret = false;
+			}*/
+			
+		}catch (SQLException throwables) {
+			throwables.printStackTrace();
+		}finally {
+			Reto3Utils reto3Utils = new Reto3Utils();
+			reto3Utils.release(conn, pstmt, rs);
+		}
+		return false;
+		
+	}
 }

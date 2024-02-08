@@ -97,19 +97,19 @@ public class PanelDeRegistro {
 		textFieldPrimerApellidoRegistro.setColumns(10);
 		
 		JTextField textFieldSegundoApellidoRegistro = new JTextField();
-		textFieldSegundoApellidoRegistro.setBounds(513, 420, 176, 20);
+		textFieldSegundoApellidoRegistro.setBounds(513, 351, 176, 20);
 		panelDeRegistro.add(textFieldSegundoApellidoRegistro);
 		textFieldSegundoApellidoRegistro.setColumns(10);
 		
 		JTextField textFieldContrasenyaRegistro = new JTextField();
-		textFieldContrasenyaRegistro.setBounds(513, 351, 176, 20);
+		textFieldContrasenyaRegistro.setBounds(513, 420, 176, 20);
 		panelDeRegistro.add(textFieldContrasenyaRegistro);
 		textFieldContrasenyaRegistro.setColumns(10);
 		
-		JTextField textFieldConfirmarContrasenyaRegistro = new JTextField();
+		/*JTextField textFieldConfirmarContrasenyaRegistro = new JTextField();
 		textFieldConfirmarContrasenyaRegistro.setBounds(513, 492, 176, 20);
 		panelDeRegistro.add(textFieldConfirmarContrasenyaRegistro);
-		textFieldConfirmarContrasenyaRegistro.setColumns(10);
+		textFieldConfirmarContrasenyaRegistro.setColumns(10);*/
 		
 		JTextField textFieldSexoRegistro = new JTextField();
 		textFieldSexoRegistro.setBounds(513, 561, 176, 20);
@@ -149,18 +149,7 @@ public class PanelDeRegistro {
 		btnConfirmarDeRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GestorDeCliente gestorDeCliente = new GestorDeCliente();
-				if (gestorDeCliente.UsuarioIngresadoCorrectamente(/*JTextField textFieldDNIRegistro, JTextField textFieldNombreRegistro,
-						JTextField textFieldPrimerApellidoRegistro, JTextField textFieldSegundoApellidoRegistro,
-						JTextField textFieldContrasenyaRegistro, JTextField textFieldConfirmarContrasenyaRegistro, JTextField textFieldSexoRegistro*/) == true); {
-				panelDeRegistro.setVisible(false);
-				
-				paneles.get(0).setVisible(false);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(false);
-				paneles.get(4).setVisible(false);
-				paneles.get(5).setVisible(true);
-				}
+				gestorDeCliente.compararRegistroUsuario(textFieldDNIRegistro, textFieldNombreRegistro, textFieldPrimerApellidoRegistro, textFieldSegundoApellidoRegistro, textFieldContrasenyaRegistro, textFieldConfirmarContrasenyaRegistro, textFieldSexoRegistro);
 				
 			}
 		});

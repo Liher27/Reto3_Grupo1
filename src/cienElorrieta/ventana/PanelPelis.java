@@ -22,7 +22,7 @@ public class PanelPelis extends JPanel {
 		
 		
 		GestorDePeliculas gestocine = new GestorDePeliculas();
-		List<String> pelis = gestocine.getLasPeliculas();
+		List<String> pelis = gestocine.getLasPeliculas(null, table);
 		
 		 DefaultTableModel model = new DefaultTableModel();
 		 model.addColumn("CodPelicula");
