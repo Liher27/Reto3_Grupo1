@@ -16,8 +16,6 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import cinesElorrieta.logica.GestorDePeliculas;
-
 public class PanelDePeliculas {
 
 	private JPanel panelDePeliculas;
@@ -39,14 +37,13 @@ public class PanelDePeliculas {
 		tituloPanelDeRegistro.setBounds(328, 32, 337, 64);
 		panelDePeliculas.add(tituloPanelDeRegistro);
 		
-		GestorDePeliculas gestorPelicula = new GestorDePeliculas();
 		DefaultTableModel modelo = new DefaultTableModel();
 		
 		JTable tablaDePeliculas = new JTable(modelo);
 		 tablaDePeliculas.setBounds(235, 127, 512, 195);
 		panelDePeliculas.add(tablaDePeliculas);
 		
-		modelo.addRow();
+
 		JButton btnVolverPanelDePeliculas = new JButton("Volver");
 		btnVolverPanelDePeliculas.addMouseListener(new MouseAdapter() {
 			@Override

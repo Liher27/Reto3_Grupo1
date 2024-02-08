@@ -87,7 +87,7 @@ public class GestorDePeliculas {
 			String sql = "SELECT * FROM PELICULA";
 			
 			ResultSet result = statement.executeQuery(sql);
-			
+			//wdad
 			while(result.next()) {
 				modelo.addRow(new Object[ ] {
 						result.getInt("ID"),
