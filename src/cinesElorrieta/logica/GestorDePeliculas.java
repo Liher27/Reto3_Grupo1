@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
@@ -71,9 +73,10 @@ public class GestorDePeliculas {
 		}
 		
 	}
-	public List<String> getLasPeliculas() {
+	public List<String> getLasPeliculas(DefaultTableModel modelo, JTable tablaDePeliculas ) {
 		List<String> pelis = new ArrayList<String>();
-		
+		modelo =(DefaultTableModel) tablaDePeliculas.getModel();
+		modelo.setRowCount(0);
 		try {
 			Class.forName(Reto3Utils.DRIVER);
 			
@@ -86,8 +89,14 @@ public class GestorDePeliculas {
 			ResultSet result = statement.executeQuery(sql);
 			
 			while(result.next()) {
-				pelis.add(result.getString("CODPELICULA,NOMBRE,GENERO,DURACION,PRECIO"));
-			}
+				modelo.addRow(new Object[ ] {
+						result.getInt("ID"),
+						result.getString("NOMBRE"),
+						result.getString("APELLIDO"),
+			            result.getInt("EDAD")
+				
+			});
+		}
 		} catch (ClassNotFoundException e) {
 			System.out.println("Ha dado fallo -> " + e.getMessage());
 		} catch (SQLException e) {
