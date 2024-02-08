@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,9 +14,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
+
+import cinesElorrieta.bbdd.Pelicula;
+import cinesElorrieta.logica.GestorDePeliculas;
 
 public class PanelDePeliculas {
 
@@ -37,13 +43,30 @@ public class PanelDePeliculas {
 		tituloPanelDeRegistro.setBounds(328, 32, 337, 64);
 		panelDePeliculas.add(tituloPanelDeRegistro);
 		
-		DefaultTableModel modelo = new DefaultTableModel();
+		GestorDePeliculas gestorDePeliculas = new GestorDePeliculas();
 		
+		List<Pelicula> pelis = gestorDePeliculas.getLasPeliculas();
+		
+		String [] index={"CodPelicula","Nombre","Genero","Duracion","Precio"};
+		Object[][] data = new Object[pelis.size()][index.length];
+		for (int i=0; i < pelis.size();i++) {
+			Pelicula pelicula = pelis.get(i);
+			data[i][0] = pelicula.getCodPelicula();
+			data[i][1] = pelicula.getNombre();
+			data[i][2] = pelicula.getGenero();
+			data[i][3] = pelicula.getDuracion();
+			data[i][4] = pelicula.getPrecio();
+		}
+		 DefaultTableModel modelo = new DefaultTableModel(data, index);
 		JTable tablaDePeliculas = new JTable(modelo);
 		 tablaDePeliculas.setBounds(235, 127, 512, 195);
 		panelDePeliculas.add(tablaDePeliculas);
 		
-
+		JScrollPane peliculaPane = new JScrollPane();
+		panelDePeliculas.add(peliculaPane);
+		peliculaPane.setViewportView(tablaDePeliculas);
+		
+        
 		JButton btnVolverPanelDePeliculas = new JButton("Volver");
 		btnVolverPanelDePeliculas.addMouseListener(new MouseAdapter() {
 			@Override
@@ -103,5 +126,4 @@ public class PanelDePeliculas {
 	public JPanel inicializarPanelDePeliculas() {
 		return panelDePeliculas;
 	}
-
 }

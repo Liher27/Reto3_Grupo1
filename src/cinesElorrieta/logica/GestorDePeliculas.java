@@ -73,10 +73,9 @@ public class GestorDePeliculas {
 		}
 		
 	}
-	public List<String> getLasPeliculas(DefaultTableModel modelo, JTable tablaDePeliculas ) {
-		List<String> pelis = new ArrayList<String>();
-		modelo =(DefaultTableModel) tablaDePeliculas.getModel();
-		modelo.setRowCount(0);
+	public List<Pelicula> getLasPeliculas( ) {
+		List<Pelicula> pelis = new ArrayList<Pelicula>();
+		
 		try {
 			Class.forName(Reto3Utils.DRIVER);
 			
@@ -89,13 +88,16 @@ public class GestorDePeliculas {
 			ResultSet result = statement.executeQuery(sql);
 			//wdad
 			while(result.next()) {
-				modelo.addRow(new Object[ ] {
-						result.getInt("ID"),
-						result.getString("NOMBRE"),
-						result.getString("APELLIDO"),
-			            result.getInt("EDAD")
+				Pelicula pelicula = new Pelicula();
+				pelicula.setCodPelicula(result.getInt("CODPELICULA"));
+				pelicula.setNombre(result.getString("NOMBRE"));
+				pelicula.setGenero(result.getString("GENERO"));
+				pelicula.setDuracion(result.getInt("DURACION"));
+				pelicula.setPrecio(result.getFloat("PRECIO"));
 				
-			});
+				pelis.add(pelicula);
+				
+			
 		}
 		} catch (ClassNotFoundException e) {
 			System.out.println("Ha dado fallo -> " + e.getMessage());

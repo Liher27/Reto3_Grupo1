@@ -5,6 +5,7 @@ import cinesElorrieta.bbdd.Cliente;
 import cinesElorrieta.bbdd.Reto3Utils;
 import cinesElorrieta.vista.PanelPrincipal;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -197,7 +198,7 @@ public class GestorDeCliente {
 	}
 	public boolean compararRegistroUsuario( JTextField textFieldDNIRegistro, JTextField textFieldNombreRegistro,
 			JTextField textFieldPrimerApellidoRegistro, JTextField textFieldSegundoApellidoRegistro,
-			JTextField textFieldContrasenyaRegistro, JTextField textFieldConfirmarContrasenyaRegistro, JTextField textFieldSexoRegistro) {
+			JTextField textFieldContrasenyaRegistro, JTextField textFieldConfirmarContrasenyaRegistro, JTextField textFieldSexoRegistro) throws HeadlessException {
 		
 		String getInputDni = textFieldDNIRegistro.getText();
 		String getInputNombre =textFieldNombreRegistro.getText();
@@ -224,12 +225,12 @@ public class GestorDeCliente {
 				return true;
 			}
 			
-			/*if (rs.next()) {
+			/*if (JTextField.getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null,"Has iniciado correctamente");
-				ret = true;
+				
 				}else {
 				JOptionPane.showMessageDialog(null,"Datos no encontrado en base de datos");
-				ret = false;
+				
 			}*/
 			
 		}catch (SQLException throwables) {
