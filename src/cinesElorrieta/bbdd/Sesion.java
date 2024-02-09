@@ -14,7 +14,7 @@ public class Sesion implements Serializable  {
 	private String Fecha;
 	private int hora;
 	private int CodSala;
-	private int PrecioSesion;
+	private float PrecioSesion;
 	private int CodPelicula;
 	@Override
 	public String toString() {
@@ -61,10 +61,10 @@ public class Sesion implements Serializable  {
 	public void setCodSala(int codSala) {
 		CodSala = codSala;
 	}
-	public int getPrecioSesion() {
+	public float getPrecioSesion() {
 		return PrecioSesion;
 	}
-	public void setPrecioSesion(int precioSesion) {
+	public void setPrecioSesion(float precioSesion) {
 		PrecioSesion = precioSesion;
 	}
 	public int getCodPelicula() {

@@ -1,8 +1,11 @@
 package cinesElorrieta.logica;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import cinesElorrieta.bbdd.Cine;
+import cinesElorrieta.bbdd.Pelicula;
 import cinesElorrieta.bbdd.Reto3Utils;
 import cinesElorrieta.bbdd.Sesion;
 
@@ -57,6 +60,43 @@ public class GestorDeSesion {
 				// No hace falta
 			};					
 		}
+		
+	}
+
+	public List<Sesion> getLaSesion( ) {
+		List<Sesion> sesion = new ArrayList<Sesion>();
+		
+		try {
+			Class.forName(Reto3Utils.DRIVER);
+			
+			Connection connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+			
+			Statement statement = connection.createStatement();
+			
+			String sql = "SELECT * FROM SESION";
+			
+			ResultSet result = statement.executeQuery(sql);
+			//wdad
+			while(result.next()) {
+				Sesion sesiones = new Sesion();
+				sesiones.setCodSesion(result.getInt("CODSESION"));
+				sesiones.setFecha(result.getString("FECHA"));
+				sesiones.setHora(result.getInt("HORA"));
+				sesiones.setCodSala(result.getInt("CODSALA"));
+				sesiones.setPrecioSesion(result.getFloat("PRECIO"));
+				
+				sesion.add(sesiones);
+				
+			
+		}
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Ha dado fallo -> " + e.getMessage());
+		} catch (SQLException e) {
+			System.out.println("Malformacion sqlazo -> " + e.getMessage());
+		}
+		
+		return sesion;
 		
 	}
 }
