@@ -99,7 +99,7 @@ public class GestorDeSesion {
 		return sesion;
 		
 	}
-	
+
 	public List<Sesion>getSesionesDelaPelicula() {
 		List<Sesion> sesiones = new ArrayList<Sesion>();
 		

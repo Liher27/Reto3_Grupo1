@@ -86,7 +86,7 @@ public class PanelDeSesion {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-		
+		//wawdaww
 				panelDeSesion.setVisible(false);
 				paneles.get(0).setVisible(false);
 				paneles.get(1).setVisible(true);
