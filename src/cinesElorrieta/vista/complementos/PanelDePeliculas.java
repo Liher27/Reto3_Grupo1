@@ -57,14 +57,15 @@ public class PanelDePeliculas {
 			data[i][3] = pelicula.getDuracion();
 			data[i][4] = pelicula.getPrecio();
 		}
-		 DefaultTableModel modelo = new DefaultTableModel(data, index);
-		JTable tablaDePeliculas = new JTable(modelo);
-		 tablaDePeliculas.setBounds(235, 127, 512, 195);
-		panelDePeliculas.add(tablaDePeliculas);
+		JScrollPane peliculaScroll = new JScrollPane();
+		peliculaScroll.setBounds(235, 127, 512, 195);
+		panelDePeliculas.add(peliculaScroll);
 		
-		JScrollPane peliculaPane = new JScrollPane();
-		panelDePeliculas.add(peliculaPane);
-		peliculaPane.setViewportView(tablaDePeliculas);
+		 DefaultTableModel modelo = new DefaultTableModel(data, index);
+		 JTable tablaDePeliculas = new JTable(modelo);
+		 tablaDePeliculas.setBounds(235, 127, 512, 195);
+		
+		 peliculaScroll.setViewportView(tablaDePeliculas);
 		
         
 		JButton btnVolverPanelDePeliculas = new JButton("Volver");

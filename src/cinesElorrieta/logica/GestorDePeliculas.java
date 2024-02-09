@@ -99,6 +99,7 @@ public class GestorDePeliculas {
 				
 			
 		}
+			
 		} catch (ClassNotFoundException e) {
 			System.out.println("Ha dado fallo -> " + e.getMessage());
 		} catch (SQLException e) {
