@@ -2,6 +2,8 @@
 package cinesElorrieta.bbdd;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.Objects;
 
 public class Sesion implements Serializable  {
@@ -11,8 +13,8 @@ public class Sesion implements Serializable  {
 	 */
 	private static final long serialVersionUID = -4810240199663471824L;
 	private int CodSesion;
-	private String Fecha;
-	private int hora;
+	private Date Fecha;
+	private Time hora;
 	private int CodSala;
 	private float PrecioSesion;
 	private int CodPelicula;
@@ -43,16 +45,16 @@ public class Sesion implements Serializable  {
 	public void setCodSesion(int codSesion) {
 		CodSesion = codSesion;
 	}
-	public String getFecha() {
+	public Date getFecha() {
 		return Fecha;
 	}
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		Fecha = fecha;
 	}
-	public int getHora() {
+	public Time getHora() {
 		return hora;
 	}
-	public void setHora(int hora) {
+	public void setHora(Time hora) {
 		this.hora = hora;
 	}
 	public int getCodSala() {
