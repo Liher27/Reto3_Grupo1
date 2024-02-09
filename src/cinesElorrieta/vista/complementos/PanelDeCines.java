@@ -89,6 +89,26 @@ public class PanelDeCines{
 		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeCines.add(lblLogoCineElorrieta);
+		
+		JLabel lblCarritoDeLaCompra = new JLabel("");
+		lblCarritoDeLaCompra.setBackground(new Color(240, 240, 240));
+		lblCarritoDeLaCompra.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		lblCarritoDeLaCompra.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+		panelDeCines.setVisible(false);
+		
+		paneles.get(0).setVisible(false);
+		paneles.get(1).setVisible(false);
+		paneles.get(2).setVisible(false);
+		paneles.get(3).setVisible(true);
+			}
+	});
+		panelDeCines.setLayout(null);
+		lblCarritoDeLaCompra.setIcon(new ImageIcon("src/CarritoDeCompra.png"));
+		panelDeCines.add(lblCarritoDeLaCompra);
+		lblCarritoDeLaCompra.setBounds(851, 33, 90, 90);
+		panelDeCines.add(lblCarritoDeLaCompra);
 			
 	}
 	

@@ -3,10 +3,10 @@ package cinesElorrieta.vista;
 import cinesElorrieta.vista.complementos.PanelDeBienvenida;
 import cinesElorrieta.vista.complementos.PanelDeLogin;
 import cinesElorrieta.vista.complementos.PanelDeCines;
-import cinesElorrieta.vista.complementos.PanelDeCompra;
 import cinesElorrieta.vista.complementos.PanelDePeliculas;
 import cinesElorrieta.vista.complementos.PanelDeRegistro;
 import cinesElorrieta.vista.complementos.PanelDeResumen;
+import cinesElorrieta.vista.complementos.PanelDeSesion;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
@@ -68,11 +68,11 @@ public class PanelPrincipal extends JFrame {
 		frame.getContentPane().add(PanelDePeliculas);
 
 		//3
-		PanelDeResumen panelDeResumen = new PanelDeResumen(paneles);
-		JPanel PanelDeResumen = panelDeResumen.inicializarPanelDePeliculas();
-		PanelDeResumen.setVisible(false);
-		paneles.add(PanelDePeliculas);
-		frame.getContentPane().add(PanelDePeliculas);
+		PanelDeSesion panelDeSesion = new PanelDeSesion(paneles);
+		JPanel PanelDeSesion = panelDeSesion.inicializarPanelDeSesion();
+		PanelDeSesion.setVisible(true);
+		paneles.add(PanelDeSesion);
+		frame.getContentPane().add(PanelDeSesion);	
 
 		//4
 		PanelDeRegistro panelDeRegistro = new PanelDeRegistro(paneles);
@@ -90,11 +90,12 @@ public class PanelPrincipal extends JFrame {
 		frame.getContentPane().add(PanelDeLogin);
 		
 		//6
-		PanelDeCompra panelDeCompra = new PanelDeCompra(paneles);
-		JPanel PanelDeCompra = panelDeCompra.incializarPanelDeCompra();
-		PanelDeLogin.setVisible(false);
-		paneles.add(PanelDeLogin);
-		frame.getContentPane().add(PanelDeLogin);
+		PanelDeResumen panelDeResumen = new PanelDeResumen(paneles);
+		JPanel PanelDeResumen = panelDeResumen.inicializarPanelDePeliculas();
+		PanelDeResumen.setVisible(false);
+		paneles.add(PanelDeResumen);
+		frame.getContentPane().add(PanelDeResumen);	
+
 	}
 	
 }

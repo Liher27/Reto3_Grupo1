@@ -6,22 +6,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import cinesElorrieta.bbdd.Pelicula;
 import cinesElorrieta.bbdd.Sesion;
-import cinesElorrieta.logica.GestorDePeliculas;
 import cinesElorrieta.logica.GestorDeSesion;
 
 public class PanelDeSesion {

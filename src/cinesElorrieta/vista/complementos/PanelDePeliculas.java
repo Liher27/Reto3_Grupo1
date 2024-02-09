@@ -88,29 +88,14 @@ public class PanelDePeliculas {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				JFrame jFrame = new JFrame();
-				int result = JOptionPane.showConfirmDialog(jFrame, "¿Tienes una cuenta creada?");
-				if (result == 0) {
-					panelDePeliculas.setVisible(false);
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(false);
-					paneles.get(3).setVisible(false);
-					paneles.get(4).setVisible(false);
-					paneles.get(5).setVisible(true);
-				} else if (result == 1) {
-					panelDePeliculas.setVisible(false);
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(false);
-					paneles.get(3).setVisible(false);
-					paneles.get(4).setVisible(true);
-				} else {
-					panelDePeliculas.setVisible(false);
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(true);
-				}
+				panelDePeliculas.setVisible(false);
+				 
+				paneles.get(0).setVisible(false);
+				paneles.get(1).setVisible(false);
+				paneles.get(2).setVisible(false);
+				paneles.get(3).setVisible(true);
+			
+				
 			}
 		});
 		btnContinuarPanelDePeliculas.setForeground(new Color(0, 0, 0));

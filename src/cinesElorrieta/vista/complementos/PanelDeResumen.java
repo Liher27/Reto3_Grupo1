@@ -5,20 +5,18 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 
 public class PanelDeResumen {
 
 	private JPanel panelDeResumen;
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -49,24 +47,40 @@ public class PanelDeResumen {
 			}
 		});
 		btnVolverPanelDeResumen.setForeground(new Color(0, 0, 0));
-		btnVolverPanelDeResumen.setBounds(100, 556, 98, 33);
+		btnVolverPanelDeResumen.setBounds(100, 556, 150, 33);
 		panelDeResumen.add(btnVolverPanelDeResumen);
 		
-		JButton btnIrARegistroPanelDeResumen = new JButton("Resumen");
+		JButton btnIrARegistroPanelDeResumen = new JButton("Registro / Iniciar Sesion");
 		btnIrARegistroPanelDeResumen.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				panelDeResumen.setVisible(false);
-				
-				paneles.get(0).setVisible(false);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(false);
-				paneles.get(4).setVisible(true);
+				JFrame jFrame = new JFrame();
+				int result = JOptionPane.showConfirmDialog(jFrame, "¿Tienes una cuenta creada?");
+				if (result == 0) {
+					panelDeResumen.setVisible(false);
+					paneles.get(0).setVisible(false);
+					paneles.get(1).setVisible(false);
+					paneles.get(2).setVisible(false);
+					paneles.get(3).setVisible(false);
+					paneles.get(4).setVisible(false);
+					paneles.get(5).setVisible(true);
+				} else if (result == 1) {
+					panelDeResumen.setVisible(false);
+					paneles.get(0).setVisible(false);
+					paneles.get(1).setVisible(false);
+					paneles.get(2).setVisible(false);
+					paneles.get(3).setVisible(false);
+					paneles.get(4).setVisible(true);
+				} else {
+					panelDeResumen.setVisible(false);
+					paneles.get(0).setVisible(false);
+					paneles.get(1).setVisible(false);
+					paneles.get(2).setVisible(true);
+				}
 			}
 		});
 		btnIrARegistroPanelDeResumen.setForeground(new Color(0, 0, 0));
-		btnIrARegistroPanelDeResumen.setBounds(800, 556, 98, 33);
+		btnIrARegistroPanelDeResumen.setBounds(720, 556, 178, 33);
 		panelDeResumen.add(btnIrARegistroPanelDeResumen);
 		
 		JLabel lblLogoCineElorrieta = new JLabel("");
