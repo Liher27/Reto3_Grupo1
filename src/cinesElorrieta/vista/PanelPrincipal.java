@@ -89,7 +89,7 @@ public class PanelPrincipal extends JFrame {
 		paneles.add(PanelDeLogin);
 		frame.getContentPane().add(PanelDeLogin);
 		
-		//6
+		//6.
 		PanelDeResumen panelDeResumen = new PanelDeResumen(paneles);
 		JPanel PanelDeResumen = panelDeResumen.inicializarPanelDePeliculas();
 		PanelDeResumen.setVisible(false);

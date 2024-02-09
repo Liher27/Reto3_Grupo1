@@ -22,8 +22,7 @@ public class PanelDeRegistro {
 
 	private JPanel panelDeRegistro;
 
-	
-	private JTextField textFieldDNIRegistro;
+	//wdadw
 	private JTextField textFieldNombreRegistro;
 	private JTextField textFieldPrimerApellidoRegistro;
 	private JTextField textFieldSegundoApellidoRegistro;
