@@ -20,7 +20,7 @@ import cinesElorrieta.bbdd.Sesion;
 import cinesElorrieta.logica.GestorDeSesion;
 
 public class PanelDeSesion {
-//*/*/
+//*/
 	private JPanel panelDeSesion;
 
 	/**
