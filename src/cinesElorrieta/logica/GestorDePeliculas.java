@@ -109,6 +109,7 @@ public class GestorDePeliculas {
 		return pelis;
 		
 	}
+	
 }
 	
 	/*public static  Vector getRows() {

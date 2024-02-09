@@ -17,11 +17,14 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 import cinesElorrieta.bbdd.Pelicula;
+import cinesElorrieta.bbdd.Sesion;
 import cinesElorrieta.logica.GestorDePeliculas;
+import cinesElorrieta.logica.GestorDeSesion;
 
 public class PanelDePeliculas {
 
 	private JPanel panelDePeliculas;
+	public JTable tablaDePeliculas = null;
 
 	/**
 	 * Launch the application.
@@ -59,7 +62,17 @@ public class PanelDePeliculas {
 		panelDePeliculas.add(peliculaScroll);
 		
 		 DefaultTableModel modelo = new DefaultTableModel(data, index);
-		 JTable tablaDePeliculas = new JTable(modelo);
+		 tablaDePeliculas = new JTable(modelo);
+		 tablaDePeliculas.addMouseListener(new MouseAdapter() {
+		 	@Override
+		 	public void mouseClicked(MouseEvent e) {
+		 		
+		 		int row = tablaDePeliculas.getSelectedRow();
+		 		String NombrePelicula = tablaDePeliculas.getValueAt(row,1).toString();
+		 		GestorDeSesion gestorDeSesion = new GestorDeSesion();
+				gestorDeSesion.seleccionarPeliculaParaSesion(NombrePelicula);
+		 	}
+		 });
 		 tablaDePeliculas.setBounds(235, 127, 512, 195);
 		
 		 peliculaScroll.setViewportView(tablaDePeliculas);

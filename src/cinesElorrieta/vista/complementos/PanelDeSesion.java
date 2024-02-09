@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +19,8 @@ import javax.swing.table.DefaultTableModel;
 
 import cinesElorrieta.bbdd.Sesion;
 import cinesElorrieta.logica.GestorDeSesion;
+import cinesElorrieta.vista.complementos.PanelDePeliculas;
+import javax.swing.JComboBox;
 
 public class PanelDeSesion {
 //*/
@@ -84,13 +87,10 @@ public class PanelDeSesion {
 		btnContinuarPanelDeSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
-		
 				panelDeSesion.setVisible(false);
+				
 				paneles.get(0).setVisible(false);
 				paneles.get(1).setVisible(true);
-				
-
 			}
 		});
 		btnContinuarPanelDeSesion.setForeground(new Color(0, 0, 0));
@@ -102,6 +102,18 @@ public class PanelDeSesion {
 		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeSesion.add(lblLogoCineElorrieta);
+		
+		PanelDePeliculas panelDePeliculas = new PanelDePeliculas(paneles);
+		panelDePeliculas.tablaDePeliculas.getSelectedRow();
+		
+		
+		JComboBox<Sesion> ComboBoxFecha = new JComboBox<Sesion>(new Vector<Sesion>(sesiones));
+		ComboBoxFecha.setBounds(235, 421, 126, 31);
+		panelDeSesion.add(ComboBoxFecha);
+		
+		JComboBox<Sesion> ComboBoxHora = new JComboBox<Sesion>(new Vector<Sesion>(sesiones));
+		ComboBoxHora.setBounds(621, 421, 126, 31);
+		panelDeSesion.add(ComboBoxHora);
 	}
 
 	public JPanel inicializarPanelDeSesion() {

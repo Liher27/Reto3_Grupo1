@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JPasswordField;
 
 public class PanelDeRegistro {
 
@@ -29,6 +30,8 @@ public class PanelDeRegistro {
 	private JTextField textFieldContrasenyaRegistro;
 	private JTextField textFieldConfirmarContrasenyaRegistro;
 	private JTextField textFieldSexoRegistro;
+	private JPasswordField passwordFieldContrasenyaRegistro;
+	private JPasswordField passwordFieldConfirmarContrasenyaRegistro;
 	
 	
 	public PanelDeRegistro(ArrayList<JPanel> paneles) {
@@ -100,11 +103,6 @@ public class PanelDeRegistro {
 		panelDeRegistro.add(textFieldSegundoApellidoRegistro);
 		textFieldSegundoApellidoRegistro.setColumns(10);
 		
-		JTextField textFieldContrasenyaRegistro = new JTextField();
-		textFieldContrasenyaRegistro.setBounds(513, 420, 176, 20);
-		panelDeRegistro.add(textFieldContrasenyaRegistro);
-		textFieldContrasenyaRegistro.setColumns(10);
-		
 		/*JTextField textFieldConfirmarContrasenyaRegistro = new JTextField();
 		textFieldConfirmarContrasenyaRegistro.setBounds(513, 492, 176, 20);
 		panelDeRegistro.add(textFieldConfirmarContrasenyaRegistro);
@@ -148,7 +146,7 @@ public class PanelDeRegistro {
 		btnConfirmarDeRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GestorDeCliente gestorDeCliente = new GestorDeCliente();
-				gestorDeCliente.compararRegistroUsuario(textFieldDNIRegistro, textFieldNombreRegistro, textFieldPrimerApellidoRegistro, textFieldSegundoApellidoRegistro, textFieldContrasenyaRegistro, textFieldConfirmarContrasenyaRegistro, textFieldSexoRegistro);
+				gestorDeCliente.compararRegistroUsuario(textFieldDNIRegistro, textFieldNombreRegistro, textFieldPrimerApellidoRegistro, textFieldSegundoApellidoRegistro, passwordFieldContrasenyaRegistro, passwordFieldConfirmarContrasenyaRegistro);
 				
 			}
 		});
@@ -156,11 +154,18 @@ public class PanelDeRegistro {
 		btnConfirmarDeRegistro.setBounds(800, 556, 98, 33);
 		panelDeRegistro.add(btnConfirmarDeRegistro);
 		
+		passwordFieldContrasenyaRegistro = new JPasswordField();
+		passwordFieldContrasenyaRegistro.setBounds(513, 492, 176, 20);
+		panelDeRegistro.add(passwordFieldContrasenyaRegistro);
+		
+		passwordFieldConfirmarContrasenyaRegistro = new JPasswordField();
+		passwordFieldConfirmarContrasenyaRegistro.setBounds(513, 421, 176, 20);
+		panelDeRegistro.add(passwordFieldConfirmarContrasenyaRegistro);
+		
 		
 	}
 
 	public JPanel inicializarPanelDeRegistro() {
 		return panelDeRegistro;
 	}
-
 }

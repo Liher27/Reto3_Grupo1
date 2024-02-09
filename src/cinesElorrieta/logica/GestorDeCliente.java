@@ -1,12 +1,9 @@
 package cinesElorrieta.logica;
 
-import cinesElorrieta.vista.complementos.PanelDeLogin;
 import cinesElorrieta.bbdd.Cliente;
 import cinesElorrieta.bbdd.Reto3Utils;
-import cinesElorrieta.vista.PanelPrincipal;
 
 import java.awt.HeadlessException;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,7 +13,7 @@ import java.sql.Statement;
 import java.text.MessageFormat;
 
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class GestorDeCliente {
@@ -198,13 +195,13 @@ public class GestorDeCliente {
 	}
 	public boolean compararRegistroUsuario( JTextField textFieldDNIRegistro, JTextField textFieldNombreRegistro,
 			JTextField textFieldPrimerApellidoRegistro, JTextField textFieldSegundoApellidoRegistro,
-			JTextField textFieldContrasenyaRegistro, JTextField textFieldConfirmarContrasenyaRegistro, JTextField textFieldSexoRegistro) throws HeadlessException {
+			JPasswordField passwordFieldContrasenyaRegistro, JTextField textFieldSexoRegistro) throws HeadlessException {
 		
 		String getInputDni = textFieldDNIRegistro.getText();
 		String getInputNombre =textFieldNombreRegistro.getText();
 		String getInputApellido =textFieldPrimerApellidoRegistro.getText();
 		String getInputSegundoApellido =textFieldSegundoApellidoRegistro.getText();
-		String getInputContrasenna =textFieldContrasenyaRegistro.getText();
+		String getInputContrasenna =passwordFieldContrasenyaRegistro.getPassword().toString();
 		String getInputSexo = textFieldSexoRegistro.getText();
 		
 		Connection conn = null;
