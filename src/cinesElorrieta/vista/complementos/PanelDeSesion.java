@@ -45,17 +45,18 @@ public class PanelDeSesion {
 		
 		GestorDeSesion gestorDeSesion = new GestorDeSesion();
 		
-		List<Sesion> sesiones = gestorDeSesion.getLaSesion();
+		List<Sesion> sesiones = gestorDeSesion.getSesionesDelaPelicula();
 		
-		String [] index={"CodSesion","Fecha","Hora","Sala","Precio"};
+		String [] index={"CodSesion","CodSala","CodPelicula","Fecha","Hora","Precio"};
 		Object[][] data = new Object[sesiones.size()][index.length];
 		for (int i=0; i < sesiones.size();i++) {
 			Sesion Sesion = sesiones.get(i);
 			data[i][0] = Sesion.getCodSesion();
-			data[i][1] = Sesion.getFecha();
-			data[i][2] = Sesion.getHora();
-			data[i][3] = Sesion.getCodSala();
-			data[i][4] = Sesion.getPrecioSesion();
+			data[i][1] = Sesion.getCodSala();
+			data[i][2] = Sesion.getCodPelicula();
+			data[i][3] = Sesion.getFecha();
+			data[i][4] = Sesion.getHora();
+			data[i][5] = Sesion.getPrecioSesion();
 		}
 		JScrollPane sesionScroll = new JScrollPane();
 		sesionScroll.setBounds(235, 127, 512, 195);
@@ -87,6 +88,8 @@ public class PanelDeSesion {
 		btnContinuarPanelDeSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+		//wawdaww
 				panelDeSesion.setVisible(false);
 				
 				paneles.get(0).setVisible(false);

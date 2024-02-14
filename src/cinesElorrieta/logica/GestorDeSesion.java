@@ -135,4 +135,43 @@ public class GestorDeSesion {
 		}
 		return sesiones;
 	}
+
+	public List<Sesion>getSesionesDelaPelicula() {
+		List<Sesion> sesiones = new ArrayList<Sesion>();
+		
+		try {
+			Class.forName(Reto3Utils.DRIVER);
+			
+			Connection connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+			
+			Statement statement = connection.createStatement();
+			
+			String sql = "SELECT * FROM SESION ";
+			
+			ResultSet result = statement.executeQuery(sql);
+			//wdad
+			while(result.next()) {
+				Sesion sesion = new Sesion();
+				sesion.setCodSesion(result.getInt("CODSESION"));
+				sesion.setCodSala(result.getInt("CODSALA"));
+				sesion.setCodPelicula(result.getInt("CODPELICULA"));
+				sesion.setFecha(result.getDate("FECHA"));
+				sesion.setHora(result.getTime("HORA"));
+				sesion.setPrecioSesion(result.getFloat("PRECIO"));
+				
+				sesiones.add(sesion);
+				
+			
+		}
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Ha dado fallo -> " + e.getMessage());
+		} catch (SQLException e) {
+			System.out.println("Malformacion sqlazo -> " + e.getMessage());
+		}
+		
+		return sesiones;
+		
+	}
+	
 }

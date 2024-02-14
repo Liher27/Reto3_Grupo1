@@ -98,12 +98,12 @@ public class PanelDePeliculas {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				panelDePeliculas.setVisible(false);
+				/*panelDePeliculas.setVisible(false);
 				 
 				paneles.get(0).setVisible(false);
 				paneles.get(1).setVisible(false);
 				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(true);
+				paneles.get(3).setVisible(true);*/
 			
 				
 			}
@@ -117,6 +117,29 @@ public class PanelDePeliculas {
 		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDePeliculas.add(lblLogoCineElorrieta);
+		
+		
+		JButton buscarSesion = new JButton("Buscar Sesion");
+		buscarSesion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			int peliculaSeleccionada =tablaDePeliculas.getSelectedRow();
+			GestorDeSesion gestorDeSesion = new GestorDeSesion();
+			gestorDeSesion.getSesionesDelaPelicula();
+			
+			panelDePeliculas.setVisible(false);
+			 
+			paneles.get(0).setVisible(false);
+			paneles.get(1).setVisible(false);
+			paneles.get(2).setVisible(false);
+			paneles.get(3).setVisible(true);
+			
+			
+			}
+		});
+		buscarSesion.setBounds(390, 343, 192, 43);
+		panelDePeliculas.add(buscarSesion);
+		
 	}
 
 	public JPanel inicializarPanelDePeliculas() {
