@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -31,7 +33,7 @@ public class PanelDeSesion {
 	 */
 
 	public PanelDeSesion(ArrayList<JPanel> paneles) {
-
+		
 		panelDeSesion = new JPanel();
 		panelDeSesion.setBounds(0, 0, 984, 611);
 		panelDeSesion.setBackground(new Color(42, 26, 29));
@@ -43,32 +45,30 @@ public class PanelDeSesion {
 		tituloPanelDeRegistro.setBounds(328, 32, 337, 64);
 		panelDeSesion.add(tituloPanelDeRegistro);
 		
-		GestorDeSesion gestorDeSesion = new GestorDeSesion();
-		
-		List<Sesion> sesiones = gestorDeSesion.getSesionesDelaPelicula();
-		
-		String [] index={"CodSesion","CodSala","CodPelicula","Fecha","Hora","Precio"};
-		Object[][] data = new Object[sesiones.size()][index.length];
-		for (int i=0; i < sesiones.size();i++) {
-			Sesion Sesion = sesiones.get(i);
-			data[i][0] = Sesion.getCodSesion();
-			data[i][1] = Sesion.getCodSala();
-			data[i][2] = Sesion.getCodPelicula();
-			data[i][3] = Sesion.getFecha();
-			data[i][4] = Sesion.getHora();
-			data[i][5] = Sesion.getPrecioSesion();
-		}
+		  GestorDeSesion gestorDeSesion = new GestorDeSesion();
+		  /*PanelDePeliculas panel = new PanelDePeliculas(paneles);
+		  String key = panel.*/
+		  
+		  List<Sesion> sesiones = gestorDeSesion.seleccionarPeliculaParaSesion(PanelDePeliculas.code);
+		 
+		  String []
+		  index={"CodSesion","CodSala","CodPelicula","Fecha","Hora","Precio"};
+		  Object[][] data = new Object[sesiones.size()][index.length]; for (int i=0; i
+		  < sesiones.size();i++) { Sesion Sesion = sesiones.get(i); data[i][0] =
+		  Sesion.getCodSesion(); data[i][1] = Sesion.getCodSala(); data[i][2] =
+		 Sesion.getCodPelicula(); data[i][3] = Sesion.getFecha(); data[i][4] =
+		  Sesion.getHora(); data[i][5] = Sesion.getPrecioSesion(); }
+		 
 		JScrollPane sesionScroll = new JScrollPane();
 		sesionScroll.setBounds(235, 127, 512, 195);
 		panelDeSesion.add(sesionScroll);
-		
-		 DefaultTableModel modelo = new DefaultTableModel(data, index);
-		 JTable tablaDeSesion = new JTable(modelo);
-		 tablaDeSesion.setBounds(235, 127, 512, 195);
-		
-		 sesionScroll.setViewportView(tablaDeSesion);
-		
-        
+
+		DefaultTableModel modelo = new DefaultTableModel(data, index);
+		JTable tablaDeSesion = new JTable(modelo);
+		tablaDeSesion.setBounds(235, 127, 512, 195);
+
+		sesionScroll.setViewportView(tablaDeSesion);
+
 		JButton btnVolverPanelDeSesion = new JButton("Volver");
 		btnVolverPanelDeSesion.addMouseListener(new MouseAdapter() {
 			@Override
@@ -89,9 +89,9 @@ public class PanelDeSesion {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-		//wawdaww
+				// wawdaww
 				panelDeSesion.setVisible(false);
-				
+
 				paneles.get(0).setVisible(false);
 				paneles.get(1).setVisible(true);
 			}
@@ -105,15 +105,14 @@ public class PanelDeSesion {
 		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeSesion.add(lblLogoCineElorrieta);
-		
+
 		PanelDePeliculas panelDePeliculas = new PanelDePeliculas(paneles);
 		panelDePeliculas.tablaDePeliculas.getSelectedRow();
-		
-		
+
 		JComboBox<Sesion> ComboBoxFecha = new JComboBox<Sesion>(new Vector<Sesion>(sesiones));
 		ComboBoxFecha.setBounds(235, 421, 126, 31);
 		panelDeSesion.add(ComboBoxFecha);
-		
+
 		JComboBox<Sesion> ComboBoxHora = new JComboBox<Sesion>(new Vector<Sesion>(sesiones));
 		ComboBoxHora.setBounds(621, 421, 126, 31);
 		panelDeSesion.add(ComboBoxHora);
@@ -122,4 +121,19 @@ public class PanelDeSesion {
 	public JPanel inicializarPanelDeSesion() {
 		return panelDeSesion;
 	}
+
+	public void rellenarTabla(String code) {
+			
+	}
+	
+	/*private void displaySesiones(DefaultTableModel modelo) {
+		GestorDeSesion gestorDePeliculas = new GestorDeSesion();
+		List<Sesion> sesiones = gestorDePeliculas.seleccionarPeliculaParaSesion();
+		for (int i = 0; i < sesiones.size(); i++) {
+			String[] linea = { Integer.toString(sesiones.get(i).getCodSesion()), Integer.toString(sesiones.get(i).getCodSala()),
+					 Integer.toString(sesiones.get(i).getCodPelicula()),  Date.toString(sesiones.get(i).getFecha()),Time.toString(sesiones.get(i).getHora()) };
+			modelo.addRow(linea);
+		}
+	}*/
+
 }

@@ -15,7 +15,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PanelPrincipal extends JFrame {
-	
 	private JFrame frame;
 	private ArrayList <JPanel> paneles = null;
 	
@@ -70,7 +69,7 @@ public class PanelPrincipal extends JFrame {
 		//3
 		PanelDeSesion panelDeSesion = new PanelDeSesion(paneles);
 		JPanel PanelDeSesion = panelDeSesion.inicializarPanelDeSesion();
-		PanelDeSesion.setVisible(true);
+		PanelDeSesion.setVisible(false);
 		paneles.add(PanelDeSesion);
 		frame.getContentPane().add(PanelDeSesion);	
 

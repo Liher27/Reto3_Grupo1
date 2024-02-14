@@ -60,7 +60,7 @@ public class GestorDeSesion {
 
 	}
 
-	public List<Sesion> getLaSesion() {
+	/*public List<Sesion> getLaSesion() {
 		List<Sesion> sesion = new ArrayList<Sesion>();
 
 		try {
@@ -94,7 +94,7 @@ public class GestorDeSesion {
 
 		return sesion;
 
-	}
+	}*/
 
 	public List<Sesion> seleccionarPeliculaParaSesion(String NombreDePelicula) {
 		List<Sesion> sesiones = new ArrayList<Sesion>();

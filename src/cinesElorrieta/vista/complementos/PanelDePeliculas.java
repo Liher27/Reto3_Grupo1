@@ -25,13 +25,13 @@ public class PanelDePeliculas {
 
 	private JPanel panelDePeliculas;
 	public JTable tablaDePeliculas = null;
-
+	public static String code; 
 	/**
 	 * Launch the application.
 	 */
 
 	public PanelDePeliculas(ArrayList<JPanel> paneles) {
-
+		
 		panelDePeliculas = new JPanel();
 		panelDePeliculas.setBounds(0, 0, 984, 611);
 		panelDePeliculas.setBackground(new Color(42, 26, 29));
@@ -43,36 +43,20 @@ public class PanelDePeliculas {
 		tituloPanelDeRegistro.setBounds(328, 32, 337, 64);
 		panelDePeliculas.add(tituloPanelDeRegistro);
 		
-		GestorDePeliculas gestorDePeliculas = new GestorDePeliculas();
-		
-		List<Pelicula> pelis = gestorDePeliculas.getLasPeliculas();
-		
-		String [] index={"CodPelicula","Nombre","Genero","Duracion","Precio"};
-		Object[][] data = new Object[pelis.size()][index.length];
-		for (int i=0; i < pelis.size();i++) {
-			Pelicula pelicula = pelis.get(i);
-			data[i][0] = pelicula.getCodPelicula();
-			data[i][1] = pelicula.getNombre();
-			data[i][2] = pelicula.getGenero();
-			data[i][3] = pelicula.getDuracion();
-			data[i][4] = pelicula.getPrecio();
-		}
+	
 		JScrollPane peliculaScroll = new JScrollPane();
 		peliculaScroll.setBounds(235, 127, 512, 195);
 		panelDePeliculas.add(peliculaScroll);
 		
-		 DefaultTableModel modelo = new DefaultTableModel(data, index);
+		 DefaultTableModel modelo = new DefaultTableModel();
 		 tablaDePeliculas = new JTable(modelo);
-		 tablaDePeliculas.addMouseListener(new MouseAdapter() {
-		 	@Override
-		 	public void mouseClicked(MouseEvent e) {
-		 		
-		 		int row = tablaDePeliculas.getSelectedRow();
-		 		String NombrePelicula = tablaDePeliculas.getValueAt(row,1).toString();
-		 		GestorDeSesion gestorDeSesion = new GestorDeSesion();
-				gestorDeSesion.seleccionarPeliculaParaSesion(NombrePelicula);
-		 	}
-		 });
+		 modelo.addColumn("CodPelicula");
+		 modelo.addColumn("Nombre");
+		 modelo.addColumn("Genero");
+		 modelo.addColumn("Duracion");
+		 modelo.addColumn("Precio");
+		 displayPelis( modelo);
+		 
 		 tablaDePeliculas.setBounds(235, 127, 512, 195);
 		
 		 peliculaScroll.setViewportView(tablaDePeliculas);
@@ -123,20 +107,25 @@ public class PanelDePeliculas {
 		buscarSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+		
 			int peliculaSeleccionada =tablaDePeliculas.getSelectedRow();
-			GestorDeSesion gestorDeSesion = new GestorDeSesion();
-			gestorDeSesion.getSesionesDelaPelicula();
+			int column1 = tablaDePeliculas.getSelectedColumnCount()-1;
 			
+			String code = (String) tablaDePeliculas.getValueAt(peliculaSeleccionada, column1);
+			
+			System.out.println(code);
+	
+	
 			panelDePeliculas.setVisible(false);
 			 
 			paneles.get(0).setVisible(false);
 			paneles.get(1).setVisible(false);
 			paneles.get(2).setVisible(false);
 			paneles.get(3).setVisible(true);
-			
-			
 			}
+			
 		});
+			
 		buscarSesion.setBounds(390, 343, 192, 43);
 		panelDePeliculas.add(buscarSesion);
 		
@@ -145,4 +134,13 @@ public class PanelDePeliculas {
 	public JPanel inicializarPanelDePeliculas() {
 		return panelDePeliculas;
 	}
+	private void displayPelis(DefaultTableModel modelo) {
+		GestorDePeliculas gestorDePeliculas = new GestorDePeliculas();
+		List<Pelicula> pelis = gestorDePeliculas.getLasPeliculas();
+		for (int i = 0; i < pelis.size(); i++) {
+			String[] linea = { Integer.toString(pelis.get(i).getCodPelicula()), pelis.get(i).getNombre(), pelis.get(i).getGenero(), Integer.toString(pelis.get(i).getDuracion()), Float.toString(pelis.get(i).getPrecio()) };
+			modelo.addRow(linea);
+		}
+	}
+	
 }
