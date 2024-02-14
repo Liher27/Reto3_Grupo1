@@ -20,6 +20,7 @@ import cinesElorrieta.bbdd.Pelicula;
 import cinesElorrieta.bbdd.Sesion;
 import cinesElorrieta.logica.GestorDePeliculas;
 import cinesElorrieta.logica.GestorDeSesion;
+import cinesElorrieta.logica.Session;
 
 public class PanelDePeliculas {
 
@@ -31,6 +32,9 @@ public class PanelDePeliculas {
 	 */
 
 	public PanelDePeliculas(ArrayList<JPanel> paneles) {
+		
+		Session session = Session.getInstance ();
+		session.setCode("PATATA");
 		
 		panelDePeliculas = new JPanel();
 		panelDePeliculas.setBounds(0, 0, 984, 611);
@@ -110,11 +114,12 @@ public class PanelDePeliculas {
 		
 			int peliculaSeleccionada =tablaDePeliculas.getSelectedRow();
 			int column1 = tablaDePeliculas.getSelectedColumnCount()-1;
-			
-			String code = (String) tablaDePeliculas.getValueAt(peliculaSeleccionada, column1);
-			
-			System.out.println(code);
-	
+						
+//			MetodoSingleton saludo1  = MetodoSingleton.getSingletonInstance("Hola");
+//			MetodoSingleton saludo2 = MetodoSingleton.getSingletonInstance("Que te ");
+//			        
+//			        System.out.println(saludo1.getSaludo());
+//			        System.out.println(saludo2.getSaludo());   
 	
 			panelDePeliculas.setVisible(false);
 			 
