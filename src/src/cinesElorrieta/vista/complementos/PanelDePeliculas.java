@@ -19,18 +19,24 @@ import javax.swing.table.DefaultTableModel;
 import cinesElorrieta.bbdd.Pelicula;
 import cinesElorrieta.bbdd.Sesion;
 import cinesElorrieta.logica.GestorDePeliculas;
+import cinesElorrieta.logica.GestorDeSesion;
 import cinesElorrieta.logica.Session;
 
 public class PanelDePeliculas {
 
+	public JPanel getPanelDePeliculas() {
+		return panelDePeliculas;
+	}
 	private JPanel panelDePeliculas;
 	public JTable tablaDePeliculas = null;
-	public static String code; 
 	/**
 	 * Launch the application.
 	 */
 
 	public PanelDePeliculas() {
+		
+		Session session = new Session();
+		session.setCode("");
 		
 		panelDePeliculas = new JPanel();
 		panelDePeliculas.setBounds(0, 0, 984, 611);
@@ -55,7 +61,7 @@ public class PanelDePeliculas {
 		 modelo.addColumn("Genero");
 		 modelo.addColumn("Duracion");
 		 modelo.addColumn("Precio");
-		 displayPelis( modelo);
+		 displayPelis(modelo);
 		 
 		 tablaDePeliculas.setBounds(235, 127, 512, 195);
 		
@@ -67,10 +73,11 @@ public class PanelDePeliculas {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				panelDePeliculas.setVisible(false);
-//
-//				paneles.get(0).setVisible(true);
-//				paneles.get(1).setVisible(false);
-//				paneles.get(2).setVisible(false);
+
+				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+				session.getPanelDeCines().getPanelDeCines().setVisible(false);
+				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+			
 			}
 		});
 		btnVolverPanelDePeliculas.setForeground(new Color(0, 0, 0));
@@ -82,13 +89,12 @@ public class PanelDePeliculas {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				/*panelDePeliculas.setVisible(false);
+				panelDePeliculas.setVisible(false);
 				 
-				paneles.get(0).setVisible(false);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(true);*/
-			
+				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+				session.getPanelDeCines().getPanelDeCines().setVisible(false);
+				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				session.getPanelDeSesion().getPanelDeSesion().setVisible(true);
 				
 			}
 		});
@@ -107,21 +113,25 @@ public class PanelDePeliculas {
 		buscarSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-		
-			int peliculaSeleccionada =tablaDePeliculas.getSelectedRow();
-			int column1 = tablaDePeliculas.getSelectedColumnCount()-1;
+//			int peliculaSeleccionada =tablaDePeliculas.getSelectedRow();
+//			int column1 = tablaDePeliculas.getSelectedColumnCount()-1;
+//		
+//			String key = tablaDePeliculas.getValueAt(peliculaSeleccionada,column1).toString();
+//			session.setCode(key);
 			
-			String code = (String) tablaDePeliculas.getValueAt(peliculaSeleccionada, column1);
-			
-			System.out.println(code);
+//			MetodoSingleton saludo1  = MetodoSingleton.getSingletonInstance("Hola");
+//			MetodoSingleton saludo2 = MetodoSingleton.getSingletonInstance("Que te ");
+//			        
+//			        System.out.println(saludo1.getSaludo());
+//			        System.out.println(saludo2.getSaludo());   
 	
-	
-			panelDePeliculas.setVisible(false);
+//			panelDePeliculas.setVisible(false);
 			 
-//			paneles.get(0).setVisible(false);
-//			paneles.get(1).setVisible(false);
-//			paneles.get(2).setVisible(false);
-//			paneles.get(3).setVisible(true);
+			session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+			session.getPanelDeCines().getPanelDeCines().setVisible(false);
+			session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+			session.getPanelDeSesion().getPanelDeSesion().setVisible(true);
+		
 			}
 			
 		});
@@ -141,9 +151,5 @@ public class PanelDePeliculas {
 			String[] linea = { Integer.toString(pelis.get(i).getCodPelicula()), pelis.get(i).getNombre(), pelis.get(i).getGenero(), Integer.toString(pelis.get(i).getDuracion()), Float.toString(pelis.get(i).getPrecio()) };
 			modelo.addRow(linea);
 		}
-	}
-
-	public JPanel getPanelDePeliculas() {
-		return panelDePeliculas;
 	}
 }

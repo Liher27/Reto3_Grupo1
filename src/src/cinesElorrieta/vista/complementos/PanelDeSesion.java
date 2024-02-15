@@ -26,9 +26,6 @@ import cinesElorrieta.vista.complementos.PanelDePeliculas;
 import javax.swing.JComboBox;
 
 public class PanelDeSesion {
-public JPanel getPanelDeSesion() {
-		return panelDeSesion;
-	}
 
 	//*/
 	private JPanel panelDeSesion;
@@ -38,7 +35,7 @@ public JPanel getPanelDeSesion() {
 	 */
 
 	public PanelDeSesion() {
-		
+
 		panelDeSesion = new JPanel();
 		panelDeSesion.setBounds(0, 0, 984, 611);
 		panelDeSesion.setBackground(new Color(42, 26, 29));
@@ -49,21 +46,30 @@ public JPanel getPanelDeSesion() {
 		tituloPanelDeRegistro.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
 		tituloPanelDeRegistro.setBounds(328, 32, 337, 64);
 		panelDeSesion.add(tituloPanelDeRegistro);
+
+		GestorDeSesion gestorDeSesion = new GestorDeSesion();
+		/*
+		 * PanelDePeliculas panel = new PanelDePeliculas(paneles); String key = panel.
+		 */
+
+		Session session = Session.getInstance ();
+		String code = session.getCode();
+		System.out.println ("CODE = " + code);
 		
-		 GestorDeSesion gestorDeSesion = new GestorDeSesion();
-		  /*PanelDePeliculas panel = new PanelDePeliculas(paneles);
-		  String key = panel.*/
-		  
-		  List<Sesion> sesiones = gestorDeSesion.seleccionarPeliculaParaSesion(PanelDePeliculas.code);
-		 
-		  String []
-		  index={"CodSesion","CodSala","CodPelicula","Fecha","Hora","Precio"};
-		  Object[][] data = new Object[sesiones.size()][index.length]; for (int i=0; i
-		  < sesiones.size();i++) { Sesion Sesion = sesiones.get(i); data[i][0] =
-		  Sesion.getCodSesion(); data[i][1] = Sesion.getCodSala(); data[i][2] =
-		 Sesion.getCodPelicula(); data[i][3] = Sesion.getFecha(); data[i][4] =
-		  Sesion.getHora(); data[i][5] = Sesion.getPrecioSesion(); }
-		 
+		List<Sesion> sesiones = gestorDeSesion.seleccionarPeliculaParaSesion(code);
+
+		String[] index = { "CodSesion", "CodSala", "CodPelicula", "Fecha", "Hora", "Precio" };
+		Object[][] data = new Object[sesiones.size()][index.length];
+		for (int i = 0; i < sesiones.size(); i++) {
+			Sesion Sesion = sesiones.get(i);
+			data[i][0] = Sesion.getCodSesion();
+			data[i][1] = Sesion.getCodSala();
+			data[i][2] = Sesion.getCodPelicula();
+			data[i][3] = Sesion.getFecha();
+			data[i][4] = Sesion.getHora();
+			data[i][5] = Sesion.getPrecioSesion();
+		}
+
 		JScrollPane sesionScroll = new JScrollPane();
 		sesionScroll.setBounds(235, 127, 512, 195);
 		panelDeSesion.add(sesionScroll);
@@ -78,11 +84,11 @@ public JPanel getPanelDeSesion() {
 		btnVolverPanelDeSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				panelDeSesion.setVisible(false);
-
-//				paneles.get(0).setVisible(true);
-//				paneles.get(1).setVisible(false);
-//				paneles.get(2).setVisible(false);
+//				panelDeSesion.setVisible(false);
+				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+				session.getPanelDeCines().getPanelDeCines().setVisible(false);
+				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+			
 			}
 		});
 		btnVolverPanelDeSesion.setForeground(new Color(0, 0, 0));
@@ -93,12 +99,12 @@ public JPanel getPanelDeSesion() {
 		btnContinuarPanelDeSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
-				// wawdaww
-				panelDeSesion.setVisible(false);
-
-//				paneles.get(0).setVisible(false);
-//				paneles.get(1).setVisible(true);
+//				panelDeSesion.setVisible(false);
+				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+				session.getPanelDeCines().getPanelDeCines().setVisible(true);
+				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
+		
 			}
 		});
 		btnContinuarPanelDeSesion.setForeground(new Color(0, 0, 0));
@@ -111,8 +117,8 @@ public JPanel getPanelDeSesion() {
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeSesion.add(lblLogoCineElorrieta);
 
-//		PanelDePeliculas panelDePeliculas = new PanelDePeliculas();
-//		panelDePeliculas.tablaDePeliculas.getSelectedRow();
+		PanelDePeliculas panelDePeliculas = new PanelDePeliculas();
+		panelDePeliculas.tablaDePeliculas.getSelectedRow();
 
 		JComboBox<Sesion> ComboBoxFecha = new JComboBox<Sesion>(new Vector<Sesion>(sesiones));
 		ComboBoxFecha.setBounds(235, 421, 126, 31);
@@ -127,18 +133,21 @@ public JPanel getPanelDeSesion() {
 		return panelDeSesion;
 	}
 
-	public void rellenarTabla(String code) {
-			
-	}
 	
-	/*private void displaySesiones(DefaultTableModel modelo) {
-		GestorDeSesion gestorDePeliculas = new GestorDeSesion();
-		List<Sesion> sesiones = gestorDePeliculas.seleccionarPeliculaParaSesion();
-		for (int i = 0; i < sesiones.size(); i++) {
-			String[] linea = { Integer.toString(sesiones.get(i).getCodSesion()), Integer.toString(sesiones.get(i).getCodSala()),
-					 Integer.toString(sesiones.get(i).getCodPelicula()),  Date.toString(sesiones.get(i).getFecha()),Time.toString(sesiones.get(i).getHora()) };
-			modelo.addRow(linea);
-		}
-	}*/
+	public JPanel getPanelDeSesion() {
+		return panelDeSesion;
+	}
+
+	/*
+	 * private void displaySesiones(DefaultTableModel modelo) { GestorDeSesion
+	 * gestorDePeliculas = new GestorDeSesion(); List<Sesion> sesiones =
+	 * gestorDePeliculas.seleccionarPeliculaParaSesion(); for (int i = 0; i <
+	 * sesiones.size(); i++) { String[] linea = {
+	 * Integer.toString(sesiones.get(i).getCodSesion()),
+	 * Integer.toString(sesiones.get(i).getCodSala()),
+	 * Integer.toString(sesiones.get(i).getCodPelicula()),
+	 * Date.toString(sesiones.get(i).getFecha()),Time.toString(sesiones.get(i).
+	 * getHora()) }; modelo.addRow(linea); } }
+	 */
 
 }
