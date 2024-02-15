@@ -28,9 +28,10 @@ public class PanelDePeliculas {
 	public static String code; 
 	/**
 	 * Launch the application.
+	 * @param paneles 
 	 */
 
-	public PanelDePeliculas() {
+	public PanelDePeliculas(ArrayList<JPanel> paneles) {
 		
 		panelDePeliculas = new JPanel();
 		panelDePeliculas.setBounds(0, 0, 984, 611);
@@ -45,7 +46,7 @@ public class PanelDePeliculas {
 		
 	
 		JScrollPane peliculaScroll = new JScrollPane();
-		peliculaScroll.setBounds(235, 127, 512, 195);
+		peliculaScroll.setBounds(236, 164, 512, 195);
 		panelDePeliculas.add(peliculaScroll);
 		
 		 DefaultTableModel modelo = new DefaultTableModel();
@@ -67,34 +68,16 @@ public class PanelDePeliculas {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				panelDePeliculas.setVisible(false);
-//
-//				paneles.get(0).setVisible(true);
-//				paneles.get(1).setVisible(false);
-//				paneles.get(2).setVisible(false);
+
+				paneles.get(0).setVisible(true);
+				paneles.get(1).setVisible(false);
+				paneles.get(2).setVisible(false);
+		
 			}
 		});
 		btnVolverPanelDePeliculas.setForeground(new Color(0, 0, 0));
-		btnVolverPanelDePeliculas.setBounds(100, 556, 98, 33);
+		btnVolverPanelDePeliculas.setBounds(442, 567, 98, 33);
 		panelDePeliculas.add(btnVolverPanelDePeliculas);
-
-		JButton btnContinuarPanelDePeliculas = new JButton("Continuar");
-		btnContinuarPanelDePeliculas.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				/*panelDePeliculas.setVisible(false);
-				 
-				paneles.get(0).setVisible(false);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(true);*/
-			
-				
-			}
-		});
-		btnContinuarPanelDePeliculas.setForeground(new Color(0, 0, 0));
-		btnContinuarPanelDePeliculas.setBounds(800, 556, 98, 33);
-		panelDePeliculas.add(btnContinuarPanelDePeliculas);
 
 		JLabel lblLogoCineElorrieta = new JLabel("");
 		lblLogoCineElorrieta.setHorizontalAlignment(SwingConstants.CENTER);
@@ -118,15 +101,15 @@ public class PanelDePeliculas {
 	
 			panelDePeliculas.setVisible(false);
 			 
-//			paneles.get(0).setVisible(false);
-//			paneles.get(1).setVisible(false);
-//			paneles.get(2).setVisible(false);
-//			paneles.get(3).setVisible(true);
+			paneles.get(0).setVisible(false);
+			paneles.get(1).setVisible(false);
+			paneles.get(2).setVisible(false);
+			paneles.get(3).setVisible(true);
 			}
 			
 		});
 			
-		buscarSesion.setBounds(390, 343, 192, 43);
+		buscarSesion.setBounds(391, 426, 192, 43);
 		panelDePeliculas.add(buscarSesion);
 		
 	}

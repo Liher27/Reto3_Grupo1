@@ -17,6 +17,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.JPasswordField;
 
 public class PanelDeRegistro {
@@ -28,7 +30,7 @@ public class PanelDeRegistro {
 	private JPasswordField passwordFieldConfirmarContrasenyaRegistro;
 	
 	
-	public PanelDeRegistro() {
+	public PanelDeRegistro(ArrayList<JPanel> paneles) {
 		Session session = Session.getInstance ();
 		
 		panelDeRegistro = new JPanel();
@@ -126,13 +128,13 @@ public class PanelDeRegistro {
 			public void mouseClicked(MouseEvent e) {
 				panelDeRegistro.setVisible(false);
 			 
-				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
-				session.getPanelDeCines().getPanelDeCines().setVisible(false);
-				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
-				session.getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
-				session.getPanelDeLogin().getPanelDeLogin().setVisible(false);
-				session.getPanelDeResumen().getPanelDeResumen().setVisible(true);
+				paneles.get(0).setVisible(true);
+				paneles.get(1).setVisible(false);
+				paneles.get(2).setVisible(false);
+				paneles.get(3).setVisible(false);
+				paneles.get(4).setVisible(false);
+				paneles.get(5).setVisible(false);
+				paneles.get(6).setVisible(false);
 			}
 		});
 		btnCancelarPanelDeRegistro.setForeground(new Color(0, 0, 0));
@@ -146,14 +148,15 @@ public class PanelDeRegistro {
 				gestorDeCliente.compararRegistroUsuario(textFieldDNIRegistro, textFieldNombreRegistro, textFieldPrimerApellidoRegistro,
 						textFieldSegundoApellidoRegistro, passwordFieldContrasenyaRegistro, passwordFieldConfirmarContrasenyaRegistro);
 				//tiene que verificarse el usuario
-				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-				session.getPanelDeCines().getPanelDeCines().setVisible(false);
-				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
-				session.getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
-				session.getPanelDeLogin().getPanelDeLogin().setVisible(false);
-				session.getPanelDeResumen().getPanelDeResumen().setVisible(true);
+				panelDeRegistro.setVisible(false);
 				
+				paneles.get(0).setVisible(false);
+				paneles.get(1).setVisible(false);
+				paneles.get(2).setVisible(false);
+				paneles.get(3).setVisible(false);
+				paneles.get(4).setVisible(false);
+				paneles.get(5).setVisible(false);
+				paneles.get(6).setVisible(true);
 			}
 		});
 		btnConfirmarDeRegistro.setForeground(new Color(0, 0, 0));

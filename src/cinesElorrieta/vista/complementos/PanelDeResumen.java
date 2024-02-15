@@ -22,8 +22,9 @@ public class PanelDeResumen {
 
 	/**
 	 * Launch the application.
+	 * @param paneles 
 	 */
-	public PanelDeResumen() {
+	public PanelDeResumen(ArrayList<JPanel> paneles) {
 		Session session = Session.getInstance ();
 		
 		panelDeResumen = new JPanel();
@@ -41,12 +42,13 @@ public class PanelDeResumen {
 		btnVolverPanelDeResumen.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-//				panelDeResumen.setVisible(false);
-				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
-				session.getPanelDeCines().getPanelDeCines().setVisible(false);
-				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
-			
+				panelDeResumen.setVisible(false);
+				
+				paneles.get(0).setVisible(true);
+				paneles.get(1).setVisible(false);
+				paneles.get(2).setVisible(false);
+				paneles.get(3).setVisible(false);
+		
 			}
 		});
 		btnVolverPanelDeResumen.setForeground(new Color(0, 0, 0));
@@ -60,28 +62,22 @@ public class PanelDeResumen {
 				JFrame jFrame = new JFrame();
 				int result = JOptionPane.showConfirmDialog(jFrame, "¿Tienes una cuenta creada?");
 				if (result == 0) {
-//					panelDeResumen.setVisible(false);
-			
-					session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-					session.getPanelDeCines().getPanelDeCines().setVisible(false);
-					session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-					session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
-					session.getPanelDeRegistro().getPanelDeRegistro().setVisible(true);
-				} else if (result == 1) {
-//					panelDeResumen.setVisible(false);
-					session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-					session.getPanelDeCines().getPanelDeCines().setVisible(false);
-					session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-					session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
-					session.getPanelDeRegistro().getPanelDeRegistro().setVisible(true);
+					panelDeResumen.setVisible(false);
 					
-				} else {
-//					panelDeResumen.setVisible(false);
-					session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-					session.getPanelDeCines().getPanelDeCines().setVisible(false);
-					session.getPanelDePeliculas().getPanelDePeliculas().setVisible(true);
+					paneles.get(0).setVisible(false);
+					paneles.get(1).setVisible(false);
+					paneles.get(2).setVisible(false);
+					paneles.get(3).setVisible(false);
+					paneles.get(4).setVisible(true);
+				} else if (result == 1) {
+					panelDeResumen.setVisible(false);
+					
+					paneles.get(0).setVisible(false);
+					paneles.get(1).setVisible(false);
+					paneles.get(2).setVisible(true);
+
 			}
-			}
+		}
 		});
 		btnIrARegistroPanelDeResumen.setForeground(new Color(0, 0, 0));
 		btnIrARegistroPanelDeResumen.setBounds(720, 556, 178, 33);
@@ -98,7 +94,7 @@ public class PanelDeResumen {
 		return panelDeResumen;
 	}
 
-	public JPanel inicializarPanelDePeliculas() {
+	public JPanel inicializarPanelDeResumen() {
 		return panelDeResumen;
 	}
 

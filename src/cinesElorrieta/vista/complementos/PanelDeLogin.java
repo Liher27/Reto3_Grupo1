@@ -27,8 +27,9 @@ public class PanelDeLogin {
 
 	/**
 	 * Create the frame.
+	 * @param paneles 
 	 */
-	public PanelDeLogin() {
+	public PanelDeLogin(ArrayList<JPanel> paneles) {
 		Session session = Session.getInstance ();
 		
 		
@@ -74,14 +75,14 @@ public class PanelDeLogin {
 				GestorDeCliente gestorDeCliente = new GestorDeCliente();
 				if (gestorDeCliente.compararLoginUsuario(fieldUsuario, fieldContrasenna) == true) {
 					panelDeLogin.setVisible(false);
-					
-					session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
-					session.getPanelDeCines().getPanelDeCines().setVisible(false);
-					session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-					session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
-					session.getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
-					session.getPanelDeLogin().getPanelDeLogin().setVisible(false);
-					session.getPanelDeResumen().getPanelDeResumen().setVisible(false);
+				
+					paneles.get(0).setVisible(false);
+					paneles.get(1).setVisible(true);
+					paneles.get(2).setVisible(false);
+					paneles.get(3).setVisible(false);
+					paneles.get(4).setVisible(false);
+					paneles.get(5).setVisible(false);
+					paneles.get(6).setVisible(false);
 				}
 			}
 		});
@@ -93,14 +94,14 @@ public class PanelDeLogin {
 			public void actionPerformed(ActionEvent e) {
 				panelDeLogin.setVisible(false);
 				
+				paneles.get(0).setVisible(true);
+				paneles.get(1).setVisible(false);
+				paneles.get(2).setVisible(false);
+				paneles.get(3).setVisible(false);
+				paneles.get(4).setVisible(false);
+				paneles.get(5).setVisible(false);
+				paneles.get(6).setVisible(false);
 
-				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
-				session.getPanelDeCines().getPanelDeCines().setVisible(false);
-				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
-				session.getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
-				session.getPanelDeLogin().getPanelDeLogin().setVisible(false);
-				session.getPanelDeResumen().getPanelDeResumen().setVisible(false);
 			}
 		});
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);

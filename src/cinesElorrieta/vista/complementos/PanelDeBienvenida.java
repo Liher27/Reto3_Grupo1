@@ -19,7 +19,7 @@ public class PanelDeBienvenida {
 	private JLabel lblBienvenida = null;
 	private JLabel lblLogoCineElorrieta = null;
 
-	public PanelDeBienvenida() {
+	public PanelDeBienvenida(ArrayList<JPanel> paneles) {
 
 		panelDeBienvenida = new JPanel();
 		panelDeBienvenida.setBounds(0, 0, 984, 611);
@@ -33,11 +33,11 @@ public class PanelDeBienvenida {
 			public void mouseClicked(MouseEvent e) {
 				panelDeBienvenida.setVisible(false);
 
-				Session session = Session.getInstance();
+//				Session session = Session.getInstance();
 				//session.setCode("BORJITA");
-//				session.getPanelDeCines().getPatata().setText("BORJITA");
-				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-				session.getPanelDeCines().getPanelDeCines().setVisible(true);
+				paneles.get(0).setVisible(false);
+				paneles.get(1).setVisible(true);
+				paneles.get(2).setVisible(false);
 			}
 		});
 		

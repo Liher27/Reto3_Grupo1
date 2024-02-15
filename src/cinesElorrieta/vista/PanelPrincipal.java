@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 public class PanelPrincipal extends JFrame {
 	private JFrame frame;
-	
+	private ArrayList <JPanel> paneles = null;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -43,57 +43,58 @@ public class PanelPrincipal extends JFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		Session session = new Session();
+		paneles = new ArrayList <JPanel> ();
 		
 		//0
-		PanelDeBienvenida panelDeBienvenida = new PanelDeBienvenida();
+		PanelDeBienvenida panelDeBienvenida = new PanelDeBienvenida(paneles);
 		JPanel PanelDeBienvenida = panelDeBienvenida.inicializarPanelDeBienvenida();
 		PanelDeBienvenida.setVisible(true);
-		session.getPanelDeBienvenida();
+		paneles.add(PanelDeBienvenida);
 		frame.getContentPane().add(PanelDeBienvenida);	
 	
 		//1
-		PanelDeCines panelDeCines = new PanelDeCines();
+		PanelDeCines panelDeCines = new PanelDeCines(paneles);
 		JPanel PanelDeCines = panelDeCines.inicializarPanelDeCines();
 		PanelDeCines.setVisible(false);
-		session.getPanelDeCines();
+		paneles.add(PanelDeCines);
 		frame.getContentPane().add(PanelDeCines);
 		
 		//2
-		PanelDePeliculas panelDePeliculas = new PanelDePeliculas();
+		PanelDePeliculas panelDePeliculas = new PanelDePeliculas(paneles);
 		JPanel PanelDePeliculas = panelDePeliculas.inicializarPanelDePeliculas();
 		PanelDePeliculas.setVisible(false);
-		session.getPanelDePeliculas();
+		paneles.add(PanelDePeliculas);
 		frame.getContentPane().add(PanelDePeliculas);
-
+		
 		//3
-		PanelDeSesion panelDeSesion = new PanelDeSesion();
+		PanelDeSesion panelDeSesion = new PanelDeSesion(paneles);
 		JPanel PanelDeSesion = panelDeSesion.inicializarPanelDeSesion();
 		PanelDeSesion.setVisible(false);
-		session.getPanelDeSesion();
-		frame.getContentPane().add(PanelDeSesion);	
+		paneles.add(PanelDePeliculas);
+		frame.getContentPane().add(PanelDePeliculas);
 
 		//4
-		PanelDeRegistro panelDeRegistro = new PanelDeRegistro();
+		PanelDeRegistro panelDeRegistro = new PanelDeRegistro(paneles);
 		JPanel PanelDeRegistro = panelDeRegistro.inicializarPanelDeRegistro();
 		PanelDeRegistro.setVisible(false);
-		session.getPanelDeRegistro();
+		paneles.add(PanelDeRegistro);
 		frame.getContentPane().add(PanelDeRegistro);
 		
 		
 		//5
-		PanelDeLogin panelDeLogin = new PanelDeLogin();
+		PanelDeLogin panelDeLogin = new PanelDeLogin(paneles);
 		JPanel PanelDeLogin = panelDeLogin.incializarPanelDeLogin();
 		PanelDeLogin.setVisible(false);
-		session.getPanelDeLogin();
+		paneles.add(PanelDeLogin);
 		frame.getContentPane().add(PanelDeLogin);
 		
-		//6.
-		PanelDeResumen panelDeResumen = new PanelDeResumen();
-		JPanel PanelDeResumen = panelDeResumen.inicializarPanelDePeliculas();
+		//6
+		PanelDeResumen panelDeResumen = new PanelDeResumen(paneles);
+		JPanel PanelDeResumen = panelDeResumen.inicializarPanelDeResumen();
 		PanelDeResumen.setVisible(false);
-		session.getPanelDeResumen();
-		frame.getContentPane().add(PanelDeResumen);	
+		paneles.add(PanelDeLogin);
+		frame.getContentPane().add(PanelDeLogin);
+	
 
 	}
 	
