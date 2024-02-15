@@ -2,7 +2,6 @@ package cinesElorrieta.vista.complementos;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import cinesElorrieta.logica.GestorDeCliente;
+import cinesElorrieta.logica.Session;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,18 +23,13 @@ public class PanelDeRegistro {
 
 	private JPanel panelDeRegistro;
 
-	//wdadw
-	private JTextField textFieldNombreRegistro;
-	private JTextField textFieldPrimerApellidoRegistro;
-	private JTextField textFieldSegundoApellidoRegistro;
-	private JTextField textFieldContrasenyaRegistro;
-	private JTextField textFieldConfirmarContrasenyaRegistro;
-	private JTextField textFieldSexoRegistro;
+
 	private JPasswordField passwordFieldContrasenyaRegistro;
 	private JPasswordField passwordFieldConfirmarContrasenyaRegistro;
 	
 	
-	public PanelDeRegistro(ArrayList<JPanel> paneles) {
+	public PanelDeRegistro() {
+		Session session = Session.getInstance ();
 		
 		panelDeRegistro = new JPanel();
 		panelDeRegistro.setBounds(0, 0, 984, 611);
@@ -131,11 +126,13 @@ public class PanelDeRegistro {
 			public void mouseClicked(MouseEvent e) {
 				panelDeRegistro.setVisible(false);
 			 
-				paneles.get(0).setVisible(true);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(false);
-				paneles.get(4).setVisible(false);
+				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+				session.getPanelDeCines().getPanelDeCines().setVisible(false);
+				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				session.getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				session.getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				session.getPanelDeResumen().getPanelDeResumen().setVisible(true);
 			}
 		});
 		btnCancelarPanelDeRegistro.setForeground(new Color(0, 0, 0));
@@ -146,7 +143,16 @@ public class PanelDeRegistro {
 		btnConfirmarDeRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GestorDeCliente gestorDeCliente = new GestorDeCliente();
-				gestorDeCliente.compararRegistroUsuario(textFieldDNIRegistro, textFieldNombreRegistro, textFieldPrimerApellidoRegistro, textFieldSegundoApellidoRegistro, passwordFieldContrasenyaRegistro, passwordFieldConfirmarContrasenyaRegistro);
+				gestorDeCliente.compararRegistroUsuario(textFieldDNIRegistro, textFieldNombreRegistro, textFieldPrimerApellidoRegistro,
+						textFieldSegundoApellidoRegistro, passwordFieldContrasenyaRegistro, passwordFieldConfirmarContrasenyaRegistro);
+				//tiene que verificarse el usuario
+				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+				session.getPanelDeCines().getPanelDeCines().setVisible(false);
+				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				session.getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				session.getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				session.getPanelDeResumen().getPanelDeResumen().setVisible(true);
 				
 			}
 		});
@@ -163,6 +169,10 @@ public class PanelDeRegistro {
 		panelDeRegistro.add(passwordFieldConfirmarContrasenyaRegistro);
 		
 		
+	}
+	
+	public JPanel getPanelDeRegistro() {
+		return panelDeRegistro;
 	}
 
 	public JPanel inicializarPanelDeRegistro() {

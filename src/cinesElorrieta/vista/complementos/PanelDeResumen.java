@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import cinesElorrieta.logica.Session;
+
 public class PanelDeResumen {
 
 	private JPanel panelDeResumen;
@@ -21,7 +23,8 @@ public class PanelDeResumen {
 	/**
 	 * Launch the application.
 	 */
-	public PanelDeResumen(ArrayList<JPanel> paneles) {
+	public PanelDeResumen() {
+		Session session = Session.getInstance ();
 		
 		panelDeResumen = new JPanel();
 		panelDeResumen.setBounds(0, 0, 984, 611);
@@ -38,12 +41,12 @@ public class PanelDeResumen {
 		btnVolverPanelDeResumen.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				panelDeResumen.setVisible(false);
-			 
-				paneles.get(0).setVisible(true);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(false);
+//				panelDeResumen.setVisible(false);
+				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+				session.getPanelDeCines().getPanelDeCines().setVisible(false);
+				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
+			
 			}
 		});
 		btnVolverPanelDeResumen.setForeground(new Color(0, 0, 0));
@@ -57,26 +60,27 @@ public class PanelDeResumen {
 				JFrame jFrame = new JFrame();
 				int result = JOptionPane.showConfirmDialog(jFrame, "¿Tienes una cuenta creada?");
 				if (result == 0) {
-					panelDeResumen.setVisible(false);
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(false);
-					paneles.get(3).setVisible(false);
-					paneles.get(4).setVisible(false);
-					paneles.get(5).setVisible(true);
+//					panelDeResumen.setVisible(false);
+			
+					session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+					session.getPanelDeCines().getPanelDeCines().setVisible(false);
+					session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+					session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
+					session.getPanelDeRegistro().getPanelDeRegistro().setVisible(true);
 				} else if (result == 1) {
-					panelDeResumen.setVisible(false);
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(false);
-					paneles.get(3).setVisible(false);
-					paneles.get(4).setVisible(true);
+//					panelDeResumen.setVisible(false);
+					session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+					session.getPanelDeCines().getPanelDeCines().setVisible(false);
+					session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+					session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
+					session.getPanelDeRegistro().getPanelDeRegistro().setVisible(true);
+					
 				} else {
-					panelDeResumen.setVisible(false);
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(true);
-				}
+//					panelDeResumen.setVisible(false);
+					session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+					session.getPanelDeCines().getPanelDeCines().setVisible(false);
+					session.getPanelDePeliculas().getPanelDePeliculas().setVisible(true);
+			}
 			}
 		});
 		btnIrARegistroPanelDeResumen.setForeground(new Color(0, 0, 0));
@@ -90,6 +94,10 @@ public class PanelDeResumen {
 		panelDeResumen.add(lblLogoCineElorrieta);
 	}
 	
+	public JPanel getPanelDeResumen() {
+		return panelDeResumen;
+	}
+
 	public JPanel inicializarPanelDePeliculas() {
 		return panelDeResumen;
 	}

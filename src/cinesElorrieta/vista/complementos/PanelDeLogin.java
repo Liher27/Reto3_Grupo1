@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import cinesElorrieta.logica.GestorDeCliente;
+import cinesElorrieta.logica.Session;
 
 import javax.swing.JLabel;
 
@@ -27,7 +28,10 @@ public class PanelDeLogin {
 	/**
 	 * Create the frame.
 	 */
-	public PanelDeLogin(ArrayList<JPanel> paneles) {
+	public PanelDeLogin() {
+		Session session = Session.getInstance ();
+		
+		
 		panelDeLogin = new JPanel();
 		panelDeLogin.setBackground(new Color(42, 26, 29));
 		panelDeLogin.setBounds(0, 0, 984, 611);
@@ -71,13 +75,13 @@ public class PanelDeLogin {
 				if (gestorDeCliente.compararLoginUsuario(fieldUsuario, fieldContrasenna) == true) {
 					panelDeLogin.setVisible(false);
 					
-					paneles.get(0).setVisible(true);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(false);
-					paneles.get(3).setVisible(false);
-					paneles.get(4).setVisible(false);
-					paneles.get(5).setVisible(false);
-					paneles.get(6).setVisible(false);
+					session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+					session.getPanelDeCines().getPanelDeCines().setVisible(false);
+					session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+					session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
+					session.getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+					session.getPanelDeLogin().getPanelDeLogin().setVisible(false);
+					session.getPanelDeResumen().getPanelDeResumen().setVisible(false);
 				}
 			}
 		});
@@ -89,12 +93,14 @@ public class PanelDeLogin {
 			public void actionPerformed(ActionEvent e) {
 				panelDeLogin.setVisible(false);
 				
-				paneles.get(0).setVisible(true);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(false);
-				paneles.get(4).setVisible(false);
-				paneles.get(5).setVisible(false);
+
+				session.getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+				session.getPanelDeCines().getPanelDeCines().setVisible(false);
+				session.getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				session.getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				session.getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				session.getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				session.getPanelDeResumen().getPanelDeResumen().setVisible(false);
 			}
 		});
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);
@@ -112,6 +118,11 @@ public class PanelDeLogin {
 	 * It returns the earlier created pannel in order to be used in the "PanelPrincipal" class.
 	 * @return
 	 */
+	
+	
+	public JPanel getPanelDeLogin() {
+		return panelDeLogin;
+	}
 	
 	public JPanel incializarPanelDeLogin() {
 		return panelDeLogin;
