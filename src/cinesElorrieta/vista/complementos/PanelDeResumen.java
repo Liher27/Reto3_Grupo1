@@ -24,9 +24,7 @@ public class PanelDeResumen {
 	 * Launch the application.
 	 * @param paneles 
 	 */
-	public PanelDeResumen(ArrayList<JPanel> paneles) {
-		Session session = Session.getInstance ();
-		
+	public PanelDeResumen() {
 		panelDeResumen = new JPanel();
 		panelDeResumen.setBounds(0, 0, 984, 611);
 		panelDeResumen.setBackground(new Color(42, 26, 29));
@@ -42,12 +40,13 @@ public class PanelDeResumen {
 		btnVolverPanelDeResumen.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				panelDeResumen.setVisible(false);
-				
-				paneles.get(0).setVisible(true);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(false);
+				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 		
 			}
 		});
@@ -62,20 +61,21 @@ public class PanelDeResumen {
 				JFrame jFrame = new JFrame();
 				int result = JOptionPane.showConfirmDialog(jFrame, "¿Tienes una cuenta creada?");
 				if (result == 0) {
-					panelDeResumen.setVisible(false);
-					
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(false);
-					paneles.get(3).setVisible(false);
-					paneles.get(4).setVisible(true);
+					Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+					Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+					Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+					Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(true);
+					Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+					Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+					Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 				} else if (result == 1) {
-					panelDeResumen.setVisible(false);
-					
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(false);
-					paneles.get(2).setVisible(true);
-
+					Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+					Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+					Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+					Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+					Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(true);
+					Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+					Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 			}
 		}
 		});

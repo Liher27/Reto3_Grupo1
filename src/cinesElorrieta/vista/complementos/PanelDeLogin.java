@@ -27,12 +27,8 @@ public class PanelDeLogin {
 
 	/**
 	 * Create the frame.
-	 * @param paneles 
 	 */
-	public PanelDeLogin(ArrayList<JPanel> paneles) {
-		Session session = Session.getInstance ();
-		
-		
+	public PanelDeLogin() {
 		panelDeLogin = new JPanel();
 		panelDeLogin.setBackground(new Color(42, 26, 29));
 		panelDeLogin.setBounds(0, 0, 984, 611);
@@ -74,15 +70,13 @@ public class PanelDeLogin {
 			public void actionPerformed(ActionEvent e) {
 				GestorDeCliente gestorDeCliente = new GestorDeCliente();
 				if (gestorDeCliente.compararLoginUsuario(fieldUsuario, fieldContrasenna) == true) {
-					panelDeLogin.setVisible(false);
-				
-					paneles.get(0).setVisible(false);
-					paneles.get(1).setVisible(true);
-					paneles.get(2).setVisible(false);
-					paneles.get(3).setVisible(false);
-					paneles.get(4).setVisible(false);
-					paneles.get(5).setVisible(false);
-					paneles.get(6).setVisible(false);
+					Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+					Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(true);
+					Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+					Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+					Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+					Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+					Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 				}
 			}
 		});
@@ -92,15 +86,13 @@ public class PanelDeLogin {
 		JButton jButtonLoginSalir = new JButton("Salir");
 		jButtonLoginSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelDeLogin.setVisible(false);
-				
-				paneles.get(0).setVisible(true);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(false);
-				paneles.get(4).setVisible(false);
-				paneles.get(5).setVisible(false);
-				paneles.get(6).setVisible(false);
+				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 
 			}
 		});

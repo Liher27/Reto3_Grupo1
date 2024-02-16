@@ -29,9 +29,10 @@ public class PanelDeCines {
 	 * Create the frame.
 	 * @param paneles 
 	 */
-	public PanelDeCines(ArrayList<JPanel> paneles) {
-	Session session = Session.getInstance();
-		
+	public PanelDeCines() {
+		Session session = Session.getInstance();
+		session.setCode("algo");
+		System.out.println("Code = " + session.code);
 		panelDeCines = new JPanel();
 		panelDeCines.setBackground(new Color(42, 26, 29));
 		panelDeCines.setBounds(0, 0, 984, 611);
@@ -53,12 +54,14 @@ public class PanelDeCines {
 		btnContinuarPanelDeCines.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				panelDeCines.setVisible(false);
-			
-				paneles.get(0).setVisible(false);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(true);
-
+				session.setCode(null);
+				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(true);
+				Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 			}
 		});
 		btnContinuarPanelDeCines.setBounds(800, 556, 98, 33);
@@ -68,12 +71,13 @@ public class PanelDeCines {
 		btnVolverPanelDeCines.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				panelDeCines.setVisible(false);
-	
-				paneles.get(0).setVisible(true);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-
+				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
+				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 			}
 		});
 		btnVolverPanelDeCines.setBounds(100, 556, 98, 33);
@@ -103,16 +107,13 @@ public class PanelDeCines {
 
 		lblCarritoDeLaCompra.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				panelDeCines.setVisible(false);
-				
-				paneles.get(0).setVisible(false);
-				paneles.get(1).setVisible(false);
-				paneles.get(2).setVisible(false);
-				paneles.get(3).setVisible(false);
-				paneles.get(4).setVisible(false);
-				paneles.get(5).setVisible(false);
-				paneles.get(6).setVisible(true);
-
+				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(true);
 			}
 		});
 		panelDeCines.setLayout(null);
@@ -125,10 +126,6 @@ public class PanelDeCines {
 		patata.setBounds(100, 388, 86, 20);
 		panelDeCines.add(patata);
 		patata.setColumns(10);
-	}
-
-	public JTextField getPatata() {
-		return patata;
 	}
 
 	public JPanel getPanelDeCines() {

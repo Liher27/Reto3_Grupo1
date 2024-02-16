@@ -14,12 +14,11 @@ import cinesElorrieta.logica.Session;
 
 public class PanelDeBienvenida {
 
-
 	private JPanel panelDeBienvenida = null;
 	private JLabel lblBienvenida = null;
 	private JLabel lblLogoCineElorrieta = null;
 
-	public PanelDeBienvenida(ArrayList<JPanel> paneles) {
+	public PanelDeBienvenida() {
 
 		panelDeBienvenida = new JPanel();
 		panelDeBienvenida.setBounds(0, 0, 984, 611);
@@ -31,13 +30,14 @@ public class PanelDeBienvenida {
 
 		lblBienvenida.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				panelDeBienvenida.setVisible(false);
-
-//				Session session = Session.getInstance();
-				//session.setCode("BORJITA");
-				paneles.get(0).setVisible(false);
-				paneles.get(1).setVisible(true);
-				paneles.get(2).setVisible(false);
+				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(true);
+				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+				Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				
 			}
 		});
 		
