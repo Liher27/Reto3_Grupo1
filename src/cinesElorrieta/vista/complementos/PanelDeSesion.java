@@ -24,6 +24,7 @@ import cinesElorrieta.logica.GestorDeSesion;
 import cinesElorrieta.logica.Session;
 import cinesElorrieta.vista.complementos.PanelDePeliculas;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 public class PanelDeSesion {
 public JPanel getPanelDeSesion() {
@@ -32,6 +33,7 @@ public JPanel getPanelDeSesion() {
 
 	//*/
 	private JPanel panelDeSesion;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -45,6 +47,10 @@ public JPanel getPanelDeSesion() {
 		panelDeSesion.setBackground(new Color(42, 26, 29));
 		panelDeSesion.setLayout(null);
 
+		PanelDePeliculas panelDePeliculas = new PanelDePeliculas(paneles);
+		String key = panelDePeliculas.getKey();
+		System.out.println(key);
+		
 		JLabel tituloPanelDeRegistro = new JLabel("Sesion de la pelicula");
 		tituloPanelDeRegistro.setForeground(new Color(253, 185, 74));
 		tituloPanelDeRegistro.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
@@ -52,10 +58,7 @@ public JPanel getPanelDeSesion() {
 		panelDeSesion.add(tituloPanelDeRegistro);
 		
 		 GestorDeSesion gestorDeSesion = new GestorDeSesion();
-		  /*PanelDePeliculas panel = new PanelDePeliculas(paneles);
-		  String key = panel.*/
-		  
-		  List<Sesion> sesiones = gestorDeSesion.seleccionarPeliculaParaSesion(PanelDePeliculas.code);
+		 List<Sesion> sesiones = gestorDeSesion.seleccionarPeliculaParaSesion(PanelDePeliculas.code);
 		 
 		  String []
 		  index={"CodSesion","CodSala","CodPelicula","Fecha","Hora","Precio"};
@@ -114,7 +117,7 @@ public JPanel getPanelDeSesion() {
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeSesion.add(lblLogoCineElorrieta);
 
-		PanelDePeliculas panelDePeliculas = new PanelDePeliculas(paneles);
+		
 		panelDePeliculas.tablaDePeliculas.getSelectedRow();
 
 		JComboBox<Sesion> ComboBoxFecha = new JComboBox<Sesion>(new Vector<Sesion>(sesiones));
@@ -124,6 +127,12 @@ public JPanel getPanelDeSesion() {
 		JComboBox<Sesion> ComboBoxHora = new JComboBox<Sesion>(new Vector<Sesion>(sesiones));
 		ComboBoxHora.setBounds(621, 421, 126, 31);
 		panelDeSesion.add(ComboBoxHora);
+		
+		textField = new JTextField();
+		textField.setText(panelDePeliculas.getKey());
+		textField.setBounds(408, 499, 86, 20);
+		panelDeSesion.add(textField);
+		textField.setColumns(10);
 	}
 
 	public JPanel inicializarPanelDeSesion() {
@@ -133,15 +142,4 @@ public JPanel getPanelDeSesion() {
 	public void rellenarTabla(String code) {
 			
 	}
-	
-	/*private void displaySesiones(DefaultTableModel modelo) {
-		GestorDeSesion gestorDePeliculas = new GestorDeSesion();
-		List<Sesion> sesiones = gestorDePeliculas.seleccionarPeliculaParaSesion();
-		for (int i = 0; i < sesiones.size(); i++) {
-			String[] linea = { Integer.toString(sesiones.get(i).getCodSesion()), Integer.toString(sesiones.get(i).getCodSala()),
-					 Integer.toString(sesiones.get(i).getCodPelicula()),  Date.toString(sesiones.get(i).getFecha()),Time.toString(sesiones.get(i).getHora()) };
-			modelo.addRow(linea);
-		}
-	}*/
-
 }

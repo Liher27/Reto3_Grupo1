@@ -70,8 +70,8 @@ public class PanelPrincipal extends JFrame {
 		PanelDeSesion panelDeSesion = new PanelDeSesion(paneles);
 		JPanel PanelDeSesion = panelDeSesion.inicializarPanelDeSesion();
 		PanelDeSesion.setVisible(false);
-		paneles.add(PanelDePeliculas);
-		frame.getContentPane().add(PanelDePeliculas);
+		paneles.add(PanelDeSesion);
+		frame.getContentPane().add(PanelDeSesion);
 
 		//4
 		PanelDeRegistro panelDeRegistro = new PanelDeRegistro(paneles);

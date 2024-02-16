@@ -23,9 +23,20 @@ import cinesElorrieta.logica.Session;
 
 public class PanelDePeliculas {
 
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
 	private JPanel panelDePeliculas;
 	public JTable tablaDePeliculas = null;
 	public static String code; 
+	public String key = null;
+	
+
 	/**
 	 * Launch the application.
 	 * @param paneles 
@@ -92,13 +103,8 @@ public class PanelDePeliculas {
 			public void mouseClicked(MouseEvent e) {
 		
 			int peliculaSeleccionada =tablaDePeliculas.getSelectedRow();
-			int column1 = tablaDePeliculas.getSelectedColumnCount()-1;
-			
-			String code = (String) tablaDePeliculas.getValueAt(peliculaSeleccionada, column1);
-			
-			System.out.println(code);
-	
-	
+			setKey((String) tablaDePeliculas.getValueAt(peliculaSeleccionada, 0));
+			System.out.println(key);
 			panelDePeliculas.setVisible(false);
 			 
 			paneles.get(0).setVisible(false);
