@@ -10,4 +10,3 @@ public class GestorDeEntrada {
 	public static final String USER = "root";
 	public static final String PASS = "";
 }
-

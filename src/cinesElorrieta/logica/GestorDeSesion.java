@@ -1,18 +1,19 @@
 package cinesElorrieta.logica;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import cinesElorrieta.bbdd.Cine;
-import cinesElorrieta.bbdd.Pelicula;
 import cinesElorrieta.bbdd.Reto3Utils;
 import cinesElorrieta.bbdd.Sesion;
-import cinesElorrieta.logica.Session;
 
 public class GestorDeSesion {
 
-	private void datosSesion(Sesion sesion) {
+	public void datosSesion(Sesion sesion) {
 		Connection connection = null;
 
 		// Vamos a lanzar una sentencia SQL contra la BBDD
@@ -94,9 +95,9 @@ public class GestorDeSesion {
 	 * 
 	 * }
 	 */
-	Session session = new Session();
-	String code = session.getCode();
-	public List<Sesion> seleccionarPeliculaParaSesion(String code) {
+
+	public List<Sesion> seleccionarPeliculaParaSesion(int code) {
+		System.out.println("Code de la pelicula es: " + code);
 		List<Sesion> sesiones = new ArrayList<Sesion>();
 		try {
 			Class.forName(Reto3Utils.DRIVER);
@@ -105,27 +106,21 @@ public class GestorDeSesion {
 
 			Statement statement = connection.createStatement();
 
-			String sql = ("SELECT * FROM SESION WHERE CODPELICULA = '" + code + "'");
+			String sql = "SELECT sesion.CodSesion, sesion.CodSala, pelicula.Nombre,sesion.Fecha,sesion.Hora,sesion.precio,sesion.CodPelicula FROM SESION JOIN PELICULA ON sesion.CodPelicula "
+					+ "= pelicula.CodPelicula where sesion.CodPelicula ='" + code + "'";
 
 			ResultSet result = statement.executeQuery(sql);
-
+			// wdad
 			while (result.next()) {
 				Sesion sesion = new Sesion();
-
 				sesion.setCodSesion(result.getInt("CODSESION"));
-
-				sesion.setFecha(result.getDate("FECHA"));
-
-				sesion.setHora(result.getTime("HORA"));
-
 				sesion.setCodSala(result.getInt("CODSALA"));
-
+				sesion.setCodPelicula(result.getInt("CODPELICULA"));
+				sesion.setFecha(result.getDate("FECHA"));
+				sesion.setHora(result.getTime("HORA"));
 				sesion.setPrecioSesion(result.getFloat("PRECIO"));
 
-				sesion.setCodPelicula(result.getInt("CODPELICULA"));
-
 				sesiones.add(sesion);
-
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -133,7 +128,9 @@ public class GestorDeSesion {
 		} catch (SQLException e) {
 			System.out.println("Malformacion sqlazo -> " + e.getMessage());
 		}
+
 		return sesiones;
+
 	}
 
 	public List<Sesion> getSesionesDelaPelicula() {

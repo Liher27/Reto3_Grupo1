@@ -37,10 +37,10 @@ public class PanelDeBienvenida {
 				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
 				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
 				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
-				
+
 			}
 		});
-		
+
 		panelDeBienvenida.setLayout(null);
 		lblBienvenida.setIcon(new ImageIcon("src/ImagenBienvenida.png"));
 		panelDeBienvenida.add(lblBienvenida);
@@ -52,12 +52,8 @@ public class PanelDeBienvenida {
 		panelDeBienvenida.add(lblLogoCineElorrieta);
 	}
 
-
 	public JPanel getPanelDeBienvenida() {
 		return panelDeBienvenida;
 	}
-	
-	public JPanel inicializarPanelDeBienvenida() {
-		return panelDeBienvenida;
-	}
+
 }

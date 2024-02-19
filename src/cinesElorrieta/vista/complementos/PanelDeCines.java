@@ -27,7 +27,8 @@ public class PanelDeCines {
 
 	/**
 	 * Create the frame.
-	 * @param paneles 
+	 * 
+	 * @param paneles
 	 */
 	public PanelDeCines() {
 		Session session = Session.getInstance();
@@ -37,7 +38,7 @@ public class PanelDeCines {
 		panelDeCines.setBackground(new Color(42, 26, 29));
 		panelDeCines.setBounds(0, 0, 984, 611);
 		panelDeCines.setLayout(null);
-		
+
 		GestorDeCine gestorDeCine = new GestorDeCine();
 		List<String> cines = gestorDeCine.getNameOfCines();
 
@@ -121,7 +122,7 @@ public class PanelDeCines {
 		panelDeCines.add(lblCarritoDeLaCompra);
 		lblCarritoDeLaCompra.setBounds(851, 33, 90, 90);
 		panelDeCines.add(lblCarritoDeLaCompra);
-		
+
 		patata = new JTextField();
 		patata.setBounds(100, 388, 86, 20);
 		panelDeCines.add(patata);
@@ -132,13 +133,4 @@ public class PanelDeCines {
 		return panelDeCines;
 	}
 
-	/**
-	 * It returns the earlier created pannel in order to be used in the
-	 * "PanelPrincipal" class.
-	 * 
-	 * @return
-	 */
-	public JPanel inicializarPanelDeCines() {
-		return panelDeCines;
-	}
 }

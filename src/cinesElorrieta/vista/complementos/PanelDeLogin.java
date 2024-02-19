@@ -22,7 +22,7 @@ public class PanelDeLogin {
 
 	public JTextField fieldUsuario = null;
 	public JPasswordField fieldContrasenna = null;
-	
+
 	private JPanel panelDeLogin;
 
 	/**
@@ -64,7 +64,6 @@ public class PanelDeLogin {
 		panelDeLogin.add(fieldContrasenna);
 		fieldContrasenna.setColumns(10);
 
-
 		JButton jButtonLoginConfirmar = new JButton("Confirmar");
 		jButtonLoginConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -98,26 +97,17 @@ public class PanelDeLogin {
 		});
 		jButtonLoginSalir.setBounds(100, 556, 98, 33);
 		panelDeLogin.add(jButtonLoginSalir);
-		
+
 		JLabel lblLogoCineElorrieta = new JLabel("");
 		lblLogoCineElorrieta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeLogin.add(lblLogoCineElorrieta);
-	
+
 	}
 
-	/**
-	 * It returns the earlier created pannel in order to be used in the "PanelPrincipal" class.
-	 * @return
-	 */
-	
-	
 	public JPanel getPanelDeLogin() {
 		return panelDeLogin;
 	}
-	
-	public JPanel incializarPanelDeLogin() {
-		return panelDeLogin;
-	}
+
 }

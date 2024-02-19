@@ -3,7 +3,7 @@ package cinesElorrieta.logica;
 import cinesElorrieta.vista.complementos.*;
 
 public class Session {
-	
+
 	private PanelDeBienvenida panelDeBienvenida = null;
 	private PanelDeCines panelDeCines = null;
 	private PanelDePeliculas panelDePeliculas = null;
@@ -13,7 +13,7 @@ public class Session {
 	private PanelDeResumen panelDeResumen = null;
 
 	private static Session singletonSesion;
-	
+
 	public String code = null;
 
 	public static Session getInstance() {
@@ -29,8 +29,8 @@ public class Session {
 
 	public void setCode(String code) {
 		this.code = code;
-	}	
-	
+	}
+
 	public PanelDeBienvenida getPanelDeBienvenida() {
 		return panelDeBienvenida;
 	}

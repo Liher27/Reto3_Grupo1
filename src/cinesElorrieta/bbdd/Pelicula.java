@@ -14,11 +14,10 @@ public class Pelicula implements Serializable {
 	private String Nombre = null;
 	private String Genero = null;
 	private int Duracion = 0;
-	private  float Precio = 0;
+	private float Precio = 0;
 
-	
 	/**
-	 * Constructor base  prueba
+	 * Constructor base prueba
 	 */
 //	package cinesElorrieta.bbdd;
 //
@@ -29,6 +28,7 @@ public class Pelicula implements Serializable {
 	public Pelicula() {
 
 	}
+
 	public int getCodPelicula() {
 		return CodPelicula;
 	}
@@ -36,6 +36,7 @@ public class Pelicula implements Serializable {
 	public void setCodPelicula(int codPelicula) {
 		CodPelicula = codPelicula;
 	}
+
 	public String getNombre() {
 		return Nombre;
 	}
@@ -60,8 +61,6 @@ public class Pelicula implements Serializable {
 		Duracion = duracion;
 	}
 
-
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -69,13 +68,16 @@ public class Pelicula implements Serializable {
 	public float getPrecio() {
 		return Precio;
 	}
+
 	public void setPrecio(float precio) {
 		Precio = precio;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(CodPelicula, Duracion, Genero, Nombre, Precio);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -89,13 +91,11 @@ public class Pelicula implements Serializable {
 				&& Objects.equals(Nombre, other.Nombre)
 				&& Float.floatToIntBits(Precio) == Float.floatToIntBits(other.Precio);
 	}
+
 	@Override
 	public String toString() {
 		return "Pelicula [CodPelicula=" + CodPelicula + ", Nombre=" + Nombre + ", Genero=" + Genero + ", Duracion="
 				+ Duracion + ", Precio=" + Precio + "]";
 	}
-	
-	
-}
 
-	
+}

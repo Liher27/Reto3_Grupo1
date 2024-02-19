@@ -44,50 +44,49 @@ public class VentanaPrincipal extends JFrame {
 
 		// 0
 		PanelDeBienvenida panelDeBienvenida = new PanelDeBienvenida();
-		JPanel thePanelBienvenida = panelDeBienvenida.inicializarPanelDeBienvenida();
+		JPanel thePanelBienvenida = panelDeBienvenida.getPanelDeBienvenida();
 		thePanelBienvenida.setVisible(true);
 		frame.getContentPane().add(thePanelBienvenida);
 		Session.getInstance().setPanelDeBienvenida(panelDeBienvenida);
 
 		// 1
 		PanelDeCines panelDeCines = new PanelDeCines();
-		JPanel thePanelCines = panelDeCines.inicializarPanelDeCines();
+		JPanel thePanelCines = panelDeCines.getPanelDeCines();
 		thePanelCines.setVisible(false);
 		frame.getContentPane().add(thePanelCines);
 		Session.getInstance().setPanelDeCines(panelDeCines);
-		
+
 		// 2
 		PanelDePeliculas panelDePeliculas = new PanelDePeliculas();
-		JPanel thePanelPeliculas = panelDePeliculas.inicializarPanelDePeliculas();
+		JPanel thePanelPeliculas = panelDePeliculas.getPanelDePeliculas();
 		thePanelPeliculas.setVisible(false);
 		frame.getContentPane().add(thePanelPeliculas);
 		Session.getInstance().setPanelDePeliculas(panelDePeliculas);
 
 		// 3
 		PanelDeSesion panelDeSesion = new PanelDeSesion();
-		JPanel thePanelDeSesion = panelDeSesion.inicializarPanelDeSesion();
+		JPanel thePanelDeSesion = panelDeSesion.getPanelDeSesion();
 		thePanelDeSesion.setVisible(false);
 		frame.getContentPane().add(thePanelDeSesion);
 		Session.getInstance().setPanelDeSesion(panelDeSesion);
-		
 
 		// 4
 		PanelDeRegistro panelDeRegistro = new PanelDeRegistro();
-		JPanel thePanelDeRegistro = panelDeRegistro.inicializarPanelDeRegistro();
+		JPanel thePanelDeRegistro = panelDeRegistro.getPanelDeRegistro();
 		thePanelDeRegistro.setVisible(false);
 		frame.getContentPane().add(thePanelDeRegistro);
 		Session.getInstance().setPanelDeRegistro(panelDeRegistro);
 
 		// 5
 		PanelDeLogin panelDeLogin = new PanelDeLogin();
-		JPanel thePanelDeLogin = panelDeLogin.incializarPanelDeLogin();
+		JPanel thePanelDeLogin = panelDeLogin.getPanelDeLogin();
 		thePanelDeLogin.setVisible(false);
 		frame.getContentPane().add(thePanelDeLogin);
 		Session.getInstance().setPanelDeLogin(panelDeLogin);
 
 		// 6
 		PanelDeResumen panelDeResumen = new PanelDeResumen();
-		JPanel thePanelDeResumen = panelDeResumen.inicializarPanelDeResumen();
+		JPanel thePanelDeResumen = panelDeResumen.getPanelDeResumen();
 		thePanelDeResumen.setVisible(false);
 		frame.getContentPane().add(thePanelDeResumen);
 		Session.getInstance().setPanelDeResumen(panelDeResumen);

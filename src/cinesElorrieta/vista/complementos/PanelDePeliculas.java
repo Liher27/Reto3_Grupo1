@@ -24,25 +24,10 @@ import cinesElorrieta.logica.GestorDeSesion;
 import cinesElorrieta.logica.Session;
 
 public class PanelDePeliculas {
-//
-//	public String getKey() {
-//		return key;
-//	}
-//
-//	public void setKey(String key) {
-//		this.key = key;
-//	}
 
 	private JPanel panelDePeliculas;
 	public JTable tablaDePeliculas = null;
 	public static String code;
-//	public String key = null;
-
-	/**
-	 * Launch the application.
-	 * 
-	 * @param paneles
-	 */
 
 	public PanelDePeliculas() {
 		Session session = Session.getInstance();
@@ -125,10 +110,6 @@ public class PanelDePeliculas {
 		buscarSesion.setBounds(391, 426, 192, 43);
 		panelDePeliculas.add(buscarSesion);
 
-	}
-
-	public JPanel inicializarPanelDePeliculas() {
-		return panelDePeliculas;
 	}
 
 	private void displayPelis(DefaultTableModel modelo) {

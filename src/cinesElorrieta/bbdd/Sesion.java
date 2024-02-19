@@ -6,7 +6,7 @@ import java.sql.Time;
 import java.sql.Date;
 import java.util.Objects;
 
-public class Sesion implements Serializable  {
+public class Sesion implements Serializable {
 
 	/**
 	 * 
@@ -18,15 +18,18 @@ public class Sesion implements Serializable  {
 	private int CodSala;
 	private float PrecioSesion;
 	private int CodPelicula;
+
 	@Override
 	public String toString() {
 		return "Sesion [CodSesion=" + CodSesion + ", Fecha=" + Fecha + ", hora=" + hora + ", CodSala=" + CodSala
 				+ ", PrecioSesion=" + PrecioSesion + ", CodPelicula=" + CodPelicula + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(CodPelicula, CodSala, CodSesion, Fecha, PrecioSesion, hora);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -39,41 +42,52 @@ public class Sesion implements Serializable  {
 		return CodPelicula == other.CodPelicula && CodSala == other.CodSala && CodSesion == other.CodSesion
 				&& Objects.equals(Fecha, other.Fecha) && PrecioSesion == other.PrecioSesion && hora == other.hora;
 	}
+
 	public int getCodSesion() {
 		return CodSesion;
 	}
+
 	public void setCodSesion(int codSesion) {
 		CodSesion = codSesion;
 	}
+
 	public Date getFecha() {
 		return Fecha;
 	}
+
 	public void setFecha(Date fecha) {
 		Fecha = fecha;
 	}
+
 	public Time getHora() {
 		return hora;
 	}
+
 	public void setHora(Time hora) {
 		this.hora = hora;
 	}
+
 	public int getCodSala() {
 		return CodSala;
 	}
+
 	public void setCodSala(int codSala) {
 		CodSala = codSala;
 	}
+
 	public float getPrecioSesion() {
 		return PrecioSesion;
 	}
+
 	public void setPrecioSesion(float precioSesion) {
 		PrecioSesion = precioSesion;
 	}
+
 	public int getCodPelicula() {
 		return CodPelicula;
 	}
+
 	public void setCodPelicula(int codPelicula) {
 		CodPelicula = codPelicula;
 	}
 }
-
