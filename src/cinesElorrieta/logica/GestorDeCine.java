@@ -5,11 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import cinesElorrieta.bbdd.Cine;
 import cinesElorrieta.bbdd.Reto3Utils;
 
 public class GestorDeCine {

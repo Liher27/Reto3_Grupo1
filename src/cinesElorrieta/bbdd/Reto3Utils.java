@@ -1,7 +1,6 @@
 package cinesElorrieta.bbdd;
 
 import java.sql.*;
-import com.mysql.cj.xdevapi.Statement;
 
 public class Reto3Utils {
 	// La URL donde esta la Base de Datos. Se descompone en:

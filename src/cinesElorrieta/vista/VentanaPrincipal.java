@@ -10,7 +10,6 @@ import cinesElorrieta.vista.complementos.PanelDeResumen;
 import cinesElorrieta.vista.complementos.PanelDeSesion;
 
 import java.awt.EventQueue;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

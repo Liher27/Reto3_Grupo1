@@ -2,13 +2,12 @@ package cinesElorrieta.logica;
 
 import java.sql.*;
 
-import cinesElorrieta.bbdd.Cine;
 import cinesElorrieta.bbdd.Reto3Utils;
 import cinesElorrieta.bbdd.Sala;
 
 public class GestorDeSala {
 
-	private void datosSala(Sala sala) {
+	public void datosSala(Sala sala) {
 		Connection connection = null;
 
 		// Vamos a lanzar una sentencia SQL contra la BBDD

@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -18,9 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 import cinesElorrieta.bbdd.Pelicula;
-import cinesElorrieta.bbdd.Sesion;
 import cinesElorrieta.logica.GestorDePeliculas;
-import cinesElorrieta.logica.GestorDeSesion;
 import cinesElorrieta.logica.Session;
 
 public class PanelDePeliculas {
@@ -30,8 +27,6 @@ public class PanelDePeliculas {
 	public static String code;
 
 	public PanelDePeliculas() {
-		Session session = Session.getInstance();
-
 		panelDePeliculas = new JPanel();
 		panelDePeliculas.setBounds(0, 0, 984, 611);
 		panelDePeliculas.setBackground(new Color(42, 26, 29));
@@ -87,11 +82,13 @@ public class PanelDePeliculas {
 		buscarSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int row = tablaDePeliculas.getSelectedRow();
+				int peliculaSeleccionada = Integer
+						.parseInt(modelo.getDataVector().get(tablaDePeliculas.getSelectedRow()).get(0).toString());
 
-				if (row != -1) {
-					String code = ((String) tablaDePeliculas.getValueAt(row, 0));
-					session.setCode(code);
+				if (peliculaSeleccionada != -1) {
+
+					Session.getInstance().getPanelDeSesion().setCode(peliculaSeleccionada);
+					Session.getInstance().getPanelDeSesion().displayTable();
 
 					Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
 					Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
@@ -100,8 +97,9 @@ public class PanelDePeliculas {
 					Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
 					Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
 					Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(true);
+
 				} else {
-					JOptionPane.showMessageDialog(null, "Error, no se ha una película.", "Error",
+					JOptionPane.showMessageDialog(null, "Error, no se ha encontrado ninguna película.", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
@@ -110,6 +108,10 @@ public class PanelDePeliculas {
 		buscarSesion.setBounds(391, 426, 192, 43);
 		panelDePeliculas.add(buscarSesion);
 
+	}
+
+	public JPanel inicializarPanelDePeliculas() {
+		return panelDePeliculas;
 	}
 
 	private void displayPelis(DefaultTableModel modelo) {
