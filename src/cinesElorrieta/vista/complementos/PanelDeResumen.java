@@ -11,13 +11,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
 import cinesElorrieta.logica.Session;
 
 public class PanelDeResumen {
 
 	private JPanel panelDeResumen;
+	private JTable tablaDeCompra = null;
+	private DefaultTableModel modelo = null;
 
 	/**
 	 * Launch the application.
@@ -35,6 +40,18 @@ public class PanelDeResumen {
 		tituloPanelDeRegistro.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
 		tituloPanelDeRegistro.setBounds(328, 32, 400, 64);
 		panelDeResumen.add(tituloPanelDeRegistro);
+		
+		JScrollPane peliculaScroll = new JScrollPane();
+		peliculaScroll.setBounds(236, 164, 512, 195);
+		panelDeResumen.add(peliculaScroll);
+
+		DefaultTableModel modelo = new DefaultTableModel();
+		tablaDeCompra = new JTable(modelo);
+		modelo.addColumn("Nombre");
+		modelo.addColumn("Fecha");
+		modelo.addColumn("Hora");
+		modelo.addColumn("Cine");
+		modelo.addColumn("Sala");
 
 		JButton btnVolverPanelDeResumen = new JButton("Bienvenida");
 		btnVolverPanelDeResumen.addMouseListener(new MouseAdapter() {
@@ -88,6 +105,11 @@ public class PanelDeResumen {
 		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeResumen.add(lblLogoCineElorrieta);
+		
+		JButton btnFinalizarYComprar = new JButton("Finalizar Y Comprar");
+		btnFinalizarYComprar.setForeground(Color.BLACK);
+		btnFinalizarYComprar.setBounds(414, 556, 150, 33);
+		panelDeResumen.add(btnFinalizarYComprar);
 	}
 
 	public JPanel getPanelDeResumen() {
