@@ -29,6 +29,8 @@ public class PanelDeBienvenida {
 
 		lblBienvenida.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
+				esperar();
+				
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(true);
 				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
@@ -54,5 +56,12 @@ public class PanelDeBienvenida {
 	public JPanel getPanelDeBienvenida() {
 		return panelDeBienvenida;
 	}
-
+	
+	private void esperar() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+		}
+	}
+	
 }

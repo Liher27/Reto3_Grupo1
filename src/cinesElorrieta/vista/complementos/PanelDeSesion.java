@@ -56,7 +56,7 @@ public class PanelDeSesion {
 		tablaDeSesion.setBounds(235, 127, 512, 195);
 
 		JScrollPane sesionScroll = new JScrollPane();
-		sesionScroll.setBounds(235, 127, 512, 195);
+		sesionScroll.setBounds(234, 185, 512, 195);
 		panelDeSesion.add(sesionScroll);
 		sesionScroll.setViewportView(tablaDeSesion);
 
@@ -103,14 +103,6 @@ public class PanelDeSesion {
 		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeSesion.add(lblLogoCineElorrieta);
-
-		JComboBox<Sesion> ComboBoxFecha = new JComboBox<Sesion>(new Vector<Sesion>());
-		ComboBoxFecha.setBounds(235, 421, 126, 31);
-		panelDeSesion.add(ComboBoxFecha);
-
-		JComboBox<Sesion> ComboBoxHora = new JComboBox<Sesion>(new Vector<Sesion>());
-		ComboBoxHora.setBounds(621, 421, 126, 31);
-		panelDeSesion.add(ComboBoxHora);
 
 	}
 

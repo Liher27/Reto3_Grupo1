@@ -12,12 +12,12 @@ public class Sesion implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -4810240199663471824L;
-	private int CodSesion;
-	private Date Fecha;
-	private Time hora;
-	private int CodSala;
-	private float PrecioSesion;
-	private int CodPelicula;
+	private int CodSesion = 0;
+	private Date Fecha = null;
+	private Time hora = null;
+	private int CodSala = 0;
+	private float PrecioSesion = 0;
+	private int CodPelicula = 0;
 
 	@Override
 	public String toString() {
