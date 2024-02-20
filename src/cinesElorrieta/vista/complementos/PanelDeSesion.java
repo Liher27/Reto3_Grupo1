@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
-import java.util.Vector;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 import cinesElorrieta.bbdd.Sesion;
 import cinesElorrieta.logica.GestorDeSesion;
 import cinesElorrieta.logica.Session;
-import javax.swing.JComboBox;
 
 public class PanelDeSesion {
 
@@ -103,6 +102,25 @@ public class PanelDeSesion {
 		lblLogoCineElorrieta.setBounds(33, 33, 90, 90);
 		lblLogoCineElorrieta.setIcon(new ImageIcon("src/LogoCineElorrieta.png"));
 		panelDeSesion.add(lblLogoCineElorrieta);
+		
+		JButton btnAadir = new JButton("Añadir");
+		btnAadir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int [] filaSeleccionada = tablaDeSesion.getSelectedRows();
+				
+				for (int i =0; i < filaSeleccionada.length; i++) {
+				Object[] filaPeli = new Object[tablaDeSesion.getColumnCount()];
+				for(int j = 0; j < tablaDeSesion.getColumnCount(); i++) {
+					filaPeli[j] = tablaDeSesion.getValueAt(filaSeleccionada[i], j);
+				}
+				
+			}
+		}
+		});
+		btnAadir.setForeground(Color.BLACK);
+		btnAadir.setBounds(441, 403, 98, 33);
+		panelDeSesion.add(btnAadir);
 
 	}
 
@@ -136,7 +154,6 @@ public class PanelDeSesion {
 		this.codPelicula = code;
 	}
 
-	
 	public JPanel getPanelDeSesion() {
 		return panelDeSesion;
 	}

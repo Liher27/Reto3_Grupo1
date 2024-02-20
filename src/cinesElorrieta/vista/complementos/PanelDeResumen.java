@@ -41,11 +41,12 @@ public class PanelDeResumen {
 		tituloPanelDeRegistro.setBounds(328, 32, 400, 64);
 		panelDeResumen.add(tituloPanelDeRegistro);
 		
-		JScrollPane peliculaScroll = new JScrollPane();
-		peliculaScroll.setBounds(236, 164, 512, 195);
-		panelDeResumen.add(peliculaScroll);
+		JScrollPane compraScroll = new JScrollPane();
+		compraScroll.setBounds(236, 164, 512, 195);
+		panelDeResumen.add(compraScroll);
+		compraScroll.setViewportView(tablaDeCompra);
 
-		DefaultTableModel modelo = new DefaultTableModel();
+		 modelo = new DefaultTableModel();
 		tablaDeCompra = new JTable(modelo);
 		modelo.addColumn("Nombre");
 		modelo.addColumn("Fecha");
