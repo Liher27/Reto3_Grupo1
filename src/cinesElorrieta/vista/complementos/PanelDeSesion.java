@@ -28,16 +28,8 @@ public class PanelDeSesion {
 
 	private JPanel panelDeSesion = null;
 	public JTable tablaDeSesion = null;
-	private int code = 0;
+	private int codPelicula = 0;
 	private DefaultTableModel modelo = null;
-
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
 
 	public PanelDeSesion() {
 
@@ -59,7 +51,6 @@ public class PanelDeSesion {
 		modelo.addColumn("Fecha");
 		modelo.addColumn("Hora");
 		modelo.addColumn("Precio");
-//		displaySession(modelo);
 
 		tablaDeSesion = new JTable(modelo);
 		tablaDeSesion.setBounds(235, 127, 512, 195);
@@ -73,8 +64,8 @@ public class PanelDeSesion {
 		btnVolverPanelDeSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				vaciarTablaDeSesion();
 
-				clearTabla();
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
 				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
@@ -92,7 +83,7 @@ public class PanelDeSesion {
 		btnContinuarPanelDeSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				clearTabla();
+				vaciarTablaDeSesion();
 
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(true);
@@ -140,11 +131,20 @@ public class PanelDeSesion {
 		}
 	}
 
-	private void clearTabla() {
+	private void vaciarTablaDeSesion() {
 		modelo = (DefaultTableModel) this.tablaDeSesion.getModel();
 		modelo.setRowCount(0);
 	}
 
+	public int getCode() {
+		return codPelicula;
+	}
+
+	public void setCode(int code) {
+		this.codPelicula = code;
+	}
+
+	
 	public JPanel getPanelDeSesion() {
 		return panelDeSesion;
 	}

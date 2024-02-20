@@ -24,7 +24,8 @@ public class PanelDePeliculas {
 
 	private JPanel panelDePeliculas;
 	public JTable tablaDePeliculas = null;
-	public static String code;
+	private DefaultTableModel modelo = null;
+	private int CodCine = 0;
 
 	public PanelDePeliculas() {
 		panelDePeliculas = new JPanel();
@@ -42,14 +43,13 @@ public class PanelDePeliculas {
 		peliculaScroll.setBounds(236, 164, 512, 195);
 		panelDePeliculas.add(peliculaScroll);
 
-		DefaultTableModel modelo = new DefaultTableModel();
+		modelo = new DefaultTableModel();
 		tablaDePeliculas = new JTable(modelo);
 		modelo.addColumn("CodPelicula");
 		modelo.addColumn("Nombre");
 		modelo.addColumn("Genero");
 		modelo.addColumn("Duracion");
 		modelo.addColumn("Precio");
-		displayPelis(modelo);
 
 		tablaDePeliculas.setBounds(235, 127, 512, 195);
 
@@ -59,6 +59,8 @@ public class PanelDePeliculas {
 		btnVolverPanelDePeliculas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				vaciarTablaDePeliculas();
+				
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
 				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
@@ -82,11 +84,13 @@ public class PanelDePeliculas {
 		buscarSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int peliculaSeleccionada = Integer
-						.parseInt(modelo.getDataVector().get(tablaDePeliculas.getSelectedRow()).get(0).toString());
+				int peliculaSeleccionada =
+					Integer.parseInt(modelo.getDataVector().get(tablaDePeliculas.getSelectedRow()).get(0).toString());
 
 				if (peliculaSeleccionada != -1) {
-
+					
+					vaciarTablaDePeliculas();
+					
 					Session.getInstance().getPanelDeSesion().setCode(peliculaSeleccionada);
 					Session.getInstance().getPanelDeSesion().displayTable();
 
@@ -109,14 +113,10 @@ public class PanelDePeliculas {
 		panelDePeliculas.add(buscarSesion);
 
 	}
-
-	public JPanel inicializarPanelDePeliculas() {
-		return panelDePeliculas;
-	}
-
-	private void displayPelis(DefaultTableModel modelo) {
+	
+	public void displayPelis() {
 		GestorDePeliculas gestorDePeliculas = new GestorDePeliculas();
-		List<Pelicula> sesiones = gestorDePeliculas.getLasPeliculas();
+		List<Pelicula> sesiones = gestorDePeliculas.getLasPeliculas(this.getCodCine());
 		for (int i = 0; i < sesiones.size(); i++) {
 			String[] linea = { Integer.toString(sesiones.get(i).getCodPelicula()), sesiones.get(i).getNombre(),
 					sesiones.get(i).getGenero(), Integer.toString(sesiones.get(i).getDuracion()),
@@ -124,6 +124,20 @@ public class PanelDePeliculas {
 			modelo.addRow(linea);
 		}
 	}
+	
+	private void vaciarTablaDePeliculas() {
+		modelo = (DefaultTableModel) this.tablaDePeliculas.getModel();
+		modelo.setRowCount(0);
+	}
+	
+	public int getCodCine() {
+		return CodCine;
+	}
+
+	public void setCodCine(int codCine) {
+		CodCine = codCine;
+	}
+
 
 	public JPanel getPanelDePeliculas() {
 		return panelDePeliculas;

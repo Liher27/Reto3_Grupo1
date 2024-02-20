@@ -16,7 +16,7 @@ import cinesElorrieta.bbdd.Reto3Utils;
  */
 public class GestorDePeliculas {
 
-	public List<Pelicula> getLasPeliculas() {
+	public List<Pelicula> getLasPeliculas(int CodCine) {
 		List<Pelicula> pelis = new ArrayList<Pelicula>();
 
 		try {
@@ -26,7 +26,7 @@ public class GestorDePeliculas {
 
 			Statement statement = connection.createStatement();
 
-			String sql = "SELECT * FROM PELICULA";
+			String sql = "SELECT * FROM PELICULA where CodCine = '" + CodCine + "'";
 
 			ResultSet result = statement.executeQuery(sql);
 			// wdad

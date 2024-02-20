@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -22,7 +23,7 @@ import javax.swing.JTextField;
 public class PanelDeCines {
 
 	private JPanel panelDeCines;
-	private JTextField patata;
+	private JComboBox<String> ComboBoxCines = null;
 
 	/**
 	 * Create the frame.
@@ -30,9 +31,6 @@ public class PanelDeCines {
 	 * @param paneles
 	 */
 	public PanelDeCines() {
-		Session session = Session.getInstance();
-		session.setCode("algo");
-		System.out.println("Code = " + session.code);
 		panelDeCines = new JPanel();
 		panelDeCines.setBackground(new Color(42, 26, 29));
 		panelDeCines.setBounds(0, 0, 984, 611);
@@ -41,7 +39,7 @@ public class PanelDeCines {
 		GestorDeCine gestorDeCine = new GestorDeCine();
 		List<String> cines = gestorDeCine.getNameOfCines();
 
-		JComboBox<String> ComboBoxCines = new JComboBox<String>(new Vector<String>(cines));
+		ComboBoxCines = new JComboBox<String>(new Vector<String>(cines));
 		ComboBoxCines.setBounds(84, 278, 311, 31);
 		panelDeCines.add(ComboBoxCines);
 
@@ -54,7 +52,12 @@ public class PanelDeCines {
 		btnContinuarPanelDeCines.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				session.setCode(null);
+				int cineSeleccionado = (ComboBoxCines.getSelectedIndex() + 1);
+				if (cineSeleccionado != -1) {
+				
+				Session.getInstance().getPanelDePeliculas().setCodCine(cineSeleccionado);
+				Session.getInstance().getPanelDePeliculas().displayPelis();
+				
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
 				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(true);
@@ -62,6 +65,10 @@ public class PanelDeCines {
 				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
 				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
 				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				} else {
+					JOptionPane.showMessageDialog(null, "Error, no se ha seleccionado ningún cine.", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		btnContinuarPanelDeCines.setBounds(800, 556, 98, 33);
@@ -121,11 +128,6 @@ public class PanelDeCines {
 		panelDeCines.add(lblCarritoDeLaCompra);
 		lblCarritoDeLaCompra.setBounds(851, 33, 90, 90);
 		panelDeCines.add(lblCarritoDeLaCompra);
-
-		patata = new JTextField();
-		patata.setBounds(100, 388, 86, 20);
-		panelDeCines.add(patata);
-		patata.setColumns(10);
 	}
 
 	public JPanel getPanelDeCines() {
