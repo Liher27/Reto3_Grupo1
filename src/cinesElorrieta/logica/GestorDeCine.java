@@ -22,12 +22,12 @@ public class GestorDeCine {
 
 			Statement statement = connection.createStatement();
 
-			String sql = "SELECT NOMBRE FROM CINE";
+			String sql = "SELECT NOMBRECINE FROM CINE";
 
 			ResultSet result = statement.executeQuery(sql);
 
 			while (result.next()) {
-				resposne.add(result.getString("NOMBRE"));
+				resposne.add(result.getString("NOMBRECINE"));
 			}
 		} catch (ClassNotFoundException e) {
 			System.out.println("Ha dado fallo -> " + e.getMessage());

@@ -31,7 +31,7 @@ public class GestorDePeliculas {
 			while (result.next()) {
 				Pelicula pelicula = new Pelicula();
 				pelicula.setCodPelicula(result.getInt("CODPELICULA"));
-				pelicula.setNombre(result.getString("NOMBRE"));
+				pelicula.setNombre(result.getString("NOMBREPELICULA"));
 				pelicula.setGenero(result.getString("GENERO"));
 				pelicula.setDuracion(result.getInt("DURACION"));
 				pelicula.setPrecio(result.getFloat("PRECIO"));

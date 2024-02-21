@@ -10,6 +10,7 @@ import java.util.List;
 
 import cinesElorrieta.bbdd.Reto3Utils;
 import cinesElorrieta.bbdd.Sesion;
+import cinesElorrieta.bbdd.SessionesSeleccionada;
 
 public class GestorDeSesion {
 
@@ -62,39 +63,45 @@ public class GestorDeSesion {
 
 	}
 
-	/*
-	 * public List<Sesion> getLaSesion() { List<Sesion> sesion = new
-	 * ArrayList<Sesion>();
-	 * 
-	 * try { Class.forName(Reto3Utils.DRIVER);
-	 * 
-	 * Connection connection = DriverManager.getConnection(Reto3Utils.URL,
-	 * Reto3Utils.USER, Reto3Utils.PASS);
-	 * 
-	 * Statement statement = connection.createStatement();
-	 * 
-	 * String sql = "SELECT * FROM SESION";
-	 * 
-	 * ResultSet result = statement.executeQuery(sql); // wdad while (result.next())
-	 * { Sesion sesiones = new Sesion();
-	 * sesiones.setCodSesion(result.getInt("CODSESION"));
-	 * sesiones.setFecha(result.getDate("FECHA"));
-	 * sesiones.setHora(result.getTime("HORA"));
-	 * sesiones.setCodSala(result.getInt("CODSALA"));
-	 * sesiones.setPrecioSesion(result.getFloat("PRECIO"));
-	 * 
-	 * sesion.add(sesiones);
-	 * 
-	 * }
-	 * 
-	 * } catch (ClassNotFoundException e) { System.out.println("Ha dado fallo -> " +
-	 * e.getMessage()); } catch (SQLException e) {
-	 * System.out.println("Malformacion sqlazo -> " + e.getMessage()); }
-	 * 
-	 * return sesion;
-	 * 
-	 * }
-	 */
+
+	
+	public List<SessionesSeleccionada> sessionesSeleccionada  (int code) {
+		ArrayList<SessionesSeleccionada> sesionesCompras = new ArrayList<SessionesSeleccionada>();
+		try {
+			Class.forName(Reto3Utils.DRIVER);
+
+			Connection connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+
+			Statement statement = connection.createStatement();
+
+			String sql = "SELECT pelicula.NombrePelicula, sesion.Fecha, sesion.Hora, sala.NombreSala, sesion.Precio, cine.NombreCine FROM sesion JOIN pelicula ON sesion.CodPelicula"
+					+ ""+" = pelicula.CodPelicula JOIN cine ON pelicula.CodCine  "+"=  cine.CodCine JOIN sala ON sesion.CodSala = sala.CodSala WHERE sesion.CodSesion  ='" + code + "'";
+
+			ResultSet result = statement.executeQuery(sql);
+			// wdad
+			while (result.next()) {
+				SessionesSeleccionada sesion = new SessionesSeleccionada();
+				sesion.setNombrePeli(result.getString("NOMBREPELICULA"));
+				sesion.setNombreSala(result.getString("NOMBRESALA"));
+				sesion.setFecha(result.getDate("FECHA"));
+				sesion.setHora(result.getTime("HORA"));
+				sesion.setPrecio(result.getFloat("PRECIO"));
+				sesion.setNomCine(result.getString("NOMBRECINE"));
+				
+				sesionesCompras.add(sesion);
+				
+			}
+			System.out.println("sessiones es:" + code);
+		} catch (ClassNotFoundException e) {
+			System.out.println("Ha dado fallo -> " + e.getMessage());
+		} catch (SQLException e) {
+			System.out.println("Malformacion sqlazo -> " + e.getMessage());
+		}
+
+		return sesionesCompras;
+	
+		
+	}
 
 	public List<Sesion> seleccionarPeliculaParaSesion(int code) {
 		System.out.println("Code de la pelicula es: " + code);
@@ -106,7 +113,7 @@ public class GestorDeSesion {
 
 			Statement statement = connection.createStatement();
 
-			String sql = "SELECT sesion.CodSesion, sesion.CodSala, pelicula.Nombre,sesion.Fecha,sesion.Hora,sesion.precio,sesion.CodPelicula FROM SESION JOIN PELICULA ON sesion.CodPelicula "
+			String sql = "SELECT sesion.CodSesion, sesion.CodSala, pelicula.NombrePelicula,sesion.Fecha,sesion.Hora,sesion.precio,sesion.CodPelicula FROM SESION JOIN PELICULA ON sesion.CodPelicula "
 					+ "= pelicula.CodPelicula where sesion.CodPelicula ='" + code + "'";
 
 			ResultSet result = statement.executeQuery(sql);
@@ -167,6 +174,32 @@ public class GestorDeSesion {
 		}
 
 		return sesiones;
+
+	}
+	public void sessionesCompra() {
+		
+		
+		try {
+			Class.forName(Reto3Utils.DRIVER);
+
+			Connection connection = DriverManager.getConnection(Reto3Utils.URL, Reto3Utils.USER, Reto3Utils.PASS);
+
+			Statement statement = connection.createStatement();
+
+			String sql = "SELECT * FROM SESION ";
+
+			ResultSet result = statement.executeQuery(sql);
+			// wdad
+			while (result.next()) {
+				
+
+			}
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("Ha dado fallo -> " + e.getMessage());
+		} catch (SQLException e) {
+			System.out.println("Malformacion sqlazo -> " + e.getMessage());
+		}
 
 	}
 }

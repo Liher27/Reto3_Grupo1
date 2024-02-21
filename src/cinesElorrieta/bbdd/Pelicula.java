@@ -16,14 +16,7 @@ public class Pelicula implements Serializable {
 	private int Duracion = 0;
 	private float Precio = 0;
 
-	/**
-	 * Constructor base prueba
-	 */
-//	package cinesElorrieta.bbdd;
-//
-//	public enum Genero {
-//		FICCION, DRAMA, COMEDIA, ACCION
-//	}
+	
 
 	public Pelicula() {
 

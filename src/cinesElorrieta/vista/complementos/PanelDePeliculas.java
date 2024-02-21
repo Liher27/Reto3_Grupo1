@@ -25,6 +25,7 @@ public class PanelDePeliculas {
 	private JPanel panelDePeliculas;
 	public JTable tablaDePeliculas = null;
 	private DefaultTableModel modelo = null;
+	
 	private int CodCine = 0;
 
 	public PanelDePeliculas() {

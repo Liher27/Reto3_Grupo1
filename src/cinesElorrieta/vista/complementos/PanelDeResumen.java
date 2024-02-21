@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,14 +20,25 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
+import cinesElorrieta.bbdd.SessionesSeleccionada;
+import cinesElorrieta.logica.GestorDeSesion;
 import cinesElorrieta.logica.Session;
 
 public class PanelDeResumen {
 
 	private JPanel panelDeResumen;
 	private JTable tablaDeCompra = null;
-	private DefaultTableModel modelo = null;
-
+	private DefaultTableModel modeloCompra = null;
+	public  List<Object> sesiones = new ArrayList<>();
+	public int codePeliSesion = 0;
+	
+	
+	public int getCodePeliSesion() {
+		return codePeliSesion;
+	}
+	public void setCodePeliSesion(int codePeliSesion) {
+		this.codePeliSesion = codePeliSesion;
+	}
 	/**
 	 * Launch the application.
 	 * 
@@ -41,18 +56,21 @@ public class PanelDeResumen {
 		tituloPanelDeRegistro.setBounds(328, 32, 400, 64);
 		panelDeResumen.add(tituloPanelDeRegistro);
 		
+		
+
+		 modeloCompra = new DefaultTableModel();
+		tablaDeCompra = new JTable(modeloCompra);
+		modeloCompra.addColumn("Nombre");
+		modeloCompra.addColumn("Fecha");
+		modeloCompra.addColumn("Hora");
+		modeloCompra.addColumn("Cine");
+		modeloCompra.addColumn("Sala");
+		modeloCompra.addColumn("Precio");
+		
 		JScrollPane compraScroll = new JScrollPane();
 		compraScroll.setBounds(236, 164, 512, 195);
 		panelDeResumen.add(compraScroll);
 		compraScroll.setViewportView(tablaDeCompra);
-
-		 modelo = new DefaultTableModel();
-		tablaDeCompra = new JTable(modelo);
-		modelo.addColumn("Nombre");
-		modelo.addColumn("Fecha");
-		modelo.addColumn("Hora");
-		modelo.addColumn("Cine");
-		modelo.addColumn("Sala");
 
 		JButton btnVolverPanelDeResumen = new JButton("Bienvenida");
 		btnVolverPanelDeResumen.addMouseListener(new MouseAdapter() {
@@ -112,6 +130,39 @@ public class PanelDeResumen {
 		btnFinalizarYComprar.setBounds(414, 556, 150, 33);
 		panelDeResumen.add(btnFinalizarYComprar);
 	}
+	public void displayComprasTabla() {
+		GestorDeSesion gestorDeSesion = new GestorDeSesion();
+		List<SessionesSeleccionada> sesionesComprada =  gestorDeSesion.sessionesSeleccionada(this.getCodePeliSesion());
+		for (int i = 0; i < sesionesComprada.size(); i++) {
+		
+			
+			String nombrePelicula = sesionesComprada.get(i).getNombrePeli();
+			String nombreCine = sesionesComprada.get(i).getNomCine();
+			String nombreSala = sesionesComprada.get(i).getNombreSala();
+			float precio = sesionesComprada.get(i).getPrecio();
+			Date fecha = sesionesComprada.get(i).getFecha();
+			Time hora = sesionesComprada.get(i).getHora();
+			Object[] linea = { nombrePelicula,fecha,hora,nombreCine,nombreSala, precio};
+
+			sesiones.add(linea);
+			
+		}
+		
+		
+	}
+	
+	public void muestraTabla() {
+		for(int i = 0; i <sesiones.size(); i++) {
+			Object [] fila = (Object[]) sesiones.get(i);
+			modeloCompra.addRow(fila);
+				
+		}
+	    
+	}
+	void vaciarTablaCompra() {
+		modeloCompra = (DefaultTableModel) this.tablaDeCompra.getModel();
+		modeloCompra.setRowCount(0);
+	}
 
 	public JPanel getPanelDeResumen() {
 		return panelDeResumen;
@@ -120,5 +171,8 @@ public class PanelDeResumen {
 	public JPanel inicializarPanelDeResumen() {
 		return panelDeResumen;
 	}
+	
+	
+
 
 }
