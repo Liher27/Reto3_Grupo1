@@ -29,11 +29,11 @@ public class GestorDeEntrada {
 				String datos = "------------------------------------\n" + "Nombre del Usuario:"
 						+ entradas.get(0).getCliente().getNombre() + "\n" + "Nombre de la Pelicula: "
 						+ entradas.get(i).getSesion().getPelicula().getNombre() + "\n" + "Nombre de la Sala: "
-						+ entradas.get(i).getSesion().getSala().getNomSala() + "\n" + "La fecha de emision: "
-						+ entradas.get(i).getSesion().getFecha() + "\n" + "La hora de emision: "
-						+ entradas.get(i).getSesion().getHora() + "\n" + "El precio de la entrada: "
-						+ entradas.get(i).getSesion().getPrecioSesion() + "\n" + "El Nombre de cine: "
-						+ entradas.get(i).getSesion().getSala().getCine().getNomCine() + "\n" + "La fecha de impresion"
+						+ entradas.get(i).getSesion().getSala().getNomSala() + "\n" + "Fecha de emisión: "
+						+ entradas.get(i).getSesion().getFecha() + "\n" + "Hora de emision: "
+						+ entradas.get(i).getSesion().getHora() + "\n" + "Precio de la entrada: "
+						+ entradas.get(i).getSesion().getPrecioSesion() + "\n" + "Nombre del cine: "
+						+ entradas.get(i).getSesion().getSala().getCine().getNomCine() + "\n" + "Fecha de impresión: "
 						+ entradas.get(i).getFechaCompra() + "\n" + "------------------------------------" + "\n";
 				bw.write(datos);
 

@@ -96,7 +96,7 @@ public class PanelDeLogin {
 						Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 						Session.getInstance().getPanelDeTicket().getPanelDeTicket().setVisible(true);
 					} else {
-						JOptionPane.showMessageDialog(null, "El campo esta vacio!! \n Rellenarlo Por favor", "Error",
+						JOptionPane.showMessageDialog(null, "El campo esta vacio!! \n Rellenalo Por favor", "Error",
 								JOptionPane.ERROR_MESSAGE);
 					}
 
