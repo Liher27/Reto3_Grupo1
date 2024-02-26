@@ -23,7 +23,7 @@ public class GestorDeEntrada {
 	 * @param entradas EL array donde se guarda las entradas
 	 */
 	public void crearTicket(ArrayList<Entrada> entradas) {
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\i1dm3-v\\Desktop\\ticket.txt"))) {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\in1dm3-v\\Desktop\\ticket.txt"))) {
 
 			for (int i = 0; i < entradas.size(); i++) {
 				String datos = "------------------------------------\n" + "Nombre del Usuario:"
