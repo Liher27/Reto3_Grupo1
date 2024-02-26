@@ -6,10 +6,12 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import cinesElorrieta.logica.GestorDeCliente;
 import cinesElorrieta.logica.Session;
 
 import java.awt.event.ActionEvent;
@@ -19,15 +21,19 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JPasswordField;
 
+/**
+ * El panel para registro con los datos que ha introducido el usuario
+ */
 public class PanelDeRegistro {
 
 	private JPanel panelDeRegistro;
 
-	private JPasswordField passwordFieldContrasenyaRegistro;
+	private JTextField passwordFieldContrasenyaRegistro;
 	private JPasswordField passwordFieldConfirmarContrasenyaRegistro;
-
+	/**
+	 * panel principal 
+	 */
 	public PanelDeRegistro() {
-
 		panelDeRegistro = new JPanel();
 		panelDeRegistro.setBounds(0, 0, 984, 611);
 		panelDeRegistro.setBackground(new Color(42, 26, 29));
@@ -51,11 +57,11 @@ public class PanelDeRegistro {
 		lblPrimerApellidoRegistro.setBounds(235, 270, 176, 32);
 		panelDeRegistro.add(lblPrimerApellidoRegistro);
 
-		JLabel lblSegundoApellidoRegistro = new JLabel("Segundo apellido");
-		lblSegundoApellidoRegistro.setForeground(new Color(253, 185, 74));
-		lblSegundoApellidoRegistro.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblSegundoApellidoRegistro.setBounds(235, 340, 176, 32);
-		panelDeRegistro.add(lblSegundoApellidoRegistro);
+		JLabel lblPeliculasVistas = new JLabel("PeliculasVistas");
+		lblPeliculasVistas.setForeground(new Color(253, 185, 74));
+		lblPeliculasVistas.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblPeliculasVistas.setBounds(235, 340, 176, 32);
+		panelDeRegistro.add(lblPeliculasVistas);
 
 		JLabel lblContrasenyaRegistro = new JLabel("Contraseña");
 		lblContrasenyaRegistro.setForeground(new Color(253, 185, 74));
@@ -90,17 +96,10 @@ public class PanelDeRegistro {
 		panelDeRegistro.add(textFieldPrimerApellidoRegistro);
 		textFieldPrimerApellidoRegistro.setColumns(10);
 
-		JTextField textFieldSegundoApellidoRegistro = new JTextField();
-		textFieldSegundoApellidoRegistro.setBounds(513, 351, 176, 20);
-		panelDeRegistro.add(textFieldSegundoApellidoRegistro);
-		textFieldSegundoApellidoRegistro.setColumns(10);
-
-		/*
-		 * JTextField textFieldConfirmarContrasenyaRegistro = new JTextField();
-		 * textFieldConfirmarContrasenyaRegistro.setBounds(513, 492, 176, 20);
-		 * panelDeRegistro.add(textFieldConfirmarContrasenyaRegistro);
-		 * textFieldConfirmarContrasenyaRegistro.setColumns(10);
-		 */
+		JTextField textFielPeliculasVistas = new JTextField();
+		textFielPeliculasVistas.setBounds(513, 351, 176, 20);
+		panelDeRegistro.add(textFielPeliculasVistas);
+		textFielPeliculasVistas.setColumns(10);
 
 		JTextField textFieldSexoRegistro = new JTextField();
 		textFieldSexoRegistro.setBounds(513, 561, 176, 20);
@@ -122,6 +121,10 @@ public class PanelDeRegistro {
 		JButton btnCancelarPanelDeRegistro = new JButton("Bienvenida");
 		btnCancelarPanelDeRegistro.addMouseListener(new MouseAdapter() {
 			@Override
+			/**
+			 * Volvemos al panel de bienvenida
+			 * @param e
+			 */
 			public void mouseClicked(MouseEvent e) {
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
@@ -138,14 +141,39 @@ public class PanelDeRegistro {
 
 		JButton btnConfirmarDeRegistro = new JButton("Confirmar");
 		btnConfirmarDeRegistro.addActionListener(new ActionListener() {
+			/**
+			 * Comfirmamos para registrar una nueva cuenta
+			 * @param e
+			 */
 			public void actionPerformed(ActionEvent e) {
-				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
-				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-				Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(true);
-				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
-				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
-				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				boolean CampoVacio = false;
+				JTextField[] campos = { textFieldDNIRegistro, textFieldNombreRegistro, textFieldPrimerApellidoRegistro,
+						textFielPeliculasVistas, passwordFieldContrasenyaRegistro, textFieldSexoRegistro };
+				for (int i = 0; i < campos.length; i++) {
+					if (campos[i].getText().isEmpty()) {
+						CampoVacio = true;
+						break;
+					}
+				}
+				if (CampoVacio) {
+					JOptionPane.showMessageDialog(null, "El campo esta vacio!! \n Rellenarlo Por favor", "Error",
+							JOptionPane.ERROR_MESSAGE);
+
+				} else {
+					GestorDeCliente gestorDeCliente = new GestorDeCliente();
+
+					gestorDeCliente.compararRegistroUsuario(textFieldDNIRegistro, textFieldNombreRegistro,
+							textFieldPrimerApellidoRegistro, textFielPeliculasVistas, passwordFieldContrasenyaRegistro,
+							textFieldSexoRegistro);
+
+					Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+					Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+					Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+					Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(true);
+					Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+					Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+					Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				}
 			}
 		});
 		btnConfirmarDeRegistro.setForeground(new Color(0, 0, 0));
@@ -161,7 +189,10 @@ public class PanelDeRegistro {
 		panelDeRegistro.add(passwordFieldConfirmarContrasenyaRegistro);
 
 	}
-
+	/**
+	 * obtener a este panel 
+	 * @return panelDeRegistro
+	 */
 	public JPanel getPanelDeRegistro() {
 		return panelDeRegistro;
 	}

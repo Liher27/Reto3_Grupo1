@@ -1,5 +1,6 @@
 package cinesElorrieta.vista;
 
+import cinesElorrieta.bbdd.Entrada;
 import cinesElorrieta.logica.Session;
 import cinesElorrieta.vista.complementos.PanelDeBienvenida;
 import cinesElorrieta.vista.complementos.PanelDeLogin;
@@ -8,17 +9,34 @@ import cinesElorrieta.vista.complementos.PanelDePeliculas;
 import cinesElorrieta.vista.complementos.PanelDeRegistro;
 import cinesElorrieta.vista.complementos.PanelDeResumen;
 import cinesElorrieta.vista.complementos.PanelDeSesion;
+import cinesElorrieta.vista.complementos.PanelDeTicket;
 
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * Aqui iniciamos el programa
+ */
 public class VentanaPrincipal extends JFrame {
+	/**
+	 * el JFrame para panel
+	 */
 	private JFrame frame;
+	/**
+	 * El array usaremos para guardar los datos para final
+	 */
+	private ArrayList<Entrada> entradas = new ArrayList<Entrada>();
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * run
+	 * 
+	 * @param args main para ejecutar el programa
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -31,11 +49,15 @@ public class VentanaPrincipal extends JFrame {
 		});
 	}
 
+	/**
+	 * iniciamos a los paneles aqui
+	 */
 	public VentanaPrincipal() {
 		inicializarPaneles();
 	}
 
 	private void inicializarPaneles() {
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,7 +85,7 @@ public class VentanaPrincipal extends JFrame {
 		Session.getInstance().setPanelDePeliculas(panelDePeliculas);
 
 		// 3
-		PanelDeSesion panelDeSesion = new PanelDeSesion();
+		PanelDeSesion panelDeSesion = new PanelDeSesion(entradas);
 		JPanel thePanelDeSesion = panelDeSesion.getPanelDeSesion();
 		thePanelDeSesion.setVisible(false);
 		frame.getContentPane().add(thePanelDeSesion);
@@ -77,18 +99,25 @@ public class VentanaPrincipal extends JFrame {
 		Session.getInstance().setPanelDeRegistro(panelDeRegistro);
 
 		// 5
-		PanelDeLogin panelDeLogin = new PanelDeLogin();
+		PanelDeLogin panelDeLogin = new PanelDeLogin(entradas);
 		JPanel thePanelDeLogin = panelDeLogin.getPanelDeLogin();
 		thePanelDeLogin.setVisible(false);
 		frame.getContentPane().add(thePanelDeLogin);
 		Session.getInstance().setPanelDeLogin(panelDeLogin);
 
 		// 6
-		PanelDeResumen panelDeResumen = new PanelDeResumen();
+		PanelDeResumen panelDeResumen = new PanelDeResumen(entradas);
 		JPanel thePanelDeResumen = panelDeResumen.getPanelDeResumen();
 		thePanelDeResumen.setVisible(false);
 		frame.getContentPane().add(thePanelDeResumen);
 		Session.getInstance().setPanelDeResumen(panelDeResumen);
+
+		// 7
+		PanelDeTicket panelDeTicket = new PanelDeTicket(entradas);
+		JPanel thepanelDeTicket = panelDeTicket.getPanelDeTicket();
+		thepanelDeTicket.setVisible(false);
+		frame.getContentPane().add(thepanelDeTicket);
+		Session.getInstance().setPanelDeTicket(panelDeTicket);
 
 	}
 

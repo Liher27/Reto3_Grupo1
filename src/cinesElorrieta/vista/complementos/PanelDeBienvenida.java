@@ -11,12 +11,18 @@ import javax.swing.SwingConstants;
 
 import cinesElorrieta.logica.Session;
 
+/**
+ * El panel inicio de nuestro programa
+ */
 public class PanelDeBienvenida {
 
 	private JPanel panelDeBienvenida = null;
 	private JLabel lblBienvenida = null;
 	private JLabel lblLogoCineElorrieta = null;
 
+	/**
+	 * El panel Bienvenida
+	 */
 	public PanelDeBienvenida() {
 
 		panelDeBienvenida = new JPanel();
@@ -28,9 +34,11 @@ public class PanelDeBienvenida {
 		lblBienvenida.setBounds(0, 0, 984, 611);
 
 		lblBienvenida.addMouseListener(new MouseAdapter() {
+			/**
+			 * Cuando hagamos click en ello nos pasamos al panel de Cines
+			 */
 			public void mouseClicked(MouseEvent e) {
 				esperar();
-
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(true);
 				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
@@ -53,6 +61,11 @@ public class PanelDeBienvenida {
 		panelDeBienvenida.add(lblLogoCineElorrieta);
 	}
 
+	/**
+	 * Nos devuelve el panel
+	 * 
+	 * @return panelDeBienvenida
+	 */
 	public JPanel getPanelDeBienvenida() {
 		return panelDeBienvenida;
 	}

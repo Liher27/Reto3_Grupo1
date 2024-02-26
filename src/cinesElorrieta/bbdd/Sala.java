@@ -2,38 +2,22 @@
 package cinesElorrieta.bbdd;
 
 import java.io.Serializable;
-import java.util.Objects;
+
+/**
+ * El pojo del Sala. obtiene los datos de la tabla Sala
+ * 
+ */
 
 public class Sala implements Serializable {
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(CodCine, CodSala, NomSala);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Sala other = (Sala) obj;
-		return CodCine == other.CodCine && CodSala == other.CodSala && Objects.equals(NomSala, other.NomSala);
-	}
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4693711428181363078L;
-	private int CodSala;
-	private String NomSala;
-	private int CodCine;
+	private int CodSala = 0;
+	private String NomSala = null;
+	private Cine cine = null;
 
 	@Override
 	public String toString() {
-		return "Sala [CodSala=" + CodSala + ", NomSala=" + NomSala + ", CodCine=" + CodCine + "]";
+		return "Sala [CodSala=" + CodSala + ", NomSala=" + NomSala + ", cine=" + cine + "]";
 	}
 
 	public int getCodSala() {
@@ -52,11 +36,12 @@ public class Sala implements Serializable {
 		NomSala = nomSala;
 	}
 
-	public int getCodCine() {
-		return CodCine;
+	public Cine getCine() {
+		return cine;
 	}
 
-	public void setCodCine(int codCine) {
-		CodCine = codCine;
+	public void setCine(Cine cine) {
+		this.cine = cine;
 	}
+
 }

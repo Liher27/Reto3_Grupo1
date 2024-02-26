@@ -11,9 +11,22 @@ import java.util.List;
 import cinesElorrieta.bbdd.Pelicula;
 import cinesElorrieta.bbdd.Reto3Utils;
 
-
+/**
+ * 
+ * 
+ * @author yifei liher y iñigo
+ * 
+ *         La clase para gestionar las peliculas
+ */
 public class GestorDePeliculas {
-
+	/**
+	 * 
+	 * @param CodCine El codigo de cine
+	 * @return CodCine
+	 * 
+	 *         Clase cuando recibe el codigo de la pelicula y devuele las sessiones
+	 * 
+	 */
 	public List<Pelicula> getLasPeliculas(int CodCine) {
 		List<Pelicula> pelis = new ArrayList<Pelicula>();
 
@@ -27,7 +40,7 @@ public class GestorDePeliculas {
 			String sql = "SELECT * FROM PELICULA where CodCine = '" + CodCine + "'";
 
 			ResultSet result = statement.executeQuery(sql);
-		
+
 			while (result.next()) {
 				Pelicula pelicula = new Pelicula();
 				pelicula.setCodPelicula(result.getInt("CODPELICULA"));
@@ -51,4 +64,3 @@ public class GestorDePeliculas {
 	}
 
 }
-

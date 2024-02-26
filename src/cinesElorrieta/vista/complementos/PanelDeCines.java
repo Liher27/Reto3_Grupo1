@@ -19,15 +19,16 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * El panel que contenga los cines
+ */
 public class PanelDeCines {
 
 	private JPanel panelDeCines;
 	private JComboBox<String> ComboBoxCines = null;
 
 	/**
-	 * Create the frame.
-	 * 
-	 * @param paneles
+	 * Panel de cine
 	 */
 	public PanelDeCines() {
 		panelDeCines = new JPanel();
@@ -50,20 +51,25 @@ public class PanelDeCines {
 
 		btnContinuarPanelDeCines.addMouseListener(new MouseAdapter() {
 			@Override
+			/**
+			 * Seleccionamos al cine que queramos para poder ver las peliculas que tiene
+			 * 
+			 * @param e
+			 */
 			public void mouseClicked(MouseEvent e) {
 				int cineSeleccionado = (ComboBoxCines.getSelectedIndex() + 1);
 				if (cineSeleccionado != -1) {
-				
-				Session.getInstance().getPanelDePeliculas().setCodCine(cineSeleccionado);
-				Session.getInstance().getPanelDePeliculas().displayPelis();
-				
-				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
-				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(true);
-				Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
-				Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
-				Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
-				Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
+
+					Session.getInstance().getPanelDePeliculas().setCodCine(cineSeleccionado);
+					Session.getInstance().getPanelDePeliculas().displayPelis();
+
+					Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+					Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+					Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(true);
+					Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+					Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+					Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+					Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
 				} else {
 					JOptionPane.showMessageDialog(null, "Error, no se ha seleccionado ningún cine.", "Error",
 							JOptionPane.ERROR_MESSAGE);
@@ -74,6 +80,9 @@ public class PanelDeCines {
 		panelDeCines.add(btnContinuarPanelDeCines);
 
 		JButton btnVolverPanelDeCines = new JButton("Volver");
+		/**
+		 * El boton para volver el panel anterior (Bienvenida)
+		 */
 		btnVolverPanelDeCines.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -112,6 +121,11 @@ public class PanelDeCines {
 		lblCarritoDeLaCompra.setHorizontalAlignment(SwingConstants.CENTER);
 
 		lblCarritoDeLaCompra.addMouseListener(new MouseAdapter() {
+			/**
+			 * El boton que nos lleva al panel de compra
+			 * 
+			 * @param e
+			 */
 			public void mouseClicked(MouseEvent e) {
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
@@ -129,8 +143,12 @@ public class PanelDeCines {
 		panelDeCines.add(lblCarritoDeLaCompra);
 	}
 
+	/**
+	 * obtiene a este panel
+	 * 
+	 * @return panelDeCines
+	 */
 	public JPanel getPanelDeCines() {
 		return panelDeCines;
 	}
-
 }

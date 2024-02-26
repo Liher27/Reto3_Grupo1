@@ -2,103 +2,104 @@
 package cinesElorrieta.bbdd;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Time;
-import java.util.Objects;
+import java.util.Date;
 
+/**
+ * El pojo de la entrada. obtiene los datos de la tabla entrada
+ * 
+ */
 public class Entrada implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private int CodEntrada = 0;
-	private int CodCine = 0;
-	private int CodSesion = 0;
-	private int CodSala = 0;
-	private int CodPelicula = 0;
-	private String DNI = null;
-	private float precioEntrada = 0;
-	private Date fecCompra = null;
-	private Time horaCompra = null;
-	
-	@Override
-	public String toString() {
-		return "Entrada [CodEntrada=" + CodEntrada + ", CodCine=" + CodCine + ", CodSesion=" + CodSesion + ", CodSala="
-				+ CodSala + ", CodPelicula=" + CodPelicula + ", DNI=" + DNI + ", precioEntrada=" + precioEntrada
-				+ ", fecCompra=" + fecCompra + ", horaCompra=" + horaCompra + "]";
+	private Sesion Sesion = null;
+	private Cliente cliente = null;
+	private Cine cine = null;
+	private Sala sala = null;
+	private Pelicula pelicula = null;
+	private float precioTotal = 0;
+	private float precioFull = 0;
+
+	public Cine getCine() {
+		return cine;
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(CodCine, CodEntrada, CodPelicula, CodSala, CodSesion, DNI, fecCompra, horaCompra,
-				precioEntrada);
+
+	public void setCine(Cine cine) {
+		this.cine = cine;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Entrada other = (Entrada) obj;
-		return CodCine == other.CodCine && CodEntrada == other.CodEntrada && CodPelicula == other.CodPelicula
-				&& CodSala == other.CodSala && CodSesion == other.CodSesion && Objects.equals(DNI, other.DNI)
-				&& Objects.equals(fecCompra, other.fecCompra) && Objects.equals(horaCompra, other.horaCompra)
-				&& Float.floatToIntBits(precioEntrada) == Float.floatToIntBits(other.precioEntrada);
-	}
+
+	Date FechaCompra = new Date();
+
 	public int getCodEntrada() {
 		return CodEntrada;
 	}
+
 	public void setCodEntrada(int codEntrada) {
 		CodEntrada = codEntrada;
+
 	}
-	public int getCodCine() {
-		return CodCine;
+
+	public Sesion getSesion() {
+		return Sesion;
 	}
-	public void setCodCine(int codCine) {
-		CodCine = codCine;
+
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public int getCodSesion() {
-		return CodSesion;
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
-	public void setCodSesion(int codSesion) {
-		CodSesion = codSesion;
+
+	public void setSesion(Sesion Sesion) {
+		this.Sesion = Sesion;
 	}
-	public int getCodSala() {
-		return CodSala;
+
+	public float getPrecioTotal() {
+		return precioTotal;
 	}
-	public void setCodSala(int codSala) {
-		CodSala = codSala;
+
+	public void setPrecioTotal(float precioEntrada) {
+		this.precioTotal = precioEntrada;
 	}
-	public int getCodPelicula() {
-		return CodPelicula;
+
+	public Date getFechaCompra() {
+		return FechaCompra;
 	}
-	public void setCodPelicula(int codPelicula) {
-		CodPelicula = codPelicula;
+
+	public void setFechaCompra(Date fechaCompra) {
+		FechaCompra = fechaCompra;
 	}
-	public String getDNI() {
-		return DNI;
+
+	public Sala getSala() {
+		return sala;
 	}
-	public void setDNI(String dNI) {
-		DNI = dNI;
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
 	}
-	public float getPrecioEntrada() {
-		return precioEntrada;
+
+	public Pelicula getPelicula() {
+		return pelicula;
 	}
-	public void setPrecioEntrada(float precioEntrada) {
-		this.precioEntrada = precioEntrada;
+
+	public void setPelicula(Pelicula pelicula) {
+		this.pelicula = pelicula;
 	}
-	public Date getFecCompra() {
-		return fecCompra;
+
+	public float getPrecioFull() {
+		return precioFull;
 	}
-	public void setFecCompra(Date fecCompra) {
-		this.fecCompra = fecCompra;
+
+	public void setPrecioFull(float precioFull) {
+		this.precioFull = precioFull;
 	}
-	public Time getHoraCompra() {
-		return horaCompra;
+
+	@Override
+	public String toString() {
+		return "Entrada [CodEntrada=" + CodEntrada + ", Sesion=" + Sesion + ", cliente=" + cliente + ", cine=" + cine
+				+ ", sala=" + sala + ", pelicula=" + pelicula + ", precioTotal=" + precioTotal + ", precioFull="
+				+ precioFull + ", FechaCompra=" + FechaCompra + "]";
 	}
-	public void setHoraCompra(Time horaCompra) {
-		this.horaCompra = horaCompra;
-	}
-	
+
 }

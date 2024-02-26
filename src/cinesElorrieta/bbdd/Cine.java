@@ -4,10 +4,12 @@ package cinesElorrieta.bbdd;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * El pojo del cine. obtiene los datos de la tabla Cine
+ * 
+ */
 public class Cine implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2701966326573605601L;
 	private int CodCine;
 	private String NomCine;

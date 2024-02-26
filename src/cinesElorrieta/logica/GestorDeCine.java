@@ -10,8 +10,20 @@ import java.util.List;
 
 import cinesElorrieta.bbdd.Reto3Utils;
 
+/**
+ * 
+ * 
+ * @author yifei liher y iñigo
+ * 
+ * 
+ */
 public class GestorDeCine {
 
+	/**
+	 * El metodo para conseguir nombres de cines
+	 * 
+	 * @return List
+	 */
 	public List<String> getNameOfCines() {
 		List<String> resposne = new ArrayList<String>();
 

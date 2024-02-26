@@ -7,6 +7,7 @@ import java.util.Objects;
 public class Cliente implements Serializable {
 
 	/**
+	 * El pojo del Cliente. obtiene los datos de la tabla Cliente
 	 * 
 	 */
 	private static final long serialVersionUID = 1927772374547100928L;

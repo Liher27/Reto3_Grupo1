@@ -7,27 +7,40 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import cinesElorrieta.bbdd.Cliente;
+import cinesElorrieta.bbdd.Entrada;
 import cinesElorrieta.logica.GestorDeCliente;
 import cinesElorrieta.logica.Session;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.Color;
 
+/**
+ * Panel de login para logearse y registrarse
+ */
 public class PanelDeLogin {
-
+	/**
+	 * campo de nombre
+	 */
 	public JTextField fieldUsuario = null;
+	/**
+	 * campo de contraseña
+	 */
 	public JPasswordField fieldContrasenna = null;
 
 	private JPanel panelDeLogin;
 
 	/**
-	 * Create the frame.
+	 * 
+	 * @param entradas El array que guarde los datos del usuario
 	 */
-	public PanelDeLogin() {
+	public PanelDeLogin(ArrayList<Entrada> entradas) {
 		panelDeLogin = new JPanel();
 		panelDeLogin.setBackground(new Color(42, 26, 29));
 		panelDeLogin.setBounds(0, 0, 984, 611);
@@ -65,16 +78,51 @@ public class PanelDeLogin {
 
 		JButton jButtonLoginConfirmar = new JButton("Confirmar");
 		jButtonLoginConfirmar.addActionListener(new ActionListener() {
+			/**
+			 * Confirmamos para logearnos
+			 * 
+			 * @param e
+			 */
 			public void actionPerformed(ActionEvent e) {
 				GestorDeCliente gestorDeCliente = new GestorDeCliente();
-				if (gestorDeCliente.compararLoginUsuario(fieldUsuario, fieldContrasenna) == true) {
-					Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-					Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(true);
-					Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-					Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
-					Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
-					Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
-					Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
+				if (gestorDeCliente.obtenerUsuario(fieldUsuario, fieldContrasenna) != null) {
+					if (!(fieldUsuario.getText().isEmpty()) || !(fieldContrasenna.getPassword().length < 0)) {
+						Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+						Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+						Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+						Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+						Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+						Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+						Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(false);
+						Session.getInstance().getPanelDeTicket().getPanelDeTicket().setVisible(true);
+					} else {
+						JOptionPane.showMessageDialog(null, "El campo esta vacio!! \n Rellenarlo Por favor", "Error",
+								JOptionPane.ERROR_MESSAGE);
+					}
+
+					/**
+					 * Obtener el nombre de usuario para guardar en el array
+					 */
+					for (int j = 0; j < entradas.size(); j++) {
+						Entrada entrada = entradas.get(j);
+						Cliente cliente = entrada.getCliente();
+						if (cliente != null) {
+							cliente.setNombre(fieldUsuario.getText());
+						} else {
+							Cliente newCliente = new Cliente();
+							newCliente.setNombre(fieldUsuario.getText());
+							entrada.setCliente(newCliente);
+						}
+
+					}
+					/**
+					 * obtener los datos de cliente y guardar en el array
+					 */
+					Cliente clienteLogeado = new GestorDeCliente().obtenerUsuario(fieldUsuario, fieldContrasenna);
+					for (int i = 0; i < entradas.size(); i++) {
+						Entrada entrada = entradas.get(i);
+						entrada.setCliente(clienteLogeado);
+					}
 				}
 			}
 		});
@@ -83,6 +131,9 @@ public class PanelDeLogin {
 
 		JButton jButtonLoginSalir = new JButton("Salir");
 		jButtonLoginSalir.addActionListener(new ActionListener() {
+			/**
+			 * El boton para volver al panel de bienvenida
+			 */
 			public void actionPerformed(ActionEvent e) {
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
@@ -105,6 +156,11 @@ public class PanelDeLogin {
 
 	}
 
+	/**
+	 * Obtiene a este panel
+	 * 
+	 * @return panelDeLogin
+	 */
 	public JPanel getPanelDeLogin() {
 		return panelDeLogin;
 	}

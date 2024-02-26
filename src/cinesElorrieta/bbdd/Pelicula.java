@@ -16,8 +16,6 @@ public class Pelicula implements Serializable {
 	private int Duracion = 0;
 	private float Precio = 0;
 
-	
-
 	public Pelicula() {
 
 	}

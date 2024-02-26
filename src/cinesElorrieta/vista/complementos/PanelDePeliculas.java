@@ -20,14 +20,25 @@ import cinesElorrieta.bbdd.Pelicula;
 import cinesElorrieta.logica.GestorDePeliculas;
 import cinesElorrieta.logica.Session;
 
+/**
+ * el panel de las peliculas
+ */
 public class PanelDePeliculas {
 
 	private JPanel panelDePeliculas;
+	/**
+	 * tabla para las peliculas
+	 */
 	public JTable tablaDePeliculas = null;
 	private DefaultTableModel modelo = null;
-	
+	/**
+	 * codigo de cine
+	 */
 	private int CodCine = 0;
 
+	/**
+	 * panel principla de este panel
+	 */
 	public PanelDePeliculas() {
 		panelDePeliculas = new JPanel();
 		panelDePeliculas.setBounds(0, 0, 984, 611);
@@ -61,7 +72,7 @@ public class PanelDePeliculas {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				vaciarTablaDePeliculas();
-				
+
 				Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(true);
 				Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
 				Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
@@ -85,28 +96,36 @@ public class PanelDePeliculas {
 		buscarSesion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int peliculaSeleccionada =
-					Integer.parseInt(modelo.getDataVector().get(tablaDePeliculas.getSelectedRow()).get(0).toString());
 
-				if (peliculaSeleccionada != -1) {
-					
-					vaciarTablaDePeliculas();
-					
-					Session.getInstance().getPanelDeSesion().setCode(peliculaSeleccionada);
-					Session.getInstance().getPanelDeSesion().displayTable();
+				int filaSeleccionada = tablaDePeliculas.getSelectedRow();
+				if (filaSeleccionada != -1) {
+					int peliculaSeleccionada = Integer
+							.parseInt(modelo.getDataVector().get(tablaDePeliculas.getSelectedRow()).get(0).toString());
 
-					Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
-					Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
-					Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
-					Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
-					Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
-					Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
-					Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(true);
+					if (peliculaSeleccionada != -1) {
 
+						vaciarTablaDePeliculas();
+
+						Session.getInstance().getPanelDeSesion().setCode(peliculaSeleccionada);
+						Session.getInstance().getPanelDeSesion().displayTable();
+
+						Session.getInstance().getPanelDeBienvenida().getPanelDeBienvenida().setVisible(false);
+						Session.getInstance().getPanelDeCines().getPanelDeCines().setVisible(false);
+						Session.getInstance().getPanelDePeliculas().getPanelDePeliculas().setVisible(false);
+						Session.getInstance().getPanelDeLogin().getPanelDeLogin().setVisible(false);
+						Session.getInstance().getPanelDeRegistro().getPanelDeRegistro().setVisible(false);
+						Session.getInstance().getPanelDeResumen().getPanelDeResumen().setVisible(false);
+						Session.getInstance().getPanelDeSesion().getPanelDeSesion().setVisible(true);
+
+					} else {
+						JOptionPane.showMessageDialog(null, "Error, no se ha encontrado ninguna película.", "Error",
+								JOptionPane.ERROR_MESSAGE);
+					}
 				} else {
 					JOptionPane.showMessageDialog(null, "Error, no se ha encontrado ninguna película.", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
+
 			}
 		});
 
@@ -114,7 +133,10 @@ public class PanelDePeliculas {
 		panelDePeliculas.add(buscarSesion);
 
 	}
-	
+
+	/**
+	 * funcion para demustre las pelis
+	 */
 	public void displayPelis() {
 		GestorDePeliculas gestorDePeliculas = new GestorDePeliculas();
 		List<Pelicula> sesiones = gestorDePeliculas.getLasPeliculas(this.getCodCine());
@@ -125,12 +147,7 @@ public class PanelDePeliculas {
 			modelo.addRow(linea);
 		}
 	}
-	
-	private void vaciarTablaDePeliculas() {
-		modelo = (DefaultTableModel) this.tablaDePeliculas.getModel();
-		modelo.setRowCount(0);
-	}
-	
+
 	public int getCodCine() {
 		return CodCine;
 	}
@@ -139,8 +156,21 @@ public class PanelDePeliculas {
 		CodCine = codCine;
 	}
 
+	/**
+	 * metodo para vaciar la tabla
+	 */
+	private void vaciarTablaDePeliculas() {
+		modelo = (DefaultTableModel) this.tablaDePeliculas.getModel();
+		modelo.setRowCount(0);
+	}
 
+	/**
+	 * obtener a este panel
+	 * 
+	 * @return panelDePeliculas
+	 */
 	public JPanel getPanelDePeliculas() {
 		return panelDePeliculas;
 	}
+
 }

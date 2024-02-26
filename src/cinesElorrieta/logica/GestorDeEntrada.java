@@ -1,12 +1,54 @@
-
 package cinesElorrieta.logica;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import java.util.ArrayList;
+
+import cinesElorrieta.bbdd.Entrada;
+
+/**
+ * 
+ *
+ * @author yifei liher y iñigo
+ * 
+ *         La clase para gestionar las entradas
+ */
 public class GestorDeEntrada {
 
-	public static final String URL = "jdbc:mysql://localhost:3307/reto3_grupo1";
+	/**
+	 * El metodo para generar fichero de factura
+	 * 
+	 * @param entradas EL array donde se guarda las entradas
+	 */
+	public void crearTicket(ArrayList<Entrada> entradas) {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\i1dm3-v\\Desktop\\ticket.txt"))) {
 
-	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+			for (int i = 0; i < entradas.size(); i++) {
+				String datos = "------------------------------------\n" + "Nombre del Usuario:"
+						+ entradas.get(0).getCliente().getNombre() + "\n" + "Nombre de la Pelicula: "
+						+ entradas.get(i).getSesion().getPelicula().getNombre() + "\n" + "Nombre de la Sala: "
+						+ entradas.get(i).getSesion().getSala().getNomSala() + "\n" + "La fecha de emision: "
+						+ entradas.get(i).getSesion().getFecha() + "\n" + "La hora de emision: "
+						+ entradas.get(i).getSesion().getHora() + "\n" + "El precio de la entrada: "
+						+ entradas.get(i).getSesion().getPrecioSesion() + "\n" + "El Nombre de cine: "
+						+ entradas.get(i).getSesion().getSala().getCine().getNomCine() + "\n" + "La fecha de impresion"
+						+ entradas.get(i).getFechaCompra() + "\n" + "------------------------------------" + "\n";
+				bw.write(datos);
 
-	public static final String USER = "root";
-	public static final String PASS = "";
+			}
+			float total = entradas.get(0).getPrecioFull();
+			float totaldes = entradas.get(0).getPrecioTotal();
+			float des = total - totaldes;
+
+			bw.write("Precio Total:" + entradas.get(0).getPrecioTotal() + "\n");
+			bw.write("Descuento:" + des);
+		} catch (IOException e) {
+			// Handle the exception
+			System.err.println("Error writing to ticket.txt: " + e.getMessage());
+		}
+
+	}
+
 }
