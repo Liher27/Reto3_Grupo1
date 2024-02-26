@@ -152,7 +152,7 @@ public class PanelDeRegistro {
 				for (int i = 0; i < campos.length; i++) {
 					if (campos[i].getText().isEmpty()) {
 						CampoVacio = true;
-						
+						break;
 					}
 				}
 				if (CampoVacio) {
